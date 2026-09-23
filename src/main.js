@@ -69,7 +69,7 @@ const homeMarkup = `
       <div><h2>Rätt matcher.<br />Rätt nivå. <em>Större upplevelse.</em></h2><p>Vi bygger cupdagar där fotbollen står i centrum och allt runt omkring fungerar. Tydlig nivåindelning, genomtänkta spelscheman och ett värdskap som märks.</p></div>
     </section>
     <section id="om-oss" class="concept">
-      <div class="concept-image"><video class="ambient-football" muted loop playsinline preload="none" poster="/images/football-action-poster.webp" aria-label="Ungdomsspelare driver bollen framåt under match"><source data-src="/videos/football-action.webm" type="video/webm" /><source data-src="/videos/football-action.mp4" type="video/mp4" /></video></div>
+      <div class="concept-image"><img src="/images/team-preparing.jpg" alt="Fotbollslag samlat inför match" loading="lazy" /></div>
       <div class="concept-copy"><p class="section-label light">Super Cuper</p><h2>Byggt för<br />bra fotboll.</h2>
         <ol><li><span>01</span><div><h3>Jämna matcher</h3><p>Lag matchas efter ålder, spelform och faktisk nivå.</p></div></li><li><span>02</span><div><h3>Mer tid på planen</h3><p>Smarta spelscheman med meningsfulla matcher och mindre väntan.</p></div></li><li><span>03</span><div><h3>Tydligt hela vägen</h3><p>Samlad information och närvarande värdskap före och under cupen.</p></div></li></ol>
       </div>
@@ -216,15 +216,3 @@ const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
   rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
 }));
-
-const ambientVideo = document.querySelector('.ambient-football');
-if (ambientVideo && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  const videoObserver = new IntersectionObserver(([entry], observer) => {
-    if (!entry.isIntersecting) return;
-    ambientVideo.querySelectorAll('source[data-src]').forEach((source) => { source.src = source.dataset.src; });
-    ambientVideo.load();
-    ambientVideo.play().catch(() => {});
-    observer.disconnect();
-  }, { rootMargin: '180px' });
-  videoObserver.observe(ambientVideo);
-}
