@@ -47,7 +47,7 @@ const homeMarkup = `
   </header>
   <main id="top">
     <section class="hero">
-      <img class="hero-photo" src="/images/hero-match.jpg" alt="Ungdomsspelare i en intensiv fotbollsmatch" />
+      <img class="hero-photo" src="/images/hero-real-madrid.webp" alt="Ungdomsspelare från Super Cuper i match mot Real Madrid" />
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="kicker">Super Cuper · Solna</p>
