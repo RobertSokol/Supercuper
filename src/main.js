@@ -2,7 +2,7 @@ import './style.css';
 
 const cups = [
   { title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2016/2015', format: '5v5 · 7v7', note: 'Två åldersanpassade spelformer', image: '/images/cup-action.jpg' },
-  { title: 'Super Five', place: 'Järvastadens IP, Solna', date: '24–15 oktober', ages: 'B2019', format: '5v5', note: 'Planerad cup', logo: '/logos/super-five.jpg' },
+  { title: 'Super Five', place: 'Järvastadens IP, Solna', date: '24–25/10', ages: 'B2019', format: '5v5', note: 'Planerad cup', logo: '/logos/super-five.jpg' },
   { title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', note: 'Intresseanmälan öppen', logo: '/logos/super-six.jpg' },
   { title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', note: 'Intresseanmälan öppen', logo: '/logos/super-8.jpg' },
   { title: 'Super Nine', place: 'Meddelas snart', date: 'TBD', ages: 'B2015/2014', format: '9v9', note: 'Intresseanmälan öppen', logo: '/logos/super-nine.jpg' },
