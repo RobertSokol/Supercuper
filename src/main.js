@@ -10,6 +10,9 @@ const cups = [
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
+const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
+const infoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.2"/></svg>';
+const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
 const cupCards = cups.map((cup) => `
   <article class="cup-card">
     <a class="cup-visual ${cup.logos ? 'co-brand' : cup.logo ? 'cup-logo' : ''}" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
@@ -33,12 +36,16 @@ const cupCards = cups.map((cup) => `
 const homeMarkup = `
   <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header">
+    <div class="mobile-tools mobile-tools-left">
+      <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
+      <a href="#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
+    </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
       <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="#information">Information</a><a href="#om-oss">Om oss</a>
       <a class="nav-cta" href="#kontakt">Intresseanmälan ${arrow}</a>
     </nav>
+    <div class="mobile-tools mobile-tools-right"><a href="#information" aria-label="Information">${infoIcon}</a><a href="#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
   </header>
   <main id="top">
     <section class="hero">
@@ -109,9 +116,13 @@ const scheduleTable = (title, rows) => `<div class="schedule-card"><h4>${title}<
 const detailHeader = `
   <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header detail-nav">
+    <div class="mobile-tools mobile-tools-left">
+      <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
+      <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
+    </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
     <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/#information">Information</a><a href="/#om-oss">Om oss</a><a class="nav-cta" href="/#kontakt">Intresseanmälan ${arrow}</a></nav>
+    <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
   </header>`;
 
 const detailFooter = `<footer class="footer wrap"><a class="brand dark" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a><div><p>Fotbollscuper & matchcamper</p><p>Solna, Sverige</p></div><div><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><a href="#top">Till toppen ↑</a></div><small>© ${new Date().getFullYear()} Super Cuper</small></footer>`;

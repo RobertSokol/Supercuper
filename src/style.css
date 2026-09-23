@@ -25,3 +25,44 @@
 @media(max-width:900px){.tv-teaser{padding:70px 0}.tv-teaser .wrap{grid-template-columns:1fr;gap:24px}.tv-teaser .wrap>p:last-child{max-width:520px}.schedule-section{padding:55px 0}.groups{grid-template-columns:1fr 1fr;gap:10px}.groups li{padding:7px 8px;font-size:11px}.groups li:before{width:22px}.schedule-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:10px}.schedule-card{flex:0 0 calc(100vw - 38px);scroll-snap-align:start}.phase-title{margin-top:44px;margin-bottom:-6px}.contact-fields{grid-template-columns:1fr}.contact-fields .message-field{grid-column:auto}}
 @media(max-width:540px){.schedule-card td{font-size:10px;padding:6px}.schedule-card th{padding:7px 6px}.schedule-card th:first-child,.schedule-card td:first-child{width:80px}.schedule-heading h2{font-size:65px}.schedule-break,.schedule-end{font-size:10px}.schedule-break strong,.schedule-end strong{font-size:14px}}
 .swipe-hint{display:none;text-align:right;color:#687b91;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin:12px 0 0}@media(max-width:900px){.swipe-hint{display:block}}
+
+/* Mobile header and opening composition mirror the calm, full-screen reference. */
+.mobile-tools{display:none}
+@media(max-width:900px){
+  .topline{height:27px;background:#d69b38;color:#082c55;font-size:8px;letter-spacing:.22em;white-space:nowrap}
+  .header{top:27px;height:76px;padding:0 18px;display:grid;grid-template-columns:1fr auto 1fr;border-bottom:1px solid rgba(255,255,255,.14);background:linear-gradient(180deg,rgba(0,31,70,.9),rgba(0,31,70,.22));isolation:isolate}
+  .header>.brand{grid-column:2;justify-self:center;z-index:3}
+  .header>.brand img{width:48px;height:48px;box-shadow:0 3px 16px rgba(0,0,0,.18)}
+  .mobile-tools{display:flex;align-items:center;gap:19px;z-index:3}
+  .mobile-tools-left{grid-column:1;grid-row:1;justify-self:start}
+  .mobile-tools-right{grid-column:3;grid-row:1;justify-self:end}
+  .mobile-tools>a{width:23px;height:23px;display:grid;place-items:center;color:white}
+  .mobile-tools svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+  .menu-button{width:24px;height:24px;padding:2px;justify-content:center;gap:5px}
+  .menu-button span{width:22px;height:1.5px;border-radius:2px;transition:transform .25s,opacity .2s}
+  .menu-button[aria-expanded=true] span:first-child{transform:translateY(6.5px) rotate(45deg)}
+  .menu-button[aria-expanded=true] span:nth-child(2){opacity:0}
+  .menu-button[aria-expanded=true] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav{position:fixed;inset:27px 0 auto;min-height:calc(100svh - 27px);padding:112px 26px 38px;background:rgba(0,31,70,.985);gap:0;z-index:2}
+  .nav>a:not(.nav-cta){font:700 28px/1.1 'Manrope',sans-serif;letter-spacing:-.035em;text-transform:none;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.14)}
+  .nav>a:not(.nav-cta):after{display:none}
+  .nav-cta{margin-top:28px}
+  body:has(.menu-button[aria-expanded=true]){overflow:hidden}
+  .hero{height:calc(100svh - 27px);min-height:690px}
+  .hero-photo{object-position:57% center;filter:saturate(.72) contrast(1.04)}
+  .hero-shade{background:linear-gradient(180deg,rgba(0,31,70,.4) 0%,rgba(0,31,70,.06) 34%,rgba(0,31,70,.22) 58%,rgba(0,20,48,.82) 100%)}
+  .hero-content{left:24px;right:24px;bottom:9.5%;max-width:none;text-align:center;display:flex;flex-direction:column;align-items:center}
+  .kicker{margin-bottom:17px;color:#f4b24a;font-size:9px}
+  .hero h1{font-size:clamp(48px,13.5vw,64px);line-height:.9;letter-spacing:-.055em}
+  .hero-lead{max-width:355px;margin:20px auto 25px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.88)}
+  .hero .primary{background:transparent;color:white;border:1px solid rgba(255,255,255,.82);border-radius:999px;padding:13px 19px;font-size:12px;gap:18px}
+  .scroll{display:none}
+  .cups-section{padding-top:63px}
+  .cups-heading{display:block;text-align:center;margin-bottom:30px}
+  .cups-heading .section-label{margin-bottom:12px}
+  .cups-heading h2{font-size:36px;letter-spacing:-.045em}
+  .cup-card{flex-basis:min(86vw,350px)}
+}
+@media(max-width:380px){
+  .header{padding-inline:13px}.mobile-tools{gap:12px}.hero-content{left:18px;right:18px}.hero h1{font-size:45px}
+}
