@@ -20,7 +20,7 @@ const eventCards = events.map((event, index) => `
 
 document.querySelector('#app').innerHTML = `
   <header class="header">
-    <a class="brand" href="#top" aria-label="Supercuper startsida"><span class="brand-ball"></span><strong>SUPER</strong>CUPER</a>
+    <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
       <a href="#arrangemang">Cuper & matchcamper</a><a href="#koncept">Konceptet</a><a href="#kontakt">Kontakt</a>
@@ -68,7 +68,7 @@ document.querySelector('#app').innerHTML = `
     </section>
   </main>
 
-  <footer class="footer wrap"><a class="brand dark" href="#top"><span class="brand-ball"></span><strong>SUPER</strong>CUPER</a><div><p>Fotbollscuper & matchcamper</p><p>Stockholm, Sverige</p></div><div><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><a href="#top">Till toppen ↑</a></div><small>© ${new Date().getFullYear()} Supercuper</small></footer>
+  <footer class="footer wrap"><a class="brand dark" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a><div><p>Fotbollscuper & matchcamper</p><p>Stockholm, Sverige</p></div><div><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><a href="#top">Till toppen ↑</a></div><small>© ${new Date().getFullYear()} Supercuper</small></footer>
 `;
 
 const menuButton = document.querySelector('.menu-button');
