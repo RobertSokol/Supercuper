@@ -1,7 +1,7 @@
 import './style.css';
 
 const cups = [
-  { title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2016/2015', format: '5v5 · 7v7', note: 'Två åldersanpassade spelformer', image: '/images/cup-action.jpg' },
+  { title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2016/2015', format: '5v5 · 7v7', note: 'Två åldersanpassade spelformer', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
   { title: 'Super Five', place: 'Järvastadens IP, Solna', date: '24–25/10', ages: 'B2019', format: '5v5', note: 'Planerad cup', logo: '/logos/super-five.jpg' },
   { title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', note: 'Intresseanmälan öppen', logo: '/logos/super-six.jpg' },
   { title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', note: 'Intresseanmälan öppen', logo: '/logos/super-8.jpg' },
@@ -12,8 +12,8 @@ const cups = [
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
 const cupCards = cups.map((cup) => `
   <article class="cup-card">
-    <div class="cup-visual ${cup.logo ? 'cup-logo' : ''}">
-      <img src="${cup.logo || cup.image}" alt="${cup.logo ? `${cup.title} logotyp` : `Fotboll under ${cup.title}`}" loading="lazy" />
+    <div class="cup-visual ${cup.logos ? 'co-brand' : cup.logo ? 'cup-logo' : ''}">
+      ${cup.logos ? cup.logos.map((logo, index) => `<img src="${logo}" alt="${index === 0 ? 'Super Cuper logotyp' : 'AS Solna FF logotyp'}" loading="lazy" />`).join('<i aria-hidden="true">×</i>') : `<img src="${cup.logo || cup.image}" alt="${cup.logo ? `${cup.title} logotyp` : `Fotboll under ${cup.title}`}" loading="lazy" />`}
       <span>Planerad</span>
     </div>
     <div class="cup-details">
@@ -23,6 +23,7 @@ const cupCards = cups.map((cup) => `
         <div><dt>När</dt><dd>${cup.date}</dd></div>
         <div><dt>Åldrar</dt><dd>${cup.ages}</dd></div>
         <div><dt>Spelform</dt><dd>${cup.format}</dd></div>
+        ${cup.cohost ? `<div><dt>Medarrangör</dt><dd>${cup.cohost}</dd></div>` : ''}
       </dl>
       <p>${cup.note}</p>
       <a href="#kontakt" aria-label="Visa intresse för ${cup.title}">Visa intresse ${arrow}</a>
