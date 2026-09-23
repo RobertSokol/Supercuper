@@ -134,3 +134,16 @@
   .age-column .schedule-card th:first-child,.age-column .schedule-card td:first-child{width:84px}
   .swipe-hint{margin:12px 3px 4px}
 }
+
+/* Deliberate breathing room around the cup rail. */
+.cups-rail{--cup-rail-gutter:max(56px,calc((100vw - 1328px)/2));padding-left:var(--cup-rail-gutter);padding-right:var(--cup-rail-gutter);scroll-padding-inline:var(--cup-rail-gutter)}
+@media(max-width:900px){.cups-rail{--cup-rail-gutter:26px;padding-left:var(--cup-rail-gutter);padding-right:var(--cup-rail-gutter);scroll-padding-inline:var(--cup-rail-gutter)}}
+
+/* Frosted-glass milestones keep schedule pauses prominent and readable. */
+.schedule-section{background:radial-gradient(circle at 18% 28%,rgba(255,255,255,.9),transparent 31%),radial-gradient(circle at 85% 68%,rgba(181,205,229,.38),transparent 34%),#e9eef3}
+.schedule-break,.schedule-end{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.88);border-radius:16px;background:linear-gradient(120deg,rgba(255,255,255,.78),rgba(255,255,255,.42));box-shadow:0 12px 30px rgba(0,31,70,.09),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%);color:var(--ink)}
+.schedule-end{background:linear-gradient(120deg,rgba(0,45,98,.92),rgba(0,31,70,.78));border-color:rgba(255,255,255,.25);box-shadow:0 14px 34px rgba(0,31,70,.2),inset 0 1px 0 rgba(255,255,255,.25);color:white}
+.schedule-break:before,.schedule-end:before{content:'';position:absolute;z-index:-1;inset:0;background:linear-gradient(108deg,transparent 12%,rgba(255,255,255,.52) 37%,rgba(255,255,255,.08) 55%,transparent 76%);transform:translateX(-34%);pointer-events:none}
+.schedule-break strong,.schedule-end strong{position:relative;text-shadow:0 1px 0 rgba(255,255,255,.5)}
+.schedule-end strong{text-shadow:0 1px 8px rgba(0,0,0,.18)}
+.age-column .schedule-break,.age-column .schedule-end{border-radius:12px}
