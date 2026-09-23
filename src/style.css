@@ -108,3 +108,29 @@
   .age-coming{min-height:390px}
   .coming-inner{min-height:315px;padding:30px 20px}
 }
+
+/* Softer premium surfaces and clearer swipe affordances. */
+@media(min-width:901px){.header>.nav{margin-left:auto}}
+.cup-card{border-radius:20px;box-shadow:0 14px 38px rgba(0,31,70,.08)}
+.cup-visual{border-radius:20px 20px 0 0}
+.age-column{border-radius:22px;overflow:hidden;box-shadow:0 16px 45px rgba(0,31,70,.07)}
+.age-heading{border-radius:14px}
+.age-column .groups article,.age-column .schedule-card{border-radius:14px;overflow:hidden;box-shadow:0 7px 20px rgba(0,31,70,.06)}
+.age-column .schedule-break,.age-column .schedule-end{border-radius:10px}
+@media(max-width:900px){
+  .nav{margin-left:0}
+  .cup-card{border-radius:18px}
+  .cup-visual{border-radius:18px 18px 0 0}
+  .age-column{padding:12px;border-radius:20px}
+  .age-heading{border-radius:13px}
+  .age-column .groups,.age-column .schedule-grid{display:flex;grid-template-columns:none;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;scroll-padding-left:0;padding:0 46px 10px 0;scrollbar-width:none;overscroll-behavior-inline:contain}
+  .age-column .groups::-webkit-scrollbar,.age-column .schedule-grid::-webkit-scrollbar{display:none}
+  .age-column .groups article,.age-column .schedule-card{flex:0 0 calc(100% - 42px);scroll-snap-align:start;border-radius:15px}
+  .age-column .groups h3,.age-column .schedule-card h4{padding:12px 8px;font-size:12px}
+  .age-column .groups li{padding:10px 12px;font-size:12px}
+  .age-column .groups li:before{width:25px}
+  .age-column .schedule-card th{font-size:8px;padding:9px 7px}
+  .age-column .schedule-card td{font-size:10px;padding:9px 7px}
+  .age-column .schedule-card th:first-child,.age-column .schedule-card td:first-child{width:84px}
+  .swipe-hint{margin:12px 3px 4px}
+}
