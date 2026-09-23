@@ -144,12 +144,21 @@ const blixtPage = (cup) => `${detailHeader}
       </aside>
     </section>
     <section class="schedule-section">
-      <div class="wrap"><div class="schedule-heading"><p class="section-label">Spelschema</p><h2>7v7</h2><div><span>18 oktober</span><span>Råstasjöns IP</span><span>2 planer</span></div></div>
-        <div class="groups"><article><h3>Grupp A</h3><ol><li>Fisksätra Y-O</li><li>Norsborgs FC</li><li>Vendelsö IK</li><li>Hammarby A2</li></ol></article><article><h3>Grupp B</h3><ol><li>IFK Haninge</li><li>IFK Lidingö</li><li>Kista SC</li><li>AS Solna 1</li></ol></article></div>
-        <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', phaseOneA)}${scheduleTable('Plan 2 · Grupp B', phaseOneB)}</div>
-        <div class="schedule-break"><strong>17:15–17:25</strong><span>Paus · 10 minuter</span></div>
-        <h3 class="phase-title">Gruppspel · fas 2</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', phaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', phaseTwoSilver)}</div>
-        <div class="schedule-end"><strong>19:35</strong><span>Avslutning</span></div>
+      <div class="wrap"><div class="schedule-heading"><p class="section-label">Grupper & spelschema</p><h2>Två klasser</h2><div><span>18 oktober</span><span>Råstasjöns IP</span><span>5v5 · 7v7</span></div></div>
+        <div class="age-schedules">
+          <article class="age-column">
+            <header class="age-heading"><p>B2016/2015</p><h3>7v7</h3><span>2 planer · 8 lag</span></header>
+            <div class="groups"><article><h3>Grupp A</h3><ol><li>Fisksätra Y-O</li><li>Norsborgs FC</li><li>Vendelsö IK</li><li>Hammarby A2</li></ol></article><article><h3>Grupp B</h3><ol><li>IFK Haninge</li><li>IFK Lidingö</li><li>Kista SC</li><li>AS Solna 1</li></ol></article></div>
+            <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', phaseOneA)}${scheduleTable('Plan 2 · Grupp B', phaseOneB)}</div>
+            <div class="schedule-break"><strong>17:15–17:25</strong><span>Paus · 10 min</span></div>
+            <h3 class="phase-title">Gruppspel · fas 2</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', phaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', phaseTwoSilver)}</div>
+            <div class="schedule-end"><strong>19:35</strong><span>Avslutning</span></div>
+          </article>
+          <article class="age-column age-coming">
+            <header class="age-heading"><p>B2018</p><h3>5v5</h3><span>Grupper & tider</span></header>
+            <div class="coming-inner"><span>Spelschema</span><h3>Publiceras<br />inom kort.</h3><p>Lag, grupper och matchtider visas här så snart spelschemat är fastställt.</p></div>
+          </article>
+        </div>
       </div>
     </section>
     <section class="detail-cta"><p>Solna Blixt Camp</p><h2>Många intensiva matcher.<br />Varje aktion räknas.</h2><a class="primary" href="/#kontakt">Anmäl intresse ${arrow}</a></section>
