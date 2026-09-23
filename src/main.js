@@ -111,6 +111,30 @@ const phaseTwoSilver = [
   ['17:25–17:45', 'A3', 'B4'], ['17:47–18:07', 'B3', 'A4'], ['18:09–18:29', 'A3', 'B3'],
   ['18:31–18:51', 'A4', 'B4'], ['18:53–19:13', 'A3', 'A4'], ['19:15–19:35', 'B3', 'B4'],
 ];
+const fivePhaseOneA = [
+  ['13:00–13:15', 'Järfälla FF', 'AIK Grön 2'],
+  ['13:16–13:31', 'Arameiska Syrianska 1', 'IFK Stocksund 2'],
+  ['13:32–13:47', 'Järfälla FF', 'Arameiska Syrianska 1'],
+  ['13:48–14:03', 'AIK Grön 2', 'IFK Stocksund 2'],
+  ['14:04–14:19', 'Järfälla FF', 'IFK Stocksund 2'],
+  ['14:20–14:35', 'AIK Grön 2', 'Arameiska Syrianska 1'],
+];
+const fivePhaseOneB = [
+  ['13:00–13:15', 'AIK Grön 1', 'Arameiska Syrianska 2'],
+  ['13:16–13:31', 'IFK Stocksund 1', 'Södertälje FF'],
+  ['13:32–13:47', 'AIK Grön 1', 'IFK Stocksund 1'],
+  ['13:48–14:03', 'Arameiska Syrianska 2', 'Södertälje FF'],
+  ['14:04–14:19', 'AIK Grön 1', 'Södertälje FF'],
+  ['14:20–14:35', 'IFK Stocksund 1', 'Arameiska Syrianska 2'],
+];
+const fivePhaseTwoGold = [
+  ['14:40–14:55', 'A1', 'B1'], ['14:56–15:11', 'A2', 'B2'], ['15:12–15:27', 'A1', 'A2'],
+  ['15:28–15:43', 'B1', 'B2'], ['15:44–15:59', 'A1', 'B2'], ['16:00–16:10', 'A2', 'B1'],
+];
+const fivePhaseTwoSilver = [
+  ['14:40–14:55', 'A3', 'B3'], ['14:56–15:11', 'A4', 'B4'], ['15:12–15:27', 'A3', 'A4'],
+  ['15:28–15:43', 'B3', 'B4'], ['15:44–15:59', 'A3', 'B4'], ['16:00–16:10', 'A4', 'B3'],
+];
 const scheduleTable = (title, rows) => `<div class="schedule-card"><h4>${title}</h4><table><thead><tr><th>Tid</th><th>Match</th></tr></thead><tbody>${rows.map(([time, home, away]) => `<tr><td>${time}</td><td><span>${home}</span><i>–</i><span>${away}</span></td></tr>`).join('')}</tbody></table></div>`;
 
 const detailHeader = `
@@ -154,9 +178,13 @@ const blixtPage = (cup) => `${detailHeader}
             <h3 class="phase-title">Gruppspel · fas 2</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', phaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', phaseTwoSilver)}</div>
             <div class="schedule-end"><strong>19:35</strong><span>Avslutning</span></div>
           </article>
-          <article class="age-column age-coming">
-            <header class="age-heading"><p>B2018</p><h3>5v5</h3><span>Grupper & tider</span></header>
-            <div class="coming-inner"><span>Spelschema</span><h3>Publiceras<br />inom kort.</h3><p>Lag, grupper och matchtider visas här så snart spelschemat är fastställt.</p></div>
+          <article class="age-column">
+            <header class="age-heading"><p>B2018</p><h3>5v5</h3><span>2 planer · 8 lag</span></header>
+            <div class="groups"><article><h3>Grupp A</h3><ol><li>Järfälla FF</li><li>Arameiska Syrianska 1</li><li>IFK Stocksund 2</li><li>AIK Grön 2</li></ol></article><article><h3>Grupp B</h3><ol><li>AIK Grön 1</li><li>IFK Stocksund 1</li><li>Södertälje FF</li><li>Arameiska Syrianska 2</li></ol></article></div>
+            <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', fivePhaseOneA)}${scheduleTable('Plan 2 · Grupp B', fivePhaseOneB)}</div>
+            <div class="schedule-break"><strong>14:35–14:40</strong><span>Paus & omgruppering · 5 min</span></div>
+            <h3 class="phase-title">Gruppspel · fas 2</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', fivePhaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', fivePhaseTwoSilver)}</div>
+            <div class="schedule-end"><strong>16:10</strong><span>Avslutning</span></div>
           </article>
         </div>
       </div>
