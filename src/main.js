@@ -1,7 +1,7 @@
 import './style.css';
 
 const cups = [
-  { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2016/2015', format: '5v5 · 7v7', note: 'Två åldersanpassade spelformer', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
+  { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2016/2015', format: '5v5 · 7v7', note: '', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
   { slug: 'super-five', title: 'Super Five', place: 'Järvastadens IP, Solna', date: '24–25/10', ages: 'B2019', format: '5v5', note: 'Planerad cup', logo: '/logos/super-five.jpg' },
   { slug: 'super-six', title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', note: 'Intresseanmälan öppen', logo: '/logos/super-six.jpg' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', note: 'Intresseanmälan öppen', logo: '/logos/super-8.jpg' },
@@ -25,18 +25,18 @@ const cupCards = cups.map((cup) => `
         <div><dt>Spelform</dt><dd>${cup.format}</dd></div>
         ${cup.cohost ? `<div><dt>Medarrangör</dt><dd>${cup.cohost}</dd></div>` : ''}
       </dl>
-      <p>${cup.note}</p>
+      ${cup.note ? `<p>${cup.note}</p>` : ''}
       <a href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">Läs mer ${arrow}</a>
     </div>
   </article>`).join('');
 
 const homeMarkup = `
-  <div class="topline">Kvalitet · glädje · fotboll tillsammans</div>
+  <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header">
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#arrangemang">Cuper</a><a href="#koncept">Om oss</a><a href="#kontakt">Kontakt</a>
+      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="#information">Information</a><a href="#om-oss">Om oss</a>
       <a class="nav-cta" href="#kontakt">Intresseanmälan ${arrow}</a>
     </nav>
   </header>
@@ -59,20 +59,21 @@ const homeMarkup = `
       </div>
       <div class="cups-rail" tabindex="0" aria-label="Planerade cuper">${cupCards}</div>
     </section>
-    <section class="intro wrap">
+    <section id="information" class="intro wrap">
       <p class="section-label">Vår idé</p>
       <div><h2>Rätt matcher.<br />Rätt nivå. <em>Större upplevelse.</em></h2><p>Vi bygger cupdagar där fotbollen står i centrum och allt runt omkring fungerar. Tydlig nivåindelning, genomtänkta spelscheman och ett värdskap som märks.</p></div>
     </section>
-    <section id="koncept" class="concept">
+    <section id="om-oss" class="concept">
       <div class="concept-image"><img src="/images/team-preparing.jpg" alt="Fotbollslag samlat inför match" loading="lazy" /></div>
       <div class="concept-copy"><p class="section-label light">Super Cuper</p><h2>Byggt för<br />bra fotboll.</h2>
         <ol><li><span>01</span><div><h3>Jämna matcher</h3><p>Lag matchas efter ålder, spelform och faktisk nivå.</p></div></li><li><span>02</span><div><h3>Mer tid på planen</h3><p>Smarta spelscheman med meningsfulla matcher och mindre väntan.</p></div></li><li><span>03</span><div><h3>Tydligt hela vägen</h3><p>Samlad information och närvarande värdskap före och under cupen.</p></div></li></ol>
       </div>
     </section>
+    <section id="super-tv" class="tv-teaser"><div class="wrap"><p class="section-label light">Super-TV</p><h2>Matcherna.<br />Minnena. <em>Snart här.</em></h2><p>Livesändningar, repriser och höjdpunkter från våra cuper samlas på ett ställe.</p></div></section>
     <section class="statement wrap"><p class="section-label">För spelarna</p><blockquote>“Det ska kännas stort<br />redan innan avspark.”</blockquote></section>
     <section id="kontakt" class="contact">
       <div class="wrap contact-inner"><div><p class="section-label light">Få förtur</p><h2>Vilken cup<br />väntar ni på?</h2></div>
-        <form id="interest"><label for="email">E-post</label><div class="email-row"><input id="email" name="email" type="email" autocomplete="email" required placeholder="din@klubb.se" /><button type="submit" aria-label="Skicka intresseanmälan">${arrow}</button></div><p>Förhandsinformation om kommande cuper och matchcamper.</p><div class="form-message" role="status"></div></form>
+        <form id="interest" class="contact-form" action="https://formsubmit.co/robertgiuricici@gmail.com" method="POST"><input type="hidden" name="_subject" value="Ny intresseanmälan från Super Cuper" /><input type="hidden" name="_template" value="table" /><div class="contact-fields"><label for="name">Namn<input id="name" name="name" autocomplete="name" required placeholder="Ditt namn" /></label><label for="club">Klubb<input id="club" name="club" required placeholder="Lag eller klubb" /></label><label for="email">E-post<input id="email" name="email" type="email" autocomplete="email" required placeholder="din@klubb.se" /></label><label class="message-field" for="message">Meddelande<textarea id="message" name="message" rows="3" placeholder="Vilken cup är ni intresserade av?"></textarea></label></div><button class="form-submit" type="submit">Skicka intresseanmälan ${arrow}</button><p>Din intresseanmälan skickas direkt till Super Cuper.</p></form>
       </div>
     </section>
   </main>
@@ -106,11 +107,11 @@ const phaseTwoSilver = [
 const scheduleTable = (title, rows) => `<div class="schedule-card"><h4>${title}</h4><table><thead><tr><th>Tid</th><th>Match</th></tr></thead><tbody>${rows.map(([time, home, away]) => `<tr><td>${time}</td><td><span>${home}</span><i>–</i><span>${away}</span></td></tr>`).join('')}</tbody></table></div>`;
 
 const detailHeader = `
-  <div class="topline">Kvalitet · glädje · fotboll tillsammans</div>
+  <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header detail-nav">
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#arrangemang">Cuper</a><a href="/#koncept">Om oss</a><a href="/#kontakt">Kontakt</a><a class="nav-cta" href="/#kontakt">Intresseanmälan ${arrow}</a></nav>
+    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/#information">Information</a><a href="/#om-oss">Om oss</a><a class="nav-cta" href="/#kontakt">Intresseanmälan ${arrow}</a></nav>
   </header>`;
 
 const detailFooter = `<footer class="footer wrap"><a class="brand dark" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a><div><p>Fotbollscuper & matchcamper</p><p>Solna, Sverige</p></div><div><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><a href="#top">Till toppen ↑</a></div><small>© ${new Date().getFullYear()} Super Cuper</small></footer>`;
@@ -134,9 +135,9 @@ const blixtPage = (cup) => `${detailHeader}
     <section class="schedule-section">
       <div class="wrap"><div class="schedule-heading"><p class="section-label">Spelschema</p><h2>7v7</h2><div><span>18 oktober</span><span>Råstasjöns IP</span><span>2 planer</span></div></div>
         <div class="groups"><article><h3>Grupp A</h3><ol><li>Fisksätra Y-O</li><li>Norsborgs FC</li><li>Vendelsö IK</li><li>Hammarby A2</li></ol></article><article><h3>Grupp B</h3><ol><li>IFK Haninge</li><li>IFK Lidingö</li><li>Kista SC</li><li>AS Solna 1</li></ol></article></div>
-        <h3 class="phase-title">Gruppspel · fas 1</h3><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', phaseOneA)}${scheduleTable('Plan 2 · Grupp B', phaseOneB)}</div>
+        <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', phaseOneA)}${scheduleTable('Plan 2 · Grupp B', phaseOneB)}</div>
         <div class="schedule-break"><strong>17:15–17:25</strong><span>Paus · 10 minuter</span></div>
-        <h3 class="phase-title">Gruppspel · fas 2</h3><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', phaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', phaseTwoSilver)}</div>
+        <h3 class="phase-title">Gruppspel · fas 2</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Guldgrupp', phaseTwoGold)}${scheduleTable('Plan 2 · Silvergrupp', phaseTwoSilver)}</div>
         <div class="schedule-end"><strong>19:35</strong><span>Avslutning</span></div>
       </div>
     </section>
@@ -169,9 +170,3 @@ const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
   rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
 }));
-
-document.querySelector('#interest')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  document.querySelector('.form-message').textContent = 'Tack! Intresseformuläret är förberett och kopplas till e-post före publicering.';
-  event.currentTarget.reset();
-});
