@@ -28,3 +28,7 @@ Huvudmärket är `public/logos/supercuper-main.jpg` och används diskret i sidhu
 - Bright Orange: `#FF6414`
 - White: `#FFFFFF`
 - Off-white: `#FAFAF8`
+
+## Cupsidor
+
+Varje cupkort öppnar en egen adress under `/cuper/`. Solna Blixt Camp har en komplett första cupsida med arrangörsinformation, grupper och spelschema. Bilden från Råstasjöns IP används som en tillfällig platsbild och kommer från Sports Labs artikel om TestbedNordic.
