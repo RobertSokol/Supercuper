@@ -191,3 +191,7 @@
   .generic-hero.artwork-hero>div{left:18px;right:18px;bottom:24px}
   .generic-hero.artwork-hero h1{font-size:40px}
 }
+
+/* Preserve every club crest's native proportions. */
+.club-logo-card img{width:auto;max-width:100%;height:auto;max-height:154px;object-fit:initial}
+@media(max-width:900px){.club-logo-card img{width:auto;max-width:100%;height:auto;max-height:132px}}
