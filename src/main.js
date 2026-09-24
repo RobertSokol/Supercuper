@@ -24,12 +24,12 @@ const footerMarkup = (prefix = '') => `<footer class="site-footer">
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
-const priorityMarkup = (prefix = '') => `<section class="priority-invite" aria-labelledby="priority-title">
+const priorityMarkup = () => `<section class="priority-invite" aria-labelledby="priority-title">
   <div class="priority-inner">
     <p class="priority-label">Förtur för lag</p>
     <h2 id="priority-title">Först till nästa avspark.</h2>
     <p>Anslut laget till Super Cupers förturslista. Ni får inbjudningar till nya cuper och matchcamper innan platserna släpps brett.</p>
-    <a href="${prefix}#kontakt">Säkra lagets förtur ${arrow}</a>
+    <a href="/fortur">Säkra lagets förtur ${arrow}</a>
   </div>
 </section>`;
 const faqQuestions = [
@@ -97,7 +97,7 @@ const homeMarkup = `
     <nav id="menu" class="nav" aria-label="Huvudmeny">
       <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="#information">Information</a><a href="#om-oss">Om oss</a>
     </nav>
-    <div class="mobile-tools mobile-tools-right"><a href="#information" aria-label="Information">${infoIcon}</a><a href="#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="#information" aria-label="Information">${infoIcon}</a><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>
   <main id="top">
     <section class="hero">
@@ -130,11 +130,6 @@ const homeMarkup = `
     </section>
     <section id="super-tv" class="tv-teaser"><div class="wrap"><p class="section-label light">Super-TV</p><h2>Matcherna.<br />Minnena. <em>Snart här.</em></h2><p>Livesändningar, repriser och höjdpunkter från våra cuper samlas på ett ställe.</p></div></section>
     <section class="statement wrap"><p class="section-label">För spelarna</p><blockquote>“Det ska kännas stort<br />redan innan avspark.”</blockquote></section>
-    <section id="kontakt" class="contact">
-      <div class="wrap contact-inner"><div><p class="section-label light">Få förtur</p><h2>Vilken cup<br />väntar ni på?</h2></div>
-        <form id="interest" class="contact-form" action="https://formsubmit.co/robertgiuricici@gmail.com" method="POST"><input type="hidden" name="_subject" value="Ny intresseanmälan från Super Cuper" /><input type="hidden" name="_template" value="table" /><div class="contact-fields"><label for="name">Namn<input id="name" name="name" autocomplete="name" required placeholder="Ditt namn" /></label><label for="club">Klubb<input id="club" name="club" required placeholder="Lag eller klubb" /></label><label for="email">E-post<input id="email" name="email" type="email" autocomplete="email" required placeholder="din@klubb.se" /></label><label class="message-field" for="message">Meddelande<textarea id="message" name="message" rows="3" placeholder="Vilken cup är ni intresserade av?"></textarea></label></div><button class="form-submit" type="submit">Skicka intresseanmälan ${arrow}</button><p>Din intresseanmälan skickas direkt till Super Cuper.</p></form>
-      </div>
-    </section>
   </main>
   ${faqMarkup}
   ${priorityMarkup()}
@@ -200,10 +195,35 @@ const detailHeader = `
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/#information">Information</a><a href="/#om-oss">Om oss</a></nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>`;
 
-const detailFooter = `${faqMarkup}${priorityMarkup('/')}${footerMarkup('/')}`;
+const detailFooter = `${faqMarkup}${priorityMarkup()}${footerMarkup('/')}`;
+
+const priorityPage = `${detailHeader}
+  <main id="top" class="priority-page">
+    <section class="priority-page-intro">
+      <div class="priority-page-copy"><p>Super Cuper · Förturslistan</p><h1>Var först<br />på bollen.</h1><p>De bästa matcherna börjar med rätt lag. Registrera ert intresse så får ni information om nya cuper och matchcamper innan platserna släpps brett.</p></div>
+      <div class="priority-benefits" aria-label="Fördelar med förturslistan"><span><b>01</b>Tidig information</span><span><b>02</b>Personliga inbjudningar</span><span><b>03</b>Rätt nivå från start</span></div>
+    </section>
+    <section class="priority-form-section">
+      <div class="priority-form-heading"><p class="section-label">Registrera laget</p><h2>Berätta vilka<br />ni är.</h2><p>Det tar mindre än en minut. En registrering är kostnadsfri och innebär ingen bindande anmälan till en cup.</p></div>
+      <form id="priority-form" class="priority-form" action="https://formsubmit.co/robertgiuricici@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Ny registrering till Super Cupers förturslista" /><input type="hidden" name="_template" value="table" />
+        <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" required placeholder="För- och efternamn" /></div>
+        <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="E-post" type="email" autocomplete="email" required placeholder="namn@klubb.se" /></div>
+        <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" required placeholder="070 000 00 00" /></div>
+        <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" required placeholder="Klubbens namn" /></div>
+        <div class="priority-field"><label for="priority-team">Lag</label><input id="priority-team" name="Lag" required placeholder="Exempel: P2015 Svår" /></div>
+        <div class="priority-field"><label for="priority-age">Åldersklass</label><select id="priority-age" name="Åldersklass" required><option value="" selected disabled>Välj åldersklass</option><option>B2019</option><option>B2018</option><option>B2017</option><option>B2016</option><option>B2015</option><option>B2014</option><option>G2019</option><option>G2018</option><option>G2017</option><option>G2016</option><option>G2015</option><option>Annan</option></select></div>
+        <div class="priority-field priority-field-wide"><label for="priority-message">Något vi bör veta? <span>Valfritt</span></label><textarea id="priority-message" name="Meddelande" rows="3" placeholder="Nivå, önskad spelform eller annan relevant information"></textarea></div>
+        <label class="priority-consent"><input type="checkbox" name="Godkännande" value="Ja" required /><span>Jag godkänner att Super Cuper kontaktar mig med information och relevanta inbjudningar.</span></label>
+        <button type="submit">Registrera laget ${arrow}</button>
+        <p class="priority-privacy">Uppgifterna används endast av Super Cuper och delas inte med andra.</p>
+      </form>
+    </section>
+  </main>
+  ${faqMarkup}${footerMarkup('/')}`;
 
 const blixtPage = (cup) => `${detailHeader}
   <main id="top" class="cup-page">
@@ -249,14 +269,19 @@ const blixtPage = (cup) => `${detailHeader}
     </section>
   </main>${detailFooter}`;
 
-const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1></div><img src="${cup.logo || cup.image}" alt="${cup.title}" /></section><nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><p class="section-label">Kommande cup</p><h2>Mer information<br />kommer snart.</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><a class="primary" href="/#kontakt">Anmäl intresse ${arrow}</a></section></main>${detailFooter}`;
+const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1></div><img src="${cup.logo || cup.image}" alt="${cup.title}" /></section><nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><p class="section-label">Kommande cup</p><h2>Mer information<br />kommer snart.</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><a class="primary" href="/fortur">Anmäl intresse ${arrow}</a></section></main>${detailFooter}`;
 
 const slug = decodeURIComponent(window.location.pathname).match(/^\/cuper\/([^/]+)\/?$/)?.[1];
 const activeCup = cups.find((cup) => cup.slug === slug);
-document.querySelector('#app').innerHTML = activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+const isPriorityPage = /^\/fortur\/?$/.test(window.location.pathname);
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
+}
+if (isPriorityPage) {
+  document.title = 'Förturslistan — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Registrera laget för tidig information och personliga inbjudningar till Super Cupers kommande cuper och matchcamper.');
 }
 
 const menuButton = document.querySelector('.menu-button');

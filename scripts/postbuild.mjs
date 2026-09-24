@@ -12,6 +12,9 @@ const routes = [
 
 await copyFile('dist/index.html', 'dist/404.html');
 
+await mkdir(join('dist', 'fortur'), { recursive: true });
+await copyFile('dist/index.html', join('dist', 'fortur', 'index.html'));
+
 for (const route of routes) {
   const directory = join('dist', 'cuper', route);
   await mkdir(directory, { recursive: true });

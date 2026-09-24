@@ -68,6 +68,52 @@
 }
 
 /* Full-width editorial footer. */
+.priority-page{background:var(--paper)}
+.priority-page-intro{min-height:710px;padding:190px max(40px,calc((100% - 1280px)/2)) 92px;background:var(--forest);color:white;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.6fr);gap:90px;align-items:end}
+.priority-page-copy>p:first-child{margin:0 0 24px;color:#ffb08f;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+.priority-page-copy h1{margin:0;font:800 clamp(72px,9vw,132px)/.82 'Manrope',sans-serif;letter-spacing:-.07em;text-transform:uppercase}
+.priority-page-copy>p:last-child{max-width:650px;margin:34px 0 0;color:rgba(255,255,255,.82);font-size:18px;line-height:1.65}
+.priority-benefits{border-top:1px solid rgba(255,255,255,.22)}
+.priority-benefits span{display:flex;align-items:center;gap:18px;border-bottom:1px solid rgba(255,255,255,.22);padding:21px 0;font-size:14px;font-weight:700}
+.priority-benefits b{color:var(--orange);font-size:9px;letter-spacing:.12em}
+.priority-form-section{width:min(1180px,calc(100% - 80px));margin-inline:auto;padding:112px 0 122px;display:grid;grid-template-columns:minmax(280px,.72fr) minmax(0,1.28fr);gap:clamp(70px,9vw,140px);align-items:start}
+.priority-form-heading{position:sticky;top:40px}
+.priority-form-heading h2{margin:16px 0 28px;font:800 clamp(52px,5.7vw,80px)/.94 'Manrope',sans-serif;letter-spacing:-.06em;text-transform:uppercase}
+.priority-form-heading>p:last-child{max-width:390px;margin:0;color:#5a7088;font-size:15px;line-height:1.7}
+.priority-form{display:grid;grid-template-columns:1fr 1fr;gap:30px 24px;background:white;border-top:5px solid var(--orange);padding:42px;box-shadow:0 25px 70px rgba(0,31,70,.08)}
+.priority-field{display:flex;flex-direction:column;gap:10px}
+.priority-field-wide,.priority-consent,.priority-form>button,.priority-privacy{grid-column:1/-1}
+.priority-field label{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#4f647b}
+.priority-field label span{font-weight:500;color:#8190a2}
+.priority-field input,.priority-field select,.priority-field textarea{width:100%;border:0;border-bottom:1px solid rgba(0,45,98,.27);border-radius:0;background:transparent;color:var(--ink);padding:10px 0 13px;font:500 16px 'DM Sans',sans-serif;outline:none;resize:vertical}
+.priority-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 8px) 50%,calc(100% - 3px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:24px}
+.priority-field input::placeholder,.priority-field textarea::placeholder{color:#95a2b1}
+.priority-field input:focus,.priority-field select:focus,.priority-field textarea:focus{border-bottom-color:var(--orange)}
+.priority-consent{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;color:#5c7086;font-size:12px;line-height:1.55;cursor:pointer}
+.priority-consent input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--orange)}
+.priority-form>button{display:flex;align-items:center;justify-content:space-between;border:0;background:var(--orange);color:var(--forest-2);padding:18px 20px;font-weight:800;cursor:pointer}
+.priority-form>button svg{width:20px;fill:none;stroke:currentColor;stroke-width:1.7}
+.priority-form>button:hover{background:#ff6414}
+.priority-privacy{margin:-14px 0 0;color:#8290a0;font-size:10px;text-align:center}
+@media(max-width:900px){
+  .priority-page-intro{min-height:660px;padding:145px 22px 70px;grid-template-columns:1fr;gap:48px;align-content:end}
+  .priority-page-copy h1{font-size:clamp(61px,16vw,92px)}
+  .priority-page-copy>p:last-child{font-size:16px}
+  .priority-benefits{max-width:520px}
+  .priority-form-section{width:calc(100% - 44px);padding:78px 0 88px;grid-template-columns:1fr;gap:42px}
+  .priority-form-heading{position:static}
+  .priority-form-heading h2{font-size:58px}
+}
+@media(max-width:540px){
+  .priority-page-intro{min-height:620px;padding-top:132px;gap:35px}
+  .priority-page-copy h1{font-size:57px}
+  .priority-page-copy>p:last-child{margin-top:26px;font-size:15px}
+  .priority-benefits span{padding:16px 0;font-size:13px}
+  .priority-form-section{padding:62px 0 72px}
+  .priority-form-heading h2{font-size:45px;margin-bottom:20px}
+  .priority-form{grid-template-columns:1fr;padding:30px 22px;gap:26px}
+  .priority-field-wide,.priority-consent,.priority-form>button,.priority-privacy{grid-column:auto}
+}
 .faq-section{background:var(--paper);padding:72px 0 78px}
 .faq-inner{width:min(1080px,calc(100% - 80px));margin-inline:auto}
 .faq-heading{margin-bottom:30px}
