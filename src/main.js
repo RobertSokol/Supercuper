@@ -56,7 +56,7 @@ const faqQuestions = [
 ];
 const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
   <div class="faq-inner">
-    <div class="faq-heading"><p class="section-label">Bra att veta</p><h2 id="faq-title">Vanliga frågor</h2></div>
+    <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
     <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true"></b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
 </section>`;
