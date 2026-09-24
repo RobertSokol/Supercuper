@@ -337,27 +337,30 @@ scheduleModal?.addEventListener('click', (event) => {
 const clubMarquee = document.querySelector('.club-marquee');
 if (clubMarquee) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let paused = reduceMotion;
+  const pixelsPerMillisecond = reduceMotion ? .012 : .03;
+  let paused = false;
   let dragging = false;
   let pointerId;
   let startX = 0;
   let startScroll = 0;
+  let position = 0;
   let lastFrame = performance.now();
   let resumeTimer;
 
-  const normalizeScroll = () => {
+  const normalizePosition = () => {
     const loopWidth = clubMarquee.scrollWidth / 3;
-    if (loopWidth && clubMarquee.scrollLeft >= loopWidth * 2) clubMarquee.scrollLeft -= loopWidth;
-    if (loopWidth && clubMarquee.scrollLeft < loopWidth * .25) clubMarquee.scrollLeft += loopWidth;
+    if (loopWidth && position >= loopWidth * 2) position -= loopWidth;
+    if (loopWidth && position < loopWidth * .25) position += loopWidth;
   };
   const resumeSoon = () => {
     clearTimeout(resumeTimer);
-    resumeTimer = window.setTimeout(() => { paused = reduceMotion; }, 850);
+    resumeTimer = window.setTimeout(() => { paused = false; }, 850);
   };
   const animate = (now) => {
     if (!paused && !dragging) {
-      clubMarquee.scrollLeft += Math.min(now - lastFrame, 50) * .03;
-      normalizeScroll();
+      position += Math.min(now - lastFrame, 50) * pixelsPerMillisecond;
+      normalizePosition();
+      clubMarquee.scrollLeft = position;
     }
     lastFrame = now;
     requestAnimationFrame(animate);
@@ -369,13 +372,15 @@ if (clubMarquee) {
     pointerId = event.pointerId;
     startX = event.clientX;
     startScroll = clubMarquee.scrollLeft;
+    position = startScroll;
     clubMarquee.setPointerCapture(pointerId);
     clubMarquee.classList.add('is-dragging');
   });
   clubMarquee.addEventListener('pointermove', (event) => {
     if (!dragging || event.pointerId !== pointerId) return;
-    clubMarquee.scrollLeft = startScroll - (event.clientX - startX);
-    normalizeScroll();
+    position = startScroll - (event.clientX - startX);
+    normalizePosition();
+    clubMarquee.scrollLeft = position;
   });
   const finishDrag = (event) => {
     if (!dragging || event.pointerId !== pointerId) return;
@@ -386,6 +391,10 @@ if (clubMarquee) {
   };
   clubMarquee.addEventListener('pointerup', finishDrag);
   clubMarquee.addEventListener('pointercancel', finishDrag);
-  clubMarquee.scrollLeft = clubMarquee.scrollWidth / 3;
-  requestAnimationFrame(animate);
+  requestAnimationFrame((now) => {
+    position = clubMarquee.scrollWidth / 3;
+    clubMarquee.scrollLeft = position;
+    lastFrame = now;
+    requestAnimationFrame(animate);
+  });
 }
