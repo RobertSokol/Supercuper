@@ -32,6 +32,19 @@ const priorityMarkup = (prefix = '') => `<section class="priority-invite" aria-l
     <a href="${prefix}#kontakt">Säkra lagets förtur ${arrow}</a>
   </div>
 </section>`;
+const faqQuestions = [
+  'När stänger anmälan?',
+  'Vad gäller vid sjukdom eller skada?',
+  'När får vi fakturan för deltagandet?',
+  'Går det att titta på matcherna i efterhand?',
+  'Är vår plats bekräftad direkt efter anmälan?',
+];
+const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
+  <div class="faq-inner">
+    <div class="faq-heading"><p class="section-label">Bra att veta</p><h2 id="faq-title">Vanliga frågor</h2></div>
+    <div class="faq-list">${faqQuestions.map((question, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true"></b></summary><div class="faq-answer"><p>Svar publiceras inom kort.</p></div></details>`).join('')}</div>
+  </div>
+</section>`;
 const blixtClubs = [
   ['AS Solna FF', 'as-solna'], ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],
   ['Fisksätra IF', 'fisksatra'], ['Vendelsö IK', 'vendelso'], ['Kista SC', 'kista'],
@@ -108,6 +121,7 @@ const homeMarkup = `
       </div>
     </section>
   </main>
+  ${faqMarkup}
   ${priorityMarkup()}
   ${footerMarkup()}
 `;
@@ -174,7 +188,7 @@ const detailHeader = `
     <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
   </header>`;
 
-const detailFooter = `${priorityMarkup('/')}${footerMarkup('/')}`;
+const detailFooter = `${faqMarkup}${priorityMarkup('/')}${footerMarkup('/')}`;
 
 const blixtPage = (cup) => `${detailHeader}
   <main id="top" class="cup-page">
