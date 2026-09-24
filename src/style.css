@@ -175,3 +175,18 @@
   .club-marquee{mask-image:none;-webkit-mask-image:none}
   .club-marquee-track{padding-inline:20px}
 }
+
+/* Crisp club marks and full-bleed event artwork */
+.cup-visual.cup-artwork{padding:0;background:var(--forest-2)}
+.cup-visual.cup-artwork>img{width:100%;height:100%;object-fit:cover}
+.club-logo-card img{height:154px;filter:none}
+.generic-hero.artwork-hero{position:relative;min-height:min(900px,100svh);padding:0;display:block;overflow:hidden}
+.generic-hero.artwork-hero>img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;background:none;border-radius:0}
+.generic-hero.artwork-hero>div{position:absolute;z-index:1;left:max(40px,calc((100% - 1280px)/2));bottom:60px;padding:18px 22px;background:rgba(0,31,70,.72);backdrop-filter:blur(14px);border-radius:14px}
+.generic-hero.artwork-hero h1{font-size:clamp(42px,6vw,84px);margin-top:10px}
+@media(max-width:900px){
+  .club-logo-card img{height:132px}
+  .generic-hero.artwork-hero{min-height:82svh}
+  .generic-hero.artwork-hero>div{left:18px;right:18px;bottom:24px}
+  .generic-hero.artwork-hero h1{font-size:40px}
+}
