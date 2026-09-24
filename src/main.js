@@ -13,6 +13,13 @@ const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 
 const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
 const infoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.2"/></svg>';
 const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
+const blixtClubs = [
+  ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],
+  ['Fisksätra IF', 'fisksatra'], ['Vendelsö IK', 'vendelso'], ['Kista SC', 'kista'],
+  ['IFK Stocksund', 'stocksund'], ['IFK Haninge', 'haninge'],
+  ['Arameisk-Syrianska IF', 'arameisk'], ['IFK Lidingö', 'lidingo'],
+];
+const clubLogoCards = blixtClubs.map(([name, file]) => `<div class="club-logo-card"><img src="/logos/clubs/${file}.webp" alt="${name} logotyp" /><span>${name}</span></div>`).join('');
 const cupCards = cups.map((cup) => `
   <article class="cup-card">
     <a class="cup-visual ${cup.logos ? 'co-brand' : cup.logo ? 'cup-logo' : ''}" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
@@ -187,7 +194,10 @@ const blixtPage = (cup) => `${detailHeader}
         </div>
       </div>
     </section>
-    <section class="detail-cta"><p>Solna Blixt Camp</p><h2>Många intensiva matcher.<br />Varje aktion räknas.</h2><a class="primary" href="/#kontakt">Anmäl intresse ${arrow}</a></section>
+    <section class="club-showcase" aria-labelledby="clubs-title">
+      <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><h2 id="clubs-title">Matchcampen är<br />fullbokad.</h2><span>18 oktober · Råstasjöns IP</span></div>
+      <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
+    </section>
   </main>${detailFooter}`;
 
 const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1></div><img src="${cup.logo || cup.image}" alt="${cup.title}" /></section><nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><p class="section-label">Kommande cup</p><h2>Mer information<br />kommer snart.</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><a class="primary" href="/#kontakt">Anmäl intresse ${arrow}</a></section></main>${detailFooter}`;
