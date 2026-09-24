@@ -16,7 +16,9 @@ const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18
 const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.4" cy="6.7" r="1"/></svg>';
 const youtubeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.1c-.2-1.4-1-2.3-2.4-2.5C16.7 5.3 14.5 5.2 12 5.2s-4.7.1-6.6.4C4 5.8 3.2 6.7 3 8.1c-.2 1.2-.3 2.5-.3 3.9s.1 2.7.3 3.9c.2 1.4 1 2.3 2.4 2.5 1.9.3 4.1.4 6.6.4s4.7-.1 6.6-.4c1.4-.2 2.2-1.1 2.4-2.5.2-1.2.3-2.5.3-3.9s-.1-2.7-.3-3.9Z"/><path d="m10 9 5 3-5 3Z"/></svg>';
 const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3v11.7a4.4 4.4 0 1 1-3.6-4.3v3.4a1.5 1.5 0 1 0 .6 1.2V3h3c.4 2.2 1.7 3.6 4 4v3.1a8.2 8.2 0 0 1-4-1.5"/></svg>';
-const footballIcon = '<span class="faq-ball"></span>';
+// Font Awesome Free "futbol" icon, CC BY 4.0: https://fontawesome.com/license/free
+const footballIcon = '<svg class="faq-ball" viewBox="0 0 512 512" aria-hidden="true"><path d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z"/></svg>';
+const expandIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3.5h-5v5M15.5 3.5h5v5M20.5 15.5v5h-5M8.5 20.5h-5v-5"/></svg>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
@@ -109,6 +111,7 @@ const homeMarkup = `
         <p class="hero-lead">Välorganiserade cuper och matchcamper med jämna matcher, tydlig information och en upplevelse spelarna minns.</p>
         <a class="primary" href="#arrangemang">Se kommande cuper ${downArrow}</a>
       </div>
+      <a class="hero-scroll-cue" href="#arrangemang" aria-label="Scrolla ned till kommande cuper"><span>Scrolla ned</span><i></i></a>
     </section>
     <section id="arrangemang" class="cups-section">
       <div class="cups-heading">
@@ -243,7 +246,7 @@ const blixtPage = (cup) => `${detailHeader}
       <div class="wrap"><div class="schedule-heading"><p class="section-label">Grupper & spelschema</p><h2>Två klasser</h2><div><span>18 oktober</span><span>Råstasjöns IP</span><span>5v5 · 7v7</span></div></div>
         <div class="age-schedules">
           <article class="age-column">
-            <header class="age-heading"><p>B2015</p><h3>7v7</h3><span>2 planer · 8 lag</span></header>
+            <header class="age-heading"><p>B2015</p><button class="age-expand" type="button" data-age-label="7v7" aria-label="Öppna 7v7 i förstorat format"><strong>7v7</strong>${expandIcon}</button><span>2 planer · 8 lag</span></header>
             <div class="groups"><article><h3>Grupp A</h3><ol><li>Fisksätra Y-O</li><li>Norsborgs FC</li><li>Vendelsö IK</li><li>Hammarby A2</li></ol></article><article><h3>Grupp B</h3><ol><li>IFK Haninge</li><li>IFK Lidingö</li><li>Kista SC</li><li>AS Solna 1</li></ol></article></div>
             <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', phaseOneA)}${scheduleTable('Plan 2 · Grupp B', phaseOneB)}</div>
             <div class="schedule-break"><strong>17:15–17:25</strong><span>Paus · 10 min</span></div>
@@ -251,7 +254,7 @@ const blixtPage = (cup) => `${detailHeader}
             <div class="schedule-end"><strong>19:35</strong><span>Avslutning</span></div>
           </article>
           <article class="age-column">
-            <header class="age-heading"><p>B2018</p><h3>5v5</h3><span>2 planer · 8 lag</span></header>
+            <header class="age-heading"><p>B2018</p><button class="age-expand" type="button" data-age-label="5v5" aria-label="Öppna 5v5 i förstorat format"><strong>5v5</strong>${expandIcon}</button><span>2 planer · 8 lag</span></header>
             <div class="groups"><article><h3>Grupp A</h3><ol><li>Järfälla FF</li><li>Arameiska Syrianska 1</li><li>IFK Stocksund 2</li><li>AIK Grön 2</li></ol></article><article><h3>Grupp B</h3><ol><li>AIK Grön 1</li><li>IFK Stocksund 1</li><li>Södertälje FF</li><li>Arameiska Syrianska 2</li></ol></article></div>
             <h3 class="phase-title">Gruppspel · fas 1</h3><p class="swipe-hint">Svep för plan 2 →</p><div class="schedule-grid">${scheduleTable('Plan 1 · Grupp A', fivePhaseOneA)}${scheduleTable('Plan 2 · Grupp B', fivePhaseOneB)}</div>
             <div class="schedule-break"><strong>14:35–14:40</strong><span>Paus & omgruppering · 5 min</span></div>
@@ -261,6 +264,7 @@ const blixtPage = (cup) => `${detailHeader}
         </div>
       </div>
     </section>
+    <dialog class="schedule-modal" aria-label="Förstorat spelschema"><button class="schedule-modal-close" type="button" aria-label="Stäng förstorat spelschema">×</button><div class="schedule-modal-content"></div></dialog>
     <section class="club-showcase" aria-label="Deltagande lag i Solna Blixt Camp">
       <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><span>18 oktober · Råstasjöns IP</span></div>
       <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
@@ -308,6 +312,27 @@ const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
   rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
 }));
+
+const scheduleModal = document.querySelector('.schedule-modal');
+const scheduleModalContent = scheduleModal?.querySelector('.schedule-modal-content');
+document.querySelectorAll('.age-expand').forEach((button) => button.addEventListener('click', () => {
+  const ageColumn = button.closest('.age-column');
+  if (!scheduleModal || !scheduleModalContent || !ageColumn) return;
+  const enlarged = ageColumn.cloneNode(true);
+  const clonedButton = enlarged.querySelector('.age-expand');
+  if (clonedButton) {
+    const title = document.createElement('h3');
+    title.textContent = button.dataset.ageLabel;
+    clonedButton.replaceWith(title);
+  }
+  enlarged.querySelectorAll('.swipe-hint').forEach((hint) => hint.remove());
+  scheduleModalContent.replaceChildren(enlarged);
+  scheduleModal.showModal();
+}));
+scheduleModal?.querySelector('.schedule-modal-close')?.addEventListener('click', () => scheduleModal.close());
+scheduleModal?.addEventListener('click', (event) => {
+  if (event.target === scheduleModal) scheduleModal.close();
+});
 
 const clubMarquee = document.querySelector('.club-marquee');
 if (clubMarquee) {

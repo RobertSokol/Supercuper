@@ -146,7 +146,7 @@
 .faq-item summary>span{display:flex;align-items:center;gap:28px;font:700 clamp(17px,1.5vw,21px)/1.3 'Manrope',sans-serif;letter-spacing:-.025em}
 .faq-item summary i{font:800 10px/1 'DM Sans',sans-serif;letter-spacing:.12em;color:var(--orange);font-style:normal}
 .faq-item summary b{display:grid;place-items:center;flex:none;width:35px;height:35px;color:var(--ink);transition:color .22s,transform .35s}
-.faq-ball{display:block;width:35px;height:35px;background:currentColor;-webkit-mask:url('/logos/solna-football-mark.png') center/contain no-repeat;mask:url('/logos/solna-football-mark.png') center/contain no-repeat}
+.faq-ball{display:block;width:33px;height:33px;fill:currentColor;filter:drop-shadow(0 2px 5px rgba(0,31,70,.12))}
 .faq-item[open] summary b{color:var(--orange);transform:rotate(28deg)}
 .faq-answer{padding:0 68px 26px 42px;color:#526981}
 .faq-item[open] .faq-answer{animation:faq-reveal .28s ease both}
@@ -195,7 +195,7 @@
   .faq-item summary>span{align-items:flex-start;gap:14px;font-size:16px}
   .faq-item summary i{padding-top:5px}
   .faq-item summary b{width:30px;height:30px}
-  .faq-ball{width:30px;height:30px}
+  .faq-ball{width:28px;height:28px}
   .faq-answer{padding:0 38px 22px 28px}
   .priority-invite{padding:70px 22px 74px}
   .priority-invite h2{font-size:39px}
@@ -335,3 +335,43 @@
 /* Preserve every club crest's native proportions. */
 .club-logo-card img{width:auto;max-width:100%;height:auto;max-height:154px;object-fit:initial}
 @media(max-width:900px){.club-logo-card img{width:auto;max-width:100%;height:auto;max-height:132px}}
+
+/* Clear, elegant continuation cue on the opening image. */
+.hero-scroll-cue{position:absolute;z-index:2;right:40px;bottom:30px;display:flex;align-items:center;gap:14px;color:white;font-size:9px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
+.hero-scroll-cue i{position:relative;display:block;width:30px;height:30px;border:1px solid rgba(255,255,255,.5);border-radius:50%;background:rgba(0,31,70,.18);backdrop-filter:blur(8px)}
+.hero-scroll-cue i:before,.hero-scroll-cue i:after{content:'';position:absolute;left:50%;transform:translateX(-50%)}
+.hero-scroll-cue i:before{top:7px;width:1px;height:10px;background:white;animation:scroll-cue 1.8s ease-in-out infinite}
+.hero-scroll-cue i:after{bottom:6px;width:6px;height:6px;border-right:1.5px solid white;border-bottom:1.5px solid white;transform:translateX(-50%) rotate(45deg)}
+@keyframes scroll-cue{0%,100%{transform:translate(-50%,0);opacity:.45}50%{transform:translate(-50%,4px);opacity:1}}
+@media(max-width:900px){
+  .hero-scroll-cue{right:50%;bottom:18px;transform:translateX(50%);white-space:nowrap}
+}
+@media(prefers-reduced-motion:reduce){.hero-scroll-cue i:before{animation:none}}
+
+/* Expandable schedule presentation. */
+.age-expand{grid-column:1;display:flex;align-items:center;justify-content:flex-start;gap:11px;width:max-content;border:0;background:transparent;color:white;padding:0;cursor:pointer}
+.age-expand strong{font:800 40px/.9 'Manrope',sans-serif;letter-spacing:-.05em}
+.age-expand svg{width:19px;height:19px;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.age-expand:hover svg,.age-expand:focus-visible svg{transform:scale(1.14)}
+.age-expand:focus-visible{outline:2px solid var(--orange);outline-offset:6px;border-radius:2px}
+.schedule-modal{position:fixed;inset:0;width:min(1280px,calc(100vw - 44px));max-width:none;height:min(92vh,980px);max-height:none;margin:auto;padding:58px 28px 32px;border:0;border-radius:24px;background:#edf1f5;color:var(--ink);box-shadow:0 34px 100px rgba(0,19,45,.42);overflow:hidden}
+.schedule-modal::backdrop{background:rgba(0,15,36,.74);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.schedule-modal-close{position:absolute;z-index:4;top:16px;right:18px;display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(0,45,98,.18);border-radius:50%;background:white;color:var(--ink);font-size:27px;font-weight:300;line-height:1;cursor:pointer;box-shadow:0 8px 22px rgba(0,31,70,.12)}
+.schedule-modal-content{width:100%;height:100%;overflow:auto;overscroll-behavior:contain}
+.schedule-modal-content>.age-column{width:100%;min-width:820px;padding:18px;border:0;border-radius:18px;background:transparent;box-shadow:none}
+.schedule-modal-content .age-heading{position:sticky;z-index:2;top:-58px}
+.schedule-modal-content .age-column .groups,.schedule-modal-content .age-column .schedule-grid{display:grid;grid-template-columns:1fr 1fr;overflow:visible;gap:14px;padding:0;margin-top:16px}
+.schedule-modal-content .age-column .groups article,.schedule-modal-content .age-column .schedule-card{width:auto;flex:none}
+.schedule-modal-content .age-column .groups h3,.schedule-modal-content .age-column .schedule-card h4{font-size:14px;padding:12px}
+.schedule-modal-content .age-column .groups li{font-size:13px;padding:9px 13px}
+.schedule-modal-content .age-column .schedule-card th{font-size:9px;padding:8px 10px}
+.schedule-modal-content .age-column .schedule-card td{font-size:11px;padding:8px 10px}
+.schedule-modal-content .age-column .schedule-card th:first-child,.schedule-modal-content .age-column .schedule-card td:first-child{width:104px}
+.schedule-modal-content .age-column .phase-title{font-size:30px;margin:34px 0 -2px}
+body:has(.schedule-modal[open]){overflow:hidden}
+@media(max-width:900px){
+  .age-expand strong{font-size:34px}
+  .schedule-modal{width:calc(100vw - 14px);height:calc(100dvh - 14px);padding:54px 12px 24px;border-radius:18px}
+  .schedule-modal-close{top:12px;right:12px}
+  .schedule-modal-content>.age-column{min-width:760px;padding:10px}
+}
