@@ -14,7 +14,7 @@ const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5
 const infoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.2"/></svg>';
 const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
 const blixtClubs = [
-  ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],
+  ['AS Solna FF', 'as-solna'], ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],
   ['Fisksätra IF', 'fisksatra'], ['Vendelsö IK', 'vendelso'], ['Kista SC', 'kista'],
   ['IFK Stocksund', 'stocksund'], ['IFK Haninge', 'haninge'],
   ['Arameisk-Syrianska IF', 'arameisk'], ['IFK Lidingö', 'lidingo'],
@@ -194,8 +194,8 @@ const blixtPage = (cup) => `${detailHeader}
         </div>
       </div>
     </section>
-    <section class="club-showcase" aria-labelledby="clubs-title">
-      <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><h2 id="clubs-title">Matchcampen är<br />fullbokad.</h2><span>18 oktober · Råstasjöns IP</span></div>
+    <section class="club-showcase" aria-label="Deltagande lag i Solna Blixt Camp">
+      <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><span>18 oktober · Råstasjöns IP</span></div>
       <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
     </section>
   </main>${detailFooter}`;
