@@ -88,7 +88,9 @@
 .faq-answer{padding:0 68px 26px 42px;color:#526981}
 .faq-item[open] .faq-answer{animation:faq-reveal .28s ease both}
 @keyframes faq-reveal{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
-.faq-answer p{margin:0;font-size:15px;line-height:1.65}
+.faq-answer p{max-width:890px;margin:0;font-size:15px;line-height:1.7}
+.faq-answer p+p{margin-top:12px}
+.faq-answer strong{color:var(--ink);font-weight:800}
 .faq-item summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
 .priority-invite{background:var(--forest);color:white;padding:94px 24px 98px;text-align:center}
 .priority-inner{width:min(720px,100%);margin-inline:auto;display:flex;flex-direction:column;align-items:center}

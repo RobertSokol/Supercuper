@@ -33,16 +33,31 @@ const priorityMarkup = (prefix = '') => `<section class="priority-invite" aria-l
   </div>
 </section>`;
 const faqQuestions = [
-  'När stänger anmälan?',
-  'Vad gäller vid sjukdom eller skada?',
-  'När får vi fakturan för deltagandet?',
-  'Går det att titta på matcherna i efterhand?',
-  'Är vår plats bekräftad direkt efter anmälan?',
+  {
+    question: 'När stänger anmälan?',
+    answer: '<p>Anmälan är öppen så länge det finns lediga platser. När en cup är fullbokad stänger vi anmälan, vilket innebär att den kan stänga tidigare än planerat. Vi rekommenderar därför att ni anmäler laget i god tid.</p>',
+  },
+  {
+    question: 'Vad gäller vid sjukdom eller skada?',
+    answer: '<p>Vi vet att saker kan förändras inför en cup. Enstaka spelare kan därför läggas till eller tas bort från lagets anmälan fram till två veckor före cupstart.</p>',
+  },
+  {
+    question: 'När får vi fakturan för deltagandet?',
+    answer: '<p>Fakturan för anmälningsavgiften skickas efter att lagets plats har bekräftats och ska betalas inom 10 dagar. Eventuell deltagaravgift faktureras cirka tre månader före cupen.</p>',
+  },
+  {
+    question: 'Går det att titta på matcherna i efterhand?',
+    answer: '<p>Snart kommer ni kunna följa matcherna både live och i efterhand via <strong>Super-TV</strong>. Vi arbetar just nu med att färdigställa tjänsten och kommer att dela mer information när lanseringen närmar sig.</p>',
+  },
+  {
+    question: 'Är vår plats bekräftad direkt efter anmälan?',
+    answer: '<p>Nej. En inskickad anmälan innebär inte automatiskt att laget har fått en plats. Vi förbehåller oss möjligheten att göra ett urval för att skapa en bra geografisk spridning och framför allt så jämna, konkurrenskraftiga och utvecklande matcher som möjligt.</p><p>Lagets plats är bekräftad först när ni har fått en bekräftelse/faktura från oss och anmälningsavgiften är betald.</p>',
+  },
 ];
 const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
   <div class="faq-inner">
     <div class="faq-heading"><p class="section-label">Bra att veta</p><h2 id="faq-title">Vanliga frågor</h2></div>
-    <div class="faq-list">${faqQuestions.map((question, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true"></b></summary><div class="faq-answer"><p>Svar publiceras inom kort.</p></div></details>`).join('')}</div>
+    <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true"></b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
 </section>`;
 const blixtClubs = [
