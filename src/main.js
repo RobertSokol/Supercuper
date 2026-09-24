@@ -20,7 +20,7 @@ const footballIcon = '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
-    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a></div>
+    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a></div>
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
@@ -95,7 +95,7 @@ const homeMarkup = `
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a>
+      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a>
     </nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>
@@ -182,11 +182,21 @@ const detailHeader = `
       <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a></nav>
+    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a></nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>`;
 
 const detailFooter = `${faqMarkup}${priorityMarkup()}${footerMarkup('/')}`;
+
+const contentPage = (eyebrow, title, intro) => `${detailHeader}
+  <main id="top" class="content-page">
+    <section class="content-page-hero"><p>${eyebrow}</p><h1>${title}</h1><div><span>Super Cuper</span><p>${intro}</p></div></section>
+    <section class="content-page-ready"><p class="section-label">Mer kommer</p><h2>Sidan fylls på<br />inom kort.</h2><p>Här samlar vi snart all information på ett tydligt och lättillgängligt sätt.</p><a class="primary" href="/#arrangemang">Se kommande cuper ${arrow}</a></section>
+  </main>
+  ${footerMarkup('/')}`;
+
+const informationPage = contentPage('Bra att veta', 'Information', 'Praktisk information före, under och efter våra cuper och matchcamper.');
+const aboutPage = contentPage('Fotboll tillsammans', 'Om oss', 'Lär känna människorna, ambitionen och tanken bakom Super Cuper.');
 
 const priorityPage = `${detailHeader}
   <main id="top" class="priority-page">
@@ -262,7 +272,9 @@ const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page g
 const slug = decodeURIComponent(window.location.pathname).match(/^\/cuper\/([^/]+)\/?$/)?.[1];
 const activeCup = cups.find((cup) => cup.slug === slug);
 const isPriorityPage = /^\/fortur\/?$/.test(window.location.pathname);
-document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+const isInformationPage = /^\/information\/?$/.test(window.location.pathname);
+const isAboutPage = /^\/om-oss\/?$/.test(window.location.pathname);
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
@@ -270,6 +282,14 @@ if (activeCup) {
 if (isPriorityPage) {
   document.title = 'Förturslistan — Super Cuper';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'Registrera laget för tidig information och personliga inbjudningar till Super Cupers kommande cuper och matchcamper.');
+}
+if (isInformationPage) {
+  document.title = 'Information — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Information om Super Cupers cuper och matchcamper.');
+}
+if (isAboutPage) {
+  document.title = 'Om oss — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Om Super Cuper och vår ambition för utvecklande fotbollscuper och matchcamper.');
 }
 
 const menuButton = document.querySelector('.menu-button');
