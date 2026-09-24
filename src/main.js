@@ -24,6 +24,14 @@ const footerMarkup = (prefix = '') => `<footer class="site-footer">
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:robertgiuricici@gmail.com?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
+const priorityMarkup = (prefix = '') => `<section class="priority-invite" aria-labelledby="priority-title">
+  <div class="priority-inner">
+    <p class="priority-label">Förtur för lag</p>
+    <h2 id="priority-title">Först till nästa avspark.</h2>
+    <p>Anslut laget till Super Cupers förturslista. Ni får inbjudningar till nya cuper och matchcamper innan platserna släpps brett.</p>
+    <a href="${prefix}#kontakt">Säkra lagets förtur ${arrow}</a>
+  </div>
+</section>`;
 const blixtClubs = [
   ['AS Solna FF', 'as-solna'], ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],
   ['Fisksätra IF', 'fisksatra'], ['Vendelsö IK', 'vendelso'], ['Kista SC', 'kista'],
@@ -100,6 +108,7 @@ const homeMarkup = `
       </div>
     </section>
   </main>
+  ${priorityMarkup()}
   ${footerMarkup()}
 `;
 
@@ -165,7 +174,7 @@ const detailHeader = `
     <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/#kontakt" aria-label="Kontakta oss">${mailIcon}</a></div>
   </header>`;
 
-const detailFooter = footerMarkup('/');
+const detailFooter = `${priorityMarkup('/')}${footerMarkup('/')}`;
 
 const blixtPage = (cup) => `${detailHeader}
   <main id="top" class="cup-page">
