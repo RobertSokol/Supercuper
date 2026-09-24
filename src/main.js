@@ -6,7 +6,7 @@ const cups = [
   { slug: 'super-six', title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', note: 'Intresseanmälan öppen', logo: '/logos/super-six.jpg' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', note: 'Intresseanmälan öppen', logo: '/logos/super-8.jpg' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Meddelas snart', date: 'TBD', ages: 'B2015 & B2014', format: '9v9', note: 'Intresseanmälan öppen', logo: '/logos/super-nine.jpg' },
-  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: 'TBD', ages: 'B2019–B2015', format: 'Meddelas snart', note: 'Flera åldersklasser', image: '/images/team-celebration.jpg' },
+  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015', format: 'Meddelas snart', note: 'Flera åldersklasser', logo: '/logos/solna-masterskapen-2027.png' },
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
@@ -19,7 +19,7 @@ const blixtClubs = [
   ['IFK Stocksund', 'stocksund'], ['IFK Haninge', 'haninge'],
   ['Arameisk-Syrianska IF', 'arameisk'], ['IFK Lidingö', 'lidingo'],
 ];
-const clubLogoCards = blixtClubs.map(([name, file]) => `<div class="club-logo-card"><img src="/logos/clubs/${file}.webp" alt="${name} logotyp" /><span>${name}</span></div>`).join('');
+const clubLogoCards = blixtClubs.map(([name, file]) => `<div class="club-logo-card"><img src="/logos/clubs/${file}.webp" alt="${name} logotyp" draggable="false" /><span>${name}</span></div>`).join('');
 const cupCards = cups.map((cup) => `
   <article class="cup-card">
     <a class="cup-visual ${cup.logos ? 'co-brand' : cup.logo ? 'cup-logo' : ''}" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
@@ -196,7 +196,7 @@ const blixtPage = (cup) => `${detailHeader}
     </section>
     <section class="club-showcase" aria-labelledby="clubs-title">
       <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><h2 id="clubs-title">Matchcampen är<br />fullbokad.</h2><span>18 oktober · Råstasjöns IP</span></div>
-      <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
+      <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
     </section>
   </main>${detailFooter}`;
 
@@ -226,3 +226,63 @@ const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
   rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
 }));
+
+const clubMarquee = document.querySelector('.club-marquee');
+if (clubMarquee) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let paused = reduceMotion;
+  let dragging = false;
+  let pointerId;
+  let startX = 0;
+  let startScroll = 0;
+  let lastFrame = performance.now();
+  let resumeTimer;
+
+  const normalizeScroll = () => {
+    const loopWidth = clubMarquee.scrollWidth / 3;
+    if (loopWidth && clubMarquee.scrollLeft >= loopWidth * 2) clubMarquee.scrollLeft -= loopWidth;
+    if (loopWidth && clubMarquee.scrollLeft < loopWidth * .25) clubMarquee.scrollLeft += loopWidth;
+  };
+  const resumeSoon = () => {
+    clearTimeout(resumeTimer);
+    resumeTimer = window.setTimeout(() => { paused = reduceMotion; }, 850);
+  };
+  const animate = (now) => {
+    if (!paused && !dragging) {
+      clubMarquee.scrollLeft += Math.min(now - lastFrame, 50) * .03;
+      normalizeScroll();
+    }
+    lastFrame = now;
+    requestAnimationFrame(animate);
+  };
+
+  clubMarquee.addEventListener('mouseenter', () => { paused = true; });
+  clubMarquee.addEventListener('mouseleave', () => {
+    if (!dragging) resumeSoon();
+  });
+  clubMarquee.addEventListener('pointerdown', (event) => {
+    dragging = true;
+    paused = true;
+    pointerId = event.pointerId;
+    startX = event.clientX;
+    startScroll = clubMarquee.scrollLeft;
+    clubMarquee.setPointerCapture(pointerId);
+    clubMarquee.classList.add('is-dragging');
+  });
+  clubMarquee.addEventListener('pointermove', (event) => {
+    if (!dragging || event.pointerId !== pointerId) return;
+    clubMarquee.scrollLeft = startScroll - (event.clientX - startX);
+    normalizeScroll();
+  });
+  const finishDrag = (event) => {
+    if (!dragging || event.pointerId !== pointerId) return;
+    dragging = false;
+    clubMarquee.classList.remove('is-dragging');
+    if (clubMarquee.hasPointerCapture(pointerId)) clubMarquee.releasePointerCapture(pointerId);
+    resumeSoon();
+  };
+  clubMarquee.addEventListener('pointerup', finishDrag);
+  clubMarquee.addEventListener('pointercancel', finishDrag);
+  clubMarquee.scrollLeft = clubMarquee.scrollWidth / 3;
+  requestAnimationFrame(animate);
+}
