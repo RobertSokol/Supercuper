@@ -16,6 +16,7 @@ const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18
 const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.4" cy="6.7" r="1"/></svg>';
 const youtubeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.1c-.2-1.4-1-2.3-2.4-2.5C16.7 5.3 14.5 5.2 12 5.2s-4.7.1-6.6.4C4 5.8 3.2 6.7 3 8.1c-.2 1.2-.3 2.5-.3 3.9s.1 2.7.3 3.9c.2 1.4 1 2.3 2.4 2.5 1.9.3 4.1.4 6.6.4s4.7-.1 6.6-.4c1.4-.2 2.2-1.1 2.4-2.5.2-1.2.3-2.5.3-3.9s-.1-2.7-.3-3.9Z"/><path d="m10 9 5 3-5 3Z"/></svg>';
 const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3v11.7a4.4 4.4 0 1 1-3.6-4.3v3.4a1.5 1.5 0 1 0 .6 1.2V3h3c.4 2.2 1.7 3.6 4 4v3.1a8.2 8.2 0 0 1-4-1.5"/></svg>';
+const footballIcon = '<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11.5"/><path d="m16 10.1 5.1 3.7-2 6h-6.2l-2-6L16 10.1Zm0 0V4.5m5.1 9.3 5.3-1.7m-7.3 7.7 3.3 4.6m-9.5-4.6-3.3 4.6m1.3-10.6-5.3-1.7M8.7 6.6l2.2 7.2m10.2 0 2.2-7.2M22.4 24.4l-6.4 3-6.4-3"/></svg>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
@@ -56,7 +57,7 @@ const faqQuestions = [
 const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
   <div class="faq-inner">
     <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
-    <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true"></b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
+    <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true">${footballIcon}</b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
 </section>`;
 const blixtClubs = [
