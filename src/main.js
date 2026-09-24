@@ -6,7 +6,7 @@ const cups = [
   { slug: 'super-six', title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', note: 'Intresseanmälan öppen', logo: '/logos/super-six.jpg' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', note: 'Intresseanmälan öppen', logo: '/logos/super-8.jpg' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Meddelas snart', date: 'TBD', ages: 'B2015 & B2014', format: '9v9', note: 'Intresseanmälan öppen', logo: '/logos/super-nine.jpg' },
-  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015', format: 'Meddelas snart', note: 'Flera åldersklasser', logo: '/logos/solna-masterskapen-2027.png', artwork: true },
+  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Meddelas snart', note: 'Flera åldersklasser', logo: '/logos/solna-masterskapen-2027.png', artwork: true },
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
