@@ -20,7 +20,7 @@ const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
-    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="${prefix}#information">Information</a><a href="${prefix}#om-oss">Om oss</a></div>
+    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="${prefix}#information">Information</a></div>
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
@@ -95,7 +95,7 @@ const homeMarkup = `
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="#information">Information</a><a href="#om-oss">Om oss</a>
+      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="#information">Information</a>
     </nav>
     <div class="mobile-tools mobile-tools-right"><a href="#information" aria-label="Information">${infoIcon}</a><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>
@@ -121,12 +121,6 @@ const homeMarkup = `
     <section id="information" class="intro wrap">
       <p class="section-label">Vår idé</p>
       <div><h2>Rätt matcher.<br />Rätt nivå. <em>Större upplevelse.</em></h2><p>Vi bygger cupdagar där fotbollen står i centrum och allt runt omkring fungerar. Tydlig nivåindelning, genomtänkta spelscheman och ett värdskap som märks.</p></div>
-    </section>
-    <section id="om-oss" class="concept">
-      <div class="concept-image"><img src="/images/team-preparing.jpg" alt="Fotbollslag samlat inför match" loading="lazy" /></div>
-      <div class="concept-copy"><p class="section-label light">Super Cuper</p><h2>Byggt för<br />bra fotboll.</h2>
-        <ol><li><span>01</span><div><h3>Jämna matcher</h3><p>Lag matchas efter ålder, spelform och faktisk nivå.</p></div></li><li><span>02</span><div><h3>Mer tid på planen</h3><p>Smarta spelscheman med meningsfulla matcher och mindre väntan.</p></div></li><li><span>03</span><div><h3>Tydligt hela vägen</h3><p>Samlad information och närvarande värdskap före och under cupen.</p></div></li></ol>
-      </div>
     </section>
     <section id="super-tv" class="tv-teaser"><div class="wrap"><p class="section-label light">Super-TV</p><h2>Matcherna.<br />Minnena. <em>Snart här.</em></h2><p>Livesändningar, repriser och höjdpunkter från våra cuper samlas på ett ställe.</p></div></section>
     <section class="statement wrap"><p class="section-label">För spelarna</p><blockquote>“Det ska kännas stort<br />redan innan avspark.”</blockquote></section>
@@ -194,7 +188,7 @@ const detailHeader = `
       <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/#information">Information</a><a href="/#om-oss">Om oss</a></nav>
+    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/#information">Information</a></nav>
     <div class="mobile-tools mobile-tools-right"><a href="/#information" aria-label="Information">${infoIcon}</a><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>`;
 
