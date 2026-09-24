@@ -146,7 +146,7 @@
 .faq-item summary>span{display:flex;align-items:center;gap:28px;font:700 clamp(17px,1.5vw,21px)/1.3 'Manrope',sans-serif;letter-spacing:-.025em}
 .faq-item summary i{font:800 10px/1 'DM Sans',sans-serif;letter-spacing:.12em;color:var(--orange);font-style:normal}
 .faq-item summary b{display:grid;place-items:center;flex:none;width:35px;height:35px;color:var(--ink);transition:color .22s,transform .35s}
-.faq-item summary b svg{width:35px;height:35px;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+.faq-ball{display:block;width:35px;height:35px;background:currentColor;-webkit-mask:url('/logos/solna-football-mark.png') center/contain no-repeat;mask:url('/logos/solna-football-mark.png') center/contain no-repeat}
 .faq-item[open] summary b{color:var(--orange);transform:rotate(28deg)}
 .faq-answer{padding:0 68px 26px 42px;color:#526981}
 .faq-item[open] .faq-answer{animation:faq-reveal .28s ease both}
@@ -195,7 +195,7 @@
   .faq-item summary>span{align-items:flex-start;gap:14px;font-size:16px}
   .faq-item summary i{padding-top:5px}
   .faq-item summary b{width:30px;height:30px}
-  .faq-item summary b svg{width:30px;height:30px}
+  .faq-ball{width:30px;height:30px}
   .faq-answer{padding:0 38px 22px 28px}
   .priority-invite{padding:70px 22px 74px}
   .priority-invite h2{font-size:39px}
@@ -317,8 +317,8 @@
 }
 
 /* Crisp club marks and full-bleed event artwork */
-.cup-visual.cup-artwork{padding:0;background:var(--forest-2)}
-.cup-visual.cup-artwork>img{width:100%;height:100%;object-fit:cover;object-position:center 72%}
+.cup-visual.cup-artwork{height:auto;aspect-ratio:1;padding:0;background:var(--forest-2)}
+.cup-visual.cup-artwork>img{width:100%;height:100%;object-fit:contain}
 .club-logo-card img{height:154px;filter:none}
 .generic-hero.artwork-hero{position:relative;height:100vw;min-height:0;padding:0;display:block;overflow:hidden}
 .generic-hero.artwork-hero>img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain;background:var(--forest-2);border-radius:0}
