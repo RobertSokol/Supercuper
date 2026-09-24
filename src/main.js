@@ -70,12 +70,12 @@ const blixtClubs = [
 ];
 const clubLogoCards = blixtClubs.map(([name, file]) => `<div class="club-logo-card"><img src="/logos/clubs/${file}.webp" alt="${name} logotyp" draggable="false" /><span>${name}</span></div>`).join('');
 const cupCards = cups.map((cup) => `
-  <article class="cup-card">
-    <a class="cup-visual ${cup.logos ? 'co-brand' : cup.artwork ? 'cup-artwork' : cup.logo ? 'cup-logo' : ''}" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
+  <a class="cup-card" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
+    <div class="cup-visual ${cup.logos ? 'co-brand' : cup.artwork ? 'cup-artwork' : cup.logo ? 'cup-logo' : ''}">
       ${cup.logos ? cup.logos.map((logo, index) => `<img src="${logo}" alt="${index === 0 ? 'Super Cuper logotyp' : 'AS Solna FF logotyp'}" loading="lazy" />`).join('<i aria-hidden="true">×</i>') : `<img src="${cup.logo || cup.image}" alt="${cup.logo ? `${cup.title} logotyp` : `Fotboll under ${cup.title}`}" loading="lazy" />`}
-    </a>
+    </div>
     <div class="cup-details">
-      <h3><a href="/cuper/${cup.slug}">${cup.title}</a></h3>
+      <h3>${cup.title}</h3>
       <dl>
         <div><dt>Var</dt><dd>${cup.place}</dd></div>
         <div><dt>När</dt><dd>${cup.date}</dd></div>
@@ -84,9 +84,9 @@ const cupCards = cups.map((cup) => `
         ${cup.cohost ? `<div><dt>Medarrangör</dt><dd>${cup.cohost}</dd></div>` : ''}
       </dl>
       ${cup.note ? `<p>${cup.note}</p>` : ''}
-      <a href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">Läs mer ${arrow}</a>
+      <span class="cup-more">Läs mer ${arrow}</span>
     </div>
-  </article>`).join('');
+  </a>`).join('');
 
 const homeMarkup = `
   <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
