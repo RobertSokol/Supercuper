@@ -343,6 +343,7 @@ if (clubMarquee) {
   const pixelsPerMillisecond = reduceMotion ? .012 : .03;
   let paused = false;
   let dragging = false;
+  let touching = false;
   let pointerId;
   let startX = 0;
   let startScroll = 0;
@@ -370,6 +371,7 @@ if (clubMarquee) {
   };
 
   clubMarquee.addEventListener('pointerdown', (event) => {
+    if (event.pointerType === 'touch') return;
     dragging = true;
     paused = true;
     pointerId = event.pointerId;
@@ -380,6 +382,7 @@ if (clubMarquee) {
     clubMarquee.classList.add('is-dragging');
   });
   clubMarquee.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
     if (!dragging || event.pointerId !== pointerId) return;
     position = startScroll - (event.clientX - startX);
     normalizePosition();
@@ -394,6 +397,25 @@ if (clubMarquee) {
   };
   clubMarquee.addEventListener('pointerup', finishDrag);
   clubMarquee.addEventListener('pointercancel', finishDrag);
+  clubMarquee.addEventListener('touchstart', () => {
+    touching = true;
+    paused = true;
+    clearTimeout(resumeTimer);
+    position = clubMarquee.scrollLeft;
+  }, { passive: true });
+  clubMarquee.addEventListener('touchend', () => {
+    touching = false;
+    resumeSoon();
+  }, { passive: true });
+  clubMarquee.addEventListener('touchcancel', () => {
+    touching = false;
+    resumeSoon();
+  }, { passive: true });
+  clubMarquee.addEventListener('scroll', () => {
+    if (!paused || dragging) return;
+    position = clubMarquee.scrollLeft;
+    if (!touching) resumeSoon();
+  }, { passive: true });
   requestAnimationFrame((now) => {
     position = clubMarquee.scrollWidth / 3;
     clubMarquee.scrollLeft = position;
