@@ -15,14 +15,13 @@ const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5
 const infoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.2"/></svg>';
 const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
 const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.4" cy="6.7" r="1"/></svg>';
-const facebookIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 21v-8h2.8l.5-3.2h-3.3V7.7c0-.9.3-1.6 1.7-1.6H18V3.2c-.6-.1-1.5-.2-2.5-.2-2.6 0-4.4 1.6-4.4 4.5v2.3H8.2V13h2.9v8"/></svg>';
 const youtubeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.1c-.2-1.4-1-2.3-2.4-2.5C16.7 5.3 14.5 5.2 12 5.2s-4.7.1-6.6.4C4 5.8 3.2 6.7 3 8.1c-.2 1.2-.3 2.5-.3 3.9s.1 2.7.3 3.9c.2 1.4 1 2.3 2.4 2.5 1.9.3 4.1.4 6.6.4s4.7-.1 6.6-.4c1.4-.2 2.2-1.1 2.4-2.5.2-1.2.3-2.5.3-3.9s-.1-2.7-.3-3.9Z"/><path d="m10 9 5 3-5 3Z"/></svg>';
 const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3v11.7a4.4 4.4 0 1 1-3.6-4.3v3.4a1.5 1.5 0 1 0 .6 1.2V3h3c.4 2.2 1.7 3.6 4 4v3.1a8.2 8.2 0 0 1-4-1.5"/></svg>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:robertgiuricici@gmail.com">robertgiuricici@gmail.com</a><p>Solna<br />Sverige</p></div>
     <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="${prefix}#information">Information</a><a href="${prefix}#om-oss">Om oss</a></div>
-    <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Facebook">${facebookIcon}</span><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:robertgiuricici@gmail.com?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
+    <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:robertgiuricici@gmail.com?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
 const blixtClubs = [
