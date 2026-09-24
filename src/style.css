@@ -55,7 +55,7 @@
   .kicker{margin-bottom:17px;color:#f4b24a;font-size:9px}
   .hero h1{font-size:clamp(48px,13.5vw,64px);line-height:.9;letter-spacing:-.055em}
   .hero-lead{max-width:355px;margin:20px auto 25px;font-size:14px;line-height:1.5;color:rgba(255,255,255,.88)}
-  .hero .primary{background:transparent;color:white;border:1px solid rgba(255,255,255,.82);border-radius:999px;padding:13px 19px;font-size:12px;gap:18px}
+  .hero .primary{background:var(--orange);color:var(--forest-2);border:0;border-radius:999px;padding:13px 19px;font-size:12px;gap:18px}
   .scroll{display:none}
   .cups-section{padding-top:63px}
   .cups-heading{display:block;text-align:center;margin-bottom:30px}

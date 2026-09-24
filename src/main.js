@@ -10,6 +10,7 @@ const cups = [
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
+const downArrow = '<svg class="down-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/></svg>';
 const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
 const infoIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.2"/></svg>';
 const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
@@ -60,7 +61,7 @@ const homeMarkup = `
         <p class="kicker">Super Cuper · Solna</p>
         <h1>Fotboll<br />tillsammans.</h1>
         <p class="hero-lead">Välorganiserade cuper och matchcamper med jämna matcher, tydlig information och en upplevelse spelarna minns.</p>
-        <a class="primary" href="#arrangemang">Se kommande cuper ${arrow}</a>
+        <a class="primary" href="#arrangemang">Se kommande cuper ${downArrow}</a>
       </div>
       <a class="scroll" href="#arrangemang">Kommande cuper <span>↓</span></a>
     </section>
