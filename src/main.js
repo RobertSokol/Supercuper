@@ -199,7 +199,30 @@ const contentPage = (eyebrow, title, intro) => `${detailHeader}
   ${footerMarkup('/')}`;
 
 const informationPage = contentPage('Bra att veta', 'Information', 'Praktisk information före, under och efter våra cuper och matchcamper.');
-const aboutPage = contentPage('Fotboll tillsammans', 'Om oss', 'Lär känna människorna, ambitionen och tanken bakom Super Cuper.');
+const aboutPage = `${detailHeader}
+  <main id="top" class="content-page about-page">
+    <section class="content-page-hero about-hero"><p>Fotboll tillsammans</p><h1>Om oss</h1><div><span>Super Cuper</span><p>Vi skapar fotbollsupplevelser där nya format, nya utmaningar och gemenskap utvecklar både spelaren och människan.</p></div></section>
+    <section class="about-story">
+      <aside><p>Vår idé</p><span>01</span></aside>
+      <article>
+        <p class="about-lead">Super Cuper grundades med en tydlig idé: <strong>att ta Europas och världens fotbollsutbildning till Sverige.</strong></p>
+        <p>Runt om i världen utbildas unga spelare på olika sätt. <strong>Spelformer, matchformat och cupformat skiljer sig mellan länder och fotbollskulturer – och bakom dem finns olika idéer om hur unga spelare utvecklas genom matchen.</strong> Det skapar olika utmaningar, olika matchsituationer och olika fotbollsproblem att lösa.</p>
+        <blockquote>Vi vet att det inte finns ett enda perfekt format för spelarutveckling. <em>Vi tror på variation.</em></blockquote>
+        <p>Därför hämtar vi inspiration från etablerade fotbollsmiljöer runt om i Europa och världen och omsätter den i våra cuper och matchcamper. Ena gången kan spelarna möta ett format inspirerat av Nederländerna, nästa gång av Spanien, Danmark, Belgien eller någon annan fotbollskultur.</p>
+        <p><strong>Syftet är alltid spelarutveckling.</strong> Genom att låta spelarna möta olika format, ytor och matchsituationer skapar vi variation i deras fotbollsutbildning. De ställs inför nya utmaningar, får lösa olika fotbollsproblem och utvecklar sin förmåga att fatta beslut och anpassa sitt spel efter situationen.</p>
+      </article>
+    </section>
+    <section class="about-community">
+      <div class="about-community-image"><img src="/images/team-huddle.jpg" alt="Unga fotbollsspelare samlade som ett lag" loading="lazy" /></div>
+      <div class="about-community-copy"><p class="section-label light">Större än spelet</p><h2>Fotboll är<br />människor.</h2><p>Men fotboll är större än själva spelet.</p><p>Det är glädjen när bollen rullar. Lagkamraterna bredvid dig. Motståndarna du möter. Tränarna, föräldrarna och människorna runt planen. Det är resorna, skratten, nervositeten inför avspark och matcherna man fortfarande pratar om långt senare.</p><strong>Det är gemenskap. Det är minnen.<br />Det är människor. Det är fotboll tillsammans.</strong></div>
+    </section>
+    <section class="about-purpose">
+      <div><p>02 · Vårt syfte</p><h2>Upplevelser<br />som stannar kvar.</h2></div>
+      <div><p>Därför vill vi skapa mer än välorganiserade matcher. Vi vill skapa fotbollsupplevelser som barnen tar med sig – både som spelare och som människor.</p><p>För oss är en cup mer än matcher och resultat. <strong>Den är en del av spelarens fotbollsutbildning, men också en plats för glädje, gemenskap och minnen.</strong></p></div>
+    </section>
+    <section class="about-manifesto"><p>Olika format. Olika utmaningar. Nya erfarenheter.</p><h2>Super Cuper</h2><strong>Europas och världens fotbollsutbildning till Sverige.</strong><span>Fotboll tillsammans.</span></section>
+  </main>
+  ${footerMarkup('/')}`;
 
 const priorityPage = `${detailHeader}
   <main id="top" class="priority-page">
@@ -293,7 +316,7 @@ if (isInformationPage) {
 }
 if (isAboutPage) {
   document.title = 'Om oss — Super Cuper';
-  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Om Super Cuper och vår ambition för utvecklande fotbollscuper och matchcamper.');
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Super Cuper tar inspiration från Europas och världens fotbollsutbildning till Sverige genom varierade, utvecklande cuper och matchcamper.');
 }
 
 const menuButton = document.querySelector('.menu-button');
