@@ -19,10 +19,11 @@ const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3
 // Font Awesome Free "futbol" icon, CC BY 4.0: https://fontawesome.com/license/free
 const footballIcon = '<svg class="faq-ball" viewBox="0 0 512 512" aria-hidden="true"><path d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z"/></svg>';
 const expandIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M3 3l7 7M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7M15 21h6v-6M21 21l-7-7"/></svg>';
+const aboutNavigation = '<div class="nav-dropdown"><a href="/om-oss">Om oss</a><div class="nav-submenu"><a href="/var-vardegrund">Vår värdegrund</a></div></div>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
-    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a></div>
+    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
@@ -97,7 +98,7 @@ const homeMarkup = `
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a>
+      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="/information">Information</a>${aboutNavigation}
     </nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>
@@ -185,7 +186,7 @@ const detailHeader = `
       <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a></nav>
+    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/information">Information</a>${aboutNavigation}</nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>`;
 
@@ -221,6 +222,24 @@ const aboutPage = `${detailHeader}
       <div><p>Därför vill vi skapa mer än välorganiserade matcher. Vi vill skapa fotbollsupplevelser som barnen tar med sig – både som spelare och som människor.</p><p>För oss är en cup mer än matcher och resultat. <strong>Den är en del av spelarens fotbollsutbildning, men också en plats för glädje, gemenskap och minnen.</strong></p></div>
     </section>
     <section class="about-manifesto"><p>Olika format. Olika utmaningar. Nya erfarenheter.</p><h2>Super Cuper</h2><strong>Europas och världens fotbollsutbildning till Sverige.</strong><span>Fotboll tillsammans.</span></section>
+  </main>
+  ${footerMarkup('/')}`;
+
+const values = [
+  ['01', 'Spelarutveckling i centrum', '<p>Varje cup och matchcamp vi arrangerar ska ha ett tydligt sportsligt syfte. Vi ser matchen som en viktig del av spelarens fotbollsutbildning – en miljö där spelaren får fatta beslut, lösa problem, utmanas och lära sig genom spelet.</p><p>Genom olika spelformer, matchformat och cupformat vill vi ge spelarna variation och nya erfarenheter. <strong>Utveckling handlar inte bara om att bli bättre på det man redan kan, utan också om att möta det man ännu inte behärskar.</strong></p>'],
+  ['02', 'Glädje, gemenskap och minnen', '<p>Barnfotboll ska vara något man längtar till.</p><p>Vi vill skapa evenemang fyllda av energi, glädje och positiva upplevelser – både på och utanför planen. Matcher är en viktig del av dagen, men det är också lagkamraterna, skratten, resorna, nya bekantskaper och känslan av att uppleva något tillsammans.</p><p><strong>De bästa fotbollsminnena skapas sällan av enbart ett resultat. De skapas tillsammans med andra.</strong></p>'],
+  ['03', 'Respekt och Fair Play', '<p>Vi tävlar för att vinna våra matcher, men aldrig på bekostnad av respekt.</p><p>Spelare, tränare, domare, motståndare, funktionärer och publik är alla en del av samma fotbollsmiljö. Vi förväntar oss ett gott uppträdande både på och utanför planen och accepterar inte kränkningar, hot eller osportsligt beteende.</p><p><strong>Vi kan vara motståndare under matchen och samtidigt visa respekt före, under och efter den.</strong></p>'],
+  ['04', 'Alla ska känna sig välkomna', '<p>Fotboll tillhör alla.</p><p>Hos Super Cuper ska människor bemötas med respekt oavsett kön, bakgrund, etnicitet, religion, funktionsvariation, sexuell läggning eller andra individuella förutsättningar.</p><p>Vi vill skapa en miljö där barn vågar uttrycka sig, vågar försöka och vågar misslyckas. <strong>Ingen spelare ska behöva förändra vem den är för att känna sig välkommen på en fotbollsplan.</strong></p>'],
+  ['05', 'Trygga miljöer för barn', '<p>Barnens trygghet kommer alltid först.</p><p>Våra arrangemang ska präglas av tydlighet, ansvar och omtanke. Vi arbetar för att skapa både en fysiskt säker miljö och en social miljö där barn känner sig trygga med spelare, ledare, domare och vuxna runt omkring dem.</p><p>Fotboll ska kunna vara utmanande. <strong>Miljön runt barnet ska vara trygg.</strong></p>'],
+  ['06', 'Nyfikenhet och nya perspektiv', '<p>Fotboll spelas över hela världen – och den behöver inte se likadan ut överallt.</p><p>Vi vill uppmuntra både spelare och tränare att vara nyfikna. Genom inspiration från olika fotbollskulturer, spelformer och utbildningsmiljöer vill vi öppna dörren för nya idéer och nya sätt att se på spelarutveckling.</p><p>Vi tror på att <strong>prova, uppleva, lära och utvecklas</strong> – inte på att det bara finns ett sätt att spela eller utbilda.</p>'],
+  ['07', 'Fotboll tillsammans', '<p>Det här sammanfattar egentligen allt vi vill stå för.</p><p>Fotboll skapas av människor. Av barnen som spelar, tränarna som utbildar, domarna som leder matcherna, föräldrarna som stöttar och föreningarna som varje dag skapar möjligheter för barn att spela.</p><p>Vi vill bidra till en fotboll där utveckling och ambition kan gå hand i hand med glädje, respekt och gemenskap.</p><p><strong>Olika format. Olika utmaningar. Nya erfarenheter.<br />Samma kärlek till spelet.</strong></p>'],
+];
+const valuePage = `${detailHeader}
+  <main id="top" class="values-page">
+    <section class="values-hero"><p>Super Cuper · Vår kompass</p><h1>Vår<br />värdegrund</h1><div><span>Utveckla</span><span>Förena</span><span>Skapa glädje</span></div></section>
+    <section class="values-intro"><p class="section-label">Det vi står för</p><h2>Fotboll ska utveckla,<br />förena och skapa glädje.</h2><div><p>Super Cuper handlar om mer än matcher, resultat och minuter på en fotbollsplan. Vi vill skapa miljöer där barn får utvecklas som fotbollsspelare, möta nya människor, uppleva nya sätt att spela fotboll och skapa minnen tillsammans.</p><p>Vår värdegrund utgår från en enkel tanke: <strong>fotboll ska utveckla, förena och skapa glädje.</strong></p></div></section>
+    <section class="values-list">${values.map(([number, title, copy]) => `<article class="value-principle"><span>${number}</span><h2>${title}</h2><div>${copy}</div></article>`).join('')}</section>
+    <section class="values-closing"><p>Vår gemensamma riktning</p><h2>Super Cuper</h2><strong>Fotboll tillsammans.</strong></section>
   </main>
   ${footerMarkup('/')}`;
 
@@ -301,7 +320,8 @@ const activeCup = cups.find((cup) => cup.slug === slug);
 const isPriorityPage = /^\/fortur\/?$/.test(window.location.pathname);
 const isInformationPage = /^\/information\/?$/.test(window.location.pathname);
 const isAboutPage = /^\/om-oss\/?$/.test(window.location.pathname);
-document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+const isValuesPage = /^\/var-vardegrund\/?$/.test(window.location.pathname);
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
@@ -317,6 +337,10 @@ if (isInformationPage) {
 if (isAboutPage) {
   document.title = 'Om oss — Super Cuper';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'Super Cuper tar inspiration från Europas och världens fotbollsutbildning till Sverige genom varierade, utvecklande cuper och matchcamper.');
+}
+if (isValuesPage) {
+  document.title = 'Vår värdegrund — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Super Cupers värdegrund för spelarutveckling, glädje, gemenskap, respekt, trygghet och fotboll tillsammans.');
 }
 
 const menuButton = document.querySelector('.menu-button');
