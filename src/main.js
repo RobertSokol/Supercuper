@@ -353,7 +353,12 @@ menuButton?.addEventListener('click', () => {
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
   nav.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
+  link.blur();
 }));
+document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+  dropdown.querySelector('.nav-submenu a')?.addEventListener('click', () => dropdown.classList.add('is-dismissed'));
+  dropdown.addEventListener('pointerleave', () => dropdown.classList.remove('is-dismissed'));
+});
 
 const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
