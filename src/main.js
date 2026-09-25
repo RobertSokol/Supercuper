@@ -213,7 +213,7 @@ const aboutPage = `${detailHeader}
       </article>
     </section>
     <section class="about-community">
-      <div class="about-community-image"><img src="/images/team-huddle.jpg" alt="Unga fotbollsspelare samlade som ett lag" loading="lazy" /></div>
+      <div class="about-community-image"><img src="/images/team-huddle-supercuper.webp" alt="Unga fotbollsspelare samlade som ett lag" loading="lazy" /></div>
       <div class="about-community-copy"><p class="section-label light">Större än spelet</p><h2>Fotboll är<br />människor.</h2><p>Men fotboll är större än själva spelet.</p><p>Det är glädjen när bollen rullar. Lagkamraterna bredvid dig. Motståndarna du möter. Tränarna, föräldrarna och människorna runt planen. Det är resorna, skratten, nervositeten inför avspark och matcherna man fortfarande pratar om långt senare.</p><strong>Det är gemenskap. Det är minnen.<br />Det är människor. Det är fotboll tillsammans.</strong></div>
     </section>
     <section class="about-purpose">
