@@ -336,7 +336,7 @@ const superFivePage = (cup) => `${detailHeader}
       <div class="cup-intro-copy">
         <p class="section-label">Inbjudningsturnering · B2019 · 5v5</p>
         <h2>Sex matcher.<br />Två intensiva dagar.</h2>
-        <p class="lead">Super Five är en inbjudningsturnering för pojkar födda 2019, riktad till lag på medel- och svår nivå.</p>
+        <p class="lead">Super Five är en inbjudningsturnering för pojkar födda 2019, riktad till lag på svår nivå.</p>
         <p>Den första gruppspelsomgången spelas under dag ett. Dag två fortsätter turneringen med en andra gruppspelsomgång. Varje lag spelar tre matcher per dag.</p>
         <p>Alla lag garanteras totalt sex matcher om 2 × 15 minuter – sammanlagt 180 matchminuter under helgen.</p>
         <p>Samtliga lag har tillgång till omklädningsrum. Kiosk och grill finns på plats. Alla lag tilldelas medaljer och matchens spelare utses efter varje match.</p>
@@ -344,7 +344,7 @@ const superFivePage = (cup) => `${detailHeader}
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
-          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Medel · svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 2 × 15 min</dd></div>
+          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 2 × 15 min</dd></div>
         </dl>
       </aside>
     </section>
