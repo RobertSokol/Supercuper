@@ -115,6 +115,12 @@
 .priority-form>button{display:flex;align-items:center;justify-content:space-between;border:0;background:var(--orange);color:var(--forest-2);padding:18px 20px;font-weight:800;cursor:pointer}
 .priority-form>button svg{width:20px;fill:none;stroke:currentColor;stroke-width:1.7}
 .priority-form>button:hover{background:#ff6414}
+.priority-form>button:disabled{cursor:wait;opacity:.65}
+.form-honey{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
+.priority-form-status{display:none;grid-column:1/-1;margin:-8px 0 0;padding:13px 15px;font-size:13px;line-height:1.5}
+.priority-form-status.is-success,.priority-form-status.is-error{display:block}
+.priority-form-status.is-success{background:#eaf5ee;color:#175c31}
+.priority-form-status.is-error{background:#fff0eb;color:#8d2e12}
 .priority-privacy{margin:-14px 0 0;color:#8290a0;font-size:10px;text-align:center}
 @media(max-width:900px){
   .priority-page-intro{min-height:660px;padding:145px 22px 70px;grid-template-columns:1fr;gap:48px;align-content:end}
@@ -325,6 +331,11 @@
 .generic-hero.artwork-hero>div{position:absolute;z-index:1;left:max(40px,calc((100% - 1280px)/2));bottom:60px;padding:18px 22px;background:rgba(0,31,70,.72);backdrop-filter:blur(14px);border-radius:14px}
 .generic-hero.artwork-hero h1{font-size:clamp(42px,6vw,84px);margin-top:10px}
 .generic-hero.artwork-hero>div{display:none}
+.cup-interest{display:inline-flex;align-items:center;gap:28px;margin-top:30px;border-radius:999px;background:var(--orange);color:var(--forest-2);padding:15px 21px;font-size:12px;font-weight:800;letter-spacing:.02em;text-transform:none;transition:background .2s,transform .2s}
+.cup-interest:hover{background:#ff6414;transform:translateY(-2px)}
+.cup-interest svg{width:19px;fill:none;stroke:currentColor;stroke-width:1.8}
+.cup-interest-bar{display:flex;justify-content:center;padding:22px;background:var(--forest-2)}
+.cup-interest-bar .cup-interest{margin:0}
 @media(max-width:900px){
   .club-logo-card img{height:132px}
   .generic-hero.artwork-hero{height:100vw;min-height:0}

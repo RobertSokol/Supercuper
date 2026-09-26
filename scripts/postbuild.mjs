@@ -15,7 +15,7 @@ await copyFile('dist/index.html', 'dist/404.html');
 await mkdir(join('dist', 'fortur'), { recursive: true });
 await copyFile('dist/index.html', join('dist', 'fortur', 'index.html'));
 
-for (const route of ['information', 'om-oss']) {
+for (const route of ['information', 'om-oss', 'var-vardegrund', 'tavlingsbestammelser']) {
   const directory = join('dist', route);
   await mkdir(directory, { recursive: true });
   await copyFile('dist/index.html', join(directory, 'index.html'));
