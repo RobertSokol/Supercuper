@@ -336,6 +336,18 @@
 .cup-interest svg{width:19px;fill:none;stroke:currentColor;stroke-width:1.8}
 .cup-interest-bar{display:flex;justify-content:center;padding:22px;background:var(--forest-2)}
 .cup-interest-bar .cup-interest{margin:0}
+.single-detail-logo{display:flex;justify-content:center;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.single-detail-logo img{width:150px;height:150px;object-fit:contain}
+.super-five-intro{align-items:start}
+.super-five-format{background:var(--forest-2);color:white;padding:105px 0 115px}
+.super-five-format h2{margin:18px 0 58px;font:800 clamp(54px,7vw,98px)/.88 'Manrope',sans-serif;letter-spacing:-.065em;text-transform:uppercase}
+.super-five-format .wrap>div{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.22)}
+.super-five-format article{padding:34px 42px 10px 0}
+.super-five-format article+article{border-left:1px solid rgba(255,255,255,.22);padding-left:42px}
+.super-five-format article span{color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.super-five-format article h3{margin:16px 0 14px;font:800 clamp(25px,3vw,38px)/1 'Manrope',sans-serif;letter-spacing:-.045em;text-transform:uppercase}
+.super-five-format article p{max-width:440px;margin:0;color:rgba(255,255,255,.72);font-size:15px;line-height:1.65}
+@media(max-width:900px){.super-five-format{padding:76px 0 84px}.super-five-format .wrap>div{grid-template-columns:1fr}.super-five-format article{padding:28px 0}.super-five-format article+article{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding-left:0}.single-detail-logo img{width:125px;height:125px}}
 @media(max-width:900px){
   .club-logo-card img{height:132px}
   .generic-hero.artwork-hero{height:100vw;min-height:0}

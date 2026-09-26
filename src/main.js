@@ -325,6 +325,37 @@ const blixtPage = (cup) => `${detailHeader}
     </section>
   </main>${detailFooter}`;
 
+const superFivePage = (cup) => `${detailHeader}
+  <main id="top" class="cup-page generic-cup super-five-page">
+    <section class="generic-hero super-five-hero">
+      <div><p>24–25 oktober · Plats meddelas snart</p><h1>Super<br />Five</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>
+      <img src="${cup.logo}" alt="Super Five logotyp" />
+    </section>
+    <nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>Super Five</strong></nav>
+    <section class="cup-intro wrap super-five-intro">
+      <div class="cup-intro-copy">
+        <p class="section-label">Inbjudningsturnering · B2019 · 5v5</p>
+        <h2>Sex matcher.<br />Två intensiva dagar.</h2>
+        <p class="lead">Super Five är en inbjudningsturnering för pojkar födda 2019, riktad till lag på medel- och svår nivå.</p>
+        <p>Den första gruppspelsomgången spelas under dag ett. Dag två fortsätter turneringen med en andra gruppspelsomgång. Varje lag spelar tre matcher per dag.</p>
+        <p>Alla lag garanteras totalt sex matcher om 2 × 15 minuter – sammanlagt 180 matchminuter under helgen.</p>
+        <p>Samtliga lag har tillgång till omklädningsrum. Kiosk och grill finns på plats. Alla lag tilldelas medaljer och matchens spelare utses efter varje match.</p>
+      </div>
+      <aside class="cup-facts">
+        <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
+        <dl>
+          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Medel · svår</dd></div><div><dt>Matcher</dt><dd>6 × 2 × 15 minuter</dd></div>
+        </dl>
+      </aside>
+    </section>
+    <section class="super-five-format">
+      <div class="wrap">
+        <p class="section-label light">Turneringsformat</p><h2>Tre matcher.<br />Varje dag.</h2>
+        <div><article><span>Dag 01</span><h3>Första gruppspelet</h3><p>Tre matcher som sätter nivån och tempot för helgen.</p></article><article><span>Dag 02</span><h3>Andra gruppspelet</h3><p>Tre nya matcher och fortsatt utveckling mot jämnt motstånd.</p></article></div>
+      </div>
+    </section>
+  </main>${detailFooter}`;
+
 const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div><img src="${cup.logo || cup.image}" alt="${cup.title}" /></section>${cup.artwork ? `<div class="cup-interest-bar"><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>` : ''}<nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><p class="section-label">Kommande cup</p><h2>Mer information<br />kommer snart.</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl></section></main>${detailFooter}`;
 
 const slug = decodeURIComponent(window.location.pathname).match(/^\/cuper\/([^/]+)\/?$/)?.[1];
@@ -334,7 +365,7 @@ const isInformationPage = /^\/information\/?$/.test(window.location.pathname);
 const isAboutPage = /^\/om-oss\/?$/.test(window.location.pathname);
 const isValuesPage = /^\/var-vardegrund\/?$/.test(window.location.pathname);
 const isCompetitionRulesPage = /^\/tavlingsbestammelser\/?$/.test(window.location.pathname);
-document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : activeCup.slug === 'super-five' ? superFivePage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
