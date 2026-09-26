@@ -1,4 +1,5 @@
 import './style.css';
+import { competitionRulesHtml } from './competitionRules.js';
 
 const cups = [
   { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2015', format: '5v5 · 7v7', note: '', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
@@ -19,11 +20,12 @@ const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3
 // Font Awesome Free "futbol" icon, CC BY 4.0: https://fontawesome.com/license/free
 const footballIcon = '<svg class="faq-ball" viewBox="0 0 512 512" aria-hidden="true"><path d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z"/></svg>';
 const expandIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M3 3l7 7M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7M15 21h6v-6M21 21l-7-7"/></svg>';
+const informationNavigation = '<div class="nav-dropdown"><a href="/information">Information</a><div class="nav-submenu"><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a></div></div>';
 const aboutNavigation = '<div class="nav-dropdown"><a href="/om-oss">Om oss</a><div class="nav-submenu"><a href="/var-vardegrund">Vår värdegrund</a></div></div>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
-    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/information">Information</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
+    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/information">Information</a><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
     <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
@@ -98,7 +100,7 @@ const homeMarkup = `
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a href="/information">Information</a>${aboutNavigation}
+      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}
     </nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>
@@ -186,7 +188,7 @@ const detailHeader = `
       <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a href="/information">Information</a>${aboutNavigation}</nav>
+    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}</nav>
     <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
   </header>`;
 
@@ -240,6 +242,16 @@ const valuePage = `${detailHeader}
     <section class="values-intro"><p class="section-label">Det vi står för</p><h2>Fotboll ska utveckla,<br />förena och skapa glädje.</h2><div><p>Super Cuper handlar om mer än matcher, resultat och minuter på en fotbollsplan. Vi vill skapa miljöer där barn får utvecklas som fotbollsspelare, möta nya människor, uppleva nya sätt att spela fotboll och skapa minnen tillsammans.</p><p>Vår värdegrund utgår från en enkel tanke: <strong>fotboll ska utveckla, förena och skapa glädje.</strong></p></div></section>
     <section class="values-list">${values.map(([number, title, copy]) => `<article class="value-principle"><span>${number}</span><h2>${title}</h2><div>${copy}</div></article>`).join('')}</section>
     <section class="values-closing"><p>Vår gemensamma riktning</p><h2>Super Cuper</h2><strong>Fotboll tillsammans.</strong></section>
+  </main>
+  ${footerMarkup('/')}`;
+
+const competitionRulesPage = `${detailHeader}
+  <main id="top" class="rules-page">
+    <section class="rules-hero"><p>Super Cuper · Regelverk</p><h1>Tävlings&shy;bestämmelser</h1><div><span>Gäller samtliga Super Cuper-turneringar</span><p>Bestämmelserna kompletterar Svenska Fotbollförbundets, distriktsförbundets och respektive turnerings regelverk.</p></div></section>
+    <section class="rules-intro"><p class="section-label">Tydliga förutsättningar</p><h2>För trygga, rättvisa och utvecklande matcher.</h2><p>Här finns de gemensamma tävlingsbestämmelser som gäller för Super Cupers turneringar. Turneringsspecifika villkor, matchtider och spelformer publiceras alltid tillsammans med respektive cup.</p></section>
+    <nav class="rules-index" aria-label="Innehållsförteckning"><p>Innehåll</p><div>${Array.from({ length: 25 }, (_, index) => `<a href="#regel-${index + 1}">${String(index + 1).padStart(2, '0')}</a>`).join('')}</div></nav>
+    <div class="rules-content">${competitionRulesHtml}</div>
+    <section class="rules-closing"><p>Super Cuper</p><h2>Vi tävlar mot varandra.</h2><strong>Men vi skapar matchen tillsammans.</strong></section>
   </main>
   ${footerMarkup('/')}`;
 
@@ -321,7 +333,8 @@ const isPriorityPage = /^\/fortur\/?$/.test(window.location.pathname);
 const isInformationPage = /^\/information\/?$/.test(window.location.pathname);
 const isAboutPage = /^\/om-oss\/?$/.test(window.location.pathname);
 const isValuesPage = /^\/var-vardegrund\/?$/.test(window.location.pathname);
-document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+const isCompetitionRulesPage = /^\/tavlingsbestammelser\/?$/.test(window.location.pathname);
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
@@ -341,6 +354,10 @@ if (isAboutPage) {
 if (isValuesPage) {
   document.title = 'Vår värdegrund — Super Cuper';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'Super Cupers värdegrund för spelarutveckling, glädje, gemenskap, respekt, trygghet och fotboll tillsammans.');
+}
+if (isCompetitionRulesPage) {
+  document.title = 'Tävlingsbestämmelser — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Tävlingsbestämmelser för Super Cupers fotbollsturneringar, inklusive spelformer, speltid, behörighet, Fair Play och trygg matchmiljö.');
 }
 
 const menuButton = document.querySelector('.menu-button');
