@@ -449,10 +449,14 @@ body:has(.schedule-modal[open]){overflow:hidden}
 .nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu{opacity:1;visibility:visible;transform:none}
 .nav-dropdown.is-dismissed .nav-submenu{opacity:0!important;visibility:hidden!important;pointer-events:none;transform:translateY(9px)!important}
 @media(max-width:900px){
-  .nav-dropdown{display:block;align-self:auto}.nav-dropdown>a{display:block}
-  .nav-dropdown>a:after{display:none}
-  .nav-submenu{position:static;width:auto;margin-top:10px;padding:0 0 0 18px;background:transparent;border:0;border-left:2px solid var(--orange);box-shadow:none;opacity:1;visibility:visible;transform:none}
-  .nav-submenu:before{display:none}.nav-submenu a{padding:4px 0;color:#c9d5e2;font-size:12px}.nav-submenu a:after{display:none}
+  .nav-dropdown{display:block;align-self:auto;border-bottom:1px solid rgba(255,255,255,.14)}
+  .nav-dropdown>a{display:flex;align-items:center;justify-content:space-between;padding:16px 0;font:700 28px/1.1 'Manrope',sans-serif;letter-spacing:-.035em;text-transform:none}
+  .nav-dropdown>a:after{content:'';display:block;width:9px;height:9px;margin-right:4px;border-right:1.5px solid rgba(255,255,255,.72);border-bottom:1.5px solid rgba(255,255,255,.72);transform:rotate(45deg) translate(-2px,-2px);transition:transform .25s,border-color .2s}
+  .nav-dropdown.is-open>a{font-weight:700}.nav-dropdown.is-open>a:after{border-color:var(--orange);transform:rotate(-135deg) translate(-1px,-1px)}
+  .nav-submenu,.nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu{position:static;width:auto;max-height:0;margin:0;padding:0;background:transparent;border:0;box-shadow:none;opacity:0;visibility:hidden;overflow:hidden;transform:none!important;transition:max-height .3s ease,opacity .2s,padding .3s,visibility .3s}
+  .nav-dropdown.is-open .nav-submenu{max-height:90px;padding:0 0 16px;opacity:1;visibility:visible;pointer-events:auto}
+  .nav-submenu:before{display:none}.nav-submenu a{width:100%;padding:4px 0 4px 20px;color:#d7e0ea;font:600 15px/1.4 'Manrope',sans-serif;border-left:2px solid var(--orange)}.nav-submenu a:after{display:none}
+  .nav-dropdown.is-dismissed .nav-submenu{max-height:0!important;padding:0!important}
 }
 
 /* Values policy */
