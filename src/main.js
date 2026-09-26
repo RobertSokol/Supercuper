@@ -344,7 +344,7 @@ const superFivePage = (cup) => `${detailHeader}
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
-          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Medel · svår</dd></div><div><dt>Matcher</dt><dd>6 × 2 × 15 minuter</dd></div>
+          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Medel · svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 2 × 15 min</dd></div>
         </dl>
       </aside>
     </section>
