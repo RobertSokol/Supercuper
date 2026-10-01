@@ -2,31 +2,28 @@ import './style.css';
 import { competitionRulesHtml } from './competitionRules.js';
 
 const cups = [
-  { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
-  { slug: 'super-five', title: 'Super Five', place: 'TBD', date: '24–25/10', ages: 'B2019', format: '5v5', logo: '/logos/super-five.jpg' },
+  { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober 2026', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
+  { slug: 'super-five', title: 'Super Five', place: 'TBD', date: '24–25 oktober 2026', ages: 'B2019', format: '5v5', logo: '/logos/super-five.jpg' },
   { slug: 'super-six', title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', logo: '/logos/super-six.jpg' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Meddelas snart', date: 'TBD', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg' },
-  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Meddelas snart', logo: '/logos/solna-masterskapen-2027.png', artwork: true },
+  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Meddelas snart', logo: '/logos/solna-masterskapen-2027.webp', cardLogo: '/logos/solna-masterskapen-2027-card.webp', artwork: true },
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
 const downArrow = '<svg class="down-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/></svg>';
-const searchIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>';
-const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5h18v12H3zM3.5 7l8.5 7 8.5-7"/></svg>';
-const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="social-dot" cx="17.4" cy="6.7" r="1"/></svg>';
-const youtubeIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.1c-.2-1.4-1-2.3-2.4-2.5C16.7 5.3 14.5 5.2 12 5.2s-4.7.1-6.6.4C4 5.8 3.2 6.7 3 8.1c-.2 1.2-.3 2.5-.3 3.9s.1 2.7.3 3.9c.2 1.4 1 2.3 2.4 2.5 1.9.3 4.1.4 6.6.4s4.7-.1 6.6-.4c1.4-.2 2.2-1.1 2.4-2.5.2-1.2.3-2.5.3-3.9s-.1-2.7-.3-3.9Z"/><path d="m10 9 5 3-5 3Z"/></svg>';
-const tiktokIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.2 3v11.7a4.4 4.4 0 1 1-3.6-4.3v3.4a1.5 1.5 0 1 0 .6 1.2V3h3c.4 2.2 1.7 3.6 4 4v3.1a8.2 8.2 0 0 1-4-1.5"/></svg>';
+const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14a2 2 0 0 1 2 2v13H3v-13a2 2 0 0 1 2-2Z"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>';
+const interestIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-4.5 7-11a4 4 0 0 0-7-2.7A4 4 0 0 0 5 10c0 6.5 7 11 7 11Z"/></svg>';
 // Font Awesome Free "futbol" icon, CC BY 4.0: https://fontawesome.com/license/free
 const footballIcon = '<svg class="faq-ball" viewBox="0 0 512 512" aria-hidden="true"><path d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z"/></svg>';
 const expandIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3H3v6M3 3l7 7M15 3h6v6M21 3l-7 7M9 21H3v-6M3 21l7-7M15 21h6v-6M21 21l-7-7"/></svg>';
-const informationNavigation = '<div class="nav-dropdown"><a href="#" data-menu-only aria-haspopup="true" aria-expanded="false">Information</a><div class="nav-submenu"><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a></div></div>';
-const aboutNavigation = '<div class="nav-dropdown"><a href="/om-oss" aria-expanded="false">Om oss</a><div class="nav-submenu"><a href="/var-vardegrund">Vår värdegrund</a></div></div>';
+const informationNavigation = '<div class="nav-dropdown"><button class="nav-trigger" type="button" data-menu-only aria-haspopup="true" aria-expanded="false">Information</button><div class="nav-submenu"><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a></div></div>';
+const aboutNavigation = '<div class="nav-dropdown"><a class="nav-trigger" href="/om-oss" aria-expanded="false">Om oss</a><div class="nav-submenu"><a href="/var-vardegrund">Vår värdegrund</a></div></div>';
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
     <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
-    <div class="footer-social"><h2>Social</h2><div class="social-icons" aria-label="Super Cuper i sociala medier"><span aria-label="Instagram">${instagramIcon}</span><span aria-label="YouTube">${youtubeIcon}</span><span aria-label="TikTok">${tiktokIcon}</span></div><a class="footer-policy" href="mailto:hej@supercuper.se?subject=Villkor%20och%20policy">Villkor och policy</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
+    <div class="footer-social"><h2>Följ Super Cuper</h2><p class="social-coming">Våra sociala kanaler publiceras snart.</p><a class="footer-policy" href="/integritet">Integritet</a><a class="footer-policy" href="/villkor">Villkor</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
 const priorityMarkup = () => `<section class="priority-invite" aria-labelledby="priority-title">
@@ -75,7 +72,7 @@ const clubLogoCards = blixtClubs.map(([name, file]) => `<div class="club-logo-ca
 const cupCards = cups.map((cup) => `
   <a class="cup-card" href="/cuper/${cup.slug}" aria-label="Läs mer om ${cup.title}">
     <div class="cup-visual ${cup.logos ? 'co-brand' : cup.artwork ? 'cup-artwork' : cup.logo ? 'cup-logo' : ''}">
-      ${cup.logos ? cup.logos.map((logo, index) => `<img src="${logo}" alt="${index === 0 ? 'Super Cuper logotyp' : 'AS Solna FF logotyp'}" loading="lazy" />`).join('<i aria-hidden="true">×</i>') : `<img src="${cup.logo || cup.image}" alt="${cup.logo ? `${cup.title} logotyp` : `Fotboll under ${cup.title}`}" loading="lazy" />`}
+      ${cup.logos ? cup.logos.map((logo, index) => `<img src="${logo}" alt="${index === 0 ? 'Super Cuper logotyp' : 'AS Solna FF logotyp'}" loading="lazy" />`).join('<i aria-hidden="true">×</i>') : `<img src="${cup.cardLogo || cup.logo || cup.image}" alt="${cup.logo ? `${cup.title} logotyp` : `Fotboll under ${cup.title}`}" loading="lazy" />`}
     </div>
     <div class="cup-details">
       <h3>${cup.title}</h3>
@@ -91,17 +88,18 @@ const cupCards = cups.map((cup) => `
   </a>`).join('');
 
 const homeMarkup = `
+  <a class="skip-link" href="#top">Hoppa till innehållet</a>
   <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header">
     <div class="mobile-tools mobile-tools-left">
       <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
-      <a href="#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
+      <a href="#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a>
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny">
       <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}
     </nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${interestIcon}</a></div>
   </header>
   <main id="top">
     <section class="hero">
@@ -117,7 +115,7 @@ const homeMarkup = `
     </section>
     <section id="arrangemang" class="cups-section">
       <div class="cups-heading">
-        <div><p class="section-label">Kalender</p><h2>Kommande cuper/matchcamper</h2></div>
+        <div><p class="section-label">Kalender</p><h2>Kommande cuper<br /><span>&amp; matchcamper</span></h2></div>
         <div class="cup-controls" aria-label="Bläddra bland cuper"><button type="button" data-direction="-1" aria-label="Föregående cuper">←</button><button type="button" data-direction="1" aria-label="Nästa cuper">→</button></div>
       </div>
       <div class="cups-rail" tabindex="0" aria-label="Planerade cuper">${cupCards}</div>
@@ -180,15 +178,16 @@ const fivePhaseTwoSilver = [
 const scheduleTable = (title, rows) => `<div class="schedule-card"><h4>${title}</h4><table><thead><tr><th>Tid</th><th>Match</th></tr></thead><tbody>${rows.map(([time, home, away]) => `<tr><td>${time}</td><td><span>${home}</span><i>–</i><span>${away}</span></td></tr>`).join('')}</tbody></table></div>`;
 
 const detailHeader = `
+  <a class="skip-link" href="#top">Hoppa till innehållet</a>
   <div class="topline">Kvalitet · utveckling · fotboll tillsammans</div>
   <header class="header detail-nav">
     <div class="mobile-tools mobile-tools-left">
       <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
-      <a href="/#arrangemang" aria-label="Se kommande cuper">${searchIcon}</a>
+      <a href="/#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}</nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${interestIcon}</a></div>
   </header>`;
 
 const detailFooter = `${faqMarkup}${priorityMarkup()}${footerMarkup('/')}`;
@@ -244,12 +243,34 @@ const valuePage = `${detailHeader}
   </main>
   ${footerMarkup('/')}`;
 
+const policyPage = (eyebrow, title, intro, sections) => `${detailHeader}
+  <main id="top" class="policy-page">
+    <section class="policy-hero"><p>${eyebrow}</p><h1>${title}</h1><div><span>Senast uppdaterad 1 oktober 2026</span><p>${intro}</p></div></section>
+    <section class="policy-content">${sections.map(([heading, body]) => `<article><h2>${heading}</h2>${body}</article>`).join('')}</section>
+  </main>
+  ${footerMarkup('/')}`;
+
+const privacyPage = policyPage('Din information', 'Integritet', 'Här beskriver vi vilka uppgifter Super Cuper tar emot, varför vi behöver dem och vilka val du har.', [
+  ['Vilka uppgifter vi samlar in', '<p>När en vuxen kontaktperson skickar en intresseanmälan tar vi emot namn, e-postadress, telefonnummer, klubb, lag, åldersklass och eventuellt meddelande. Vi ber inte om personuppgifter om barn i formuläret.</p>'],
+  ['Varför uppgifterna används', '<p>Uppgifterna används för att besvara förfrågningar, bedöma intresse för våra arrangemang och skicka relevant information om cuper och matchcamper som kontaktpersonen har bett om.</p>'],
+  ['Lagring och delning', '<p>Uppgifterna används av Super Cuper och delas inte för marknadsföring av andra aktörer. Formulärdata skickas via vår formulärtjänst till vår mottagande e-post. Vi sparar uppgifterna så länge de behövs för kontakten eller tills kontaktpersonen ber oss att radera dem.</p>'],
+  ['Dina val', '<p>Du kan be om information om dina uppgifter, rättelse eller radering genom att kontakta <a href="mailto:hej@supercuper.se">hej@supercuper.se</a>. Du kan också när som helst be oss sluta skicka nyheter och inbjudningar.</p>'],
+]);
+
+const termsPage = policyPage('Tydliga villkor', 'Villkor', 'Dessa grundvillkor förklarar vad en intresseanmälan innebär. Särskilda cupvillkor framgår alltid innan en plats blir bindande.', [
+  ['Intresseanmälan', '<p>En intresseanmälan är kostnadsfri och innebär inte att laget automatiskt har fått en plats. Platsen är bekräftad först när Super Cuper har skickat en skriftlig bekräftelse eller faktura och anmälningsavgiften har betalats.</p>'],
+  ['Urval och platsfördelning', '<p>Super Cuper kan göra ett urval för att skapa geografisk spridning samt jämna, konkurrenskraftiga och utvecklande matcher. En inskickad intresseanmälan garanterar därför inte deltagande.</p>'],
+  ['Betalning och ändringar', '<p>Betalningsvillkor, eventuella deltagaravgifter och regler för ändringar anges i bekräftelsen för respektive arrangemang. Tävlingsreglerna finns på sidan <a href="/tavlingsbestammelser">Tävlingsbestämmelser</a>.</p>'],
+  ['Kontakt', '<p>Frågor om en anmälan eller ett arrangemang skickas till <a href="mailto:hej@supercuper.se">hej@supercuper.se</a>.</p>'],
+]);
+
 const competitionRulesPage = `${detailHeader}
   <main id="top" class="rules-page">
     <section class="rules-hero"><p>Super Cuper · Regelverk</p><h1>Tävlings&shy;bestämmelser</h1><div><span>Gäller samtliga Super Cuper-turneringar</span><p>Bestämmelserna kompletterar Svenska Fotbollförbundets, distriktsförbundets och respektive turnerings regelverk.</p></div></section>
     <section class="rules-intro"><p class="section-label">Tydliga förutsättningar</p><h2>För trygga, rättvisa och utvecklande matcher.</h2><p>Här finns de gemensamma tävlingsbestämmelser som gäller för Super Cupers turneringar. Turneringsspecifika villkor, matchtider och spelformer publiceras alltid tillsammans med respektive cup.</p></section>
-    <nav class="rules-index" aria-label="Innehållsförteckning"><p>Innehåll</p><div>${Array.from({ length: 25 }, (_, index) => `<a href="#regel-${index + 1}">${String(index + 1).padStart(2, '0')}</a>`).join('')}</div></nav>
+    <nav class="rules-index" aria-label="Innehållsförteckning"><p>Hoppa till</p><div><a href="#regel-1">Grundregler <small>01–06</small></a><a href="#regel-7">Spelare <small>07–13</small></a><a href="#regel-14">Matchmiljö <small>14–18</small></a><a href="#regel-19">Tävlingsärenden <small>19–25</small></a></div></nav>
     <div class="rules-content">${competitionRulesHtml}</div>
+    <div class="rules-version"><span>Version 1.0</span><span>Senast uppdaterad 1 oktober 2026</span></div>
     <section class="rules-closing"><p>Super Cuper</p><h2>Vi tävlar mot varandra.</h2><strong>Men vi skapar matchen tillsammans.</strong></section>
   </main>
   ${footerMarkup('/')}`;
@@ -267,7 +288,7 @@ const priorityPage = `${detailHeader}
         <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" required placeholder="För- och efternamn" /></div>
         <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" required placeholder="namn@klubb.se" /></div>
         <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" required placeholder="070 000 00 00" /></div>
-        <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" required placeholder="Klubbens namn" /></div>
+        <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" autocomplete="organization" required placeholder="Klubbens namn" /></div>
         <div class="priority-field"><label for="priority-team">Lag</label><input id="priority-team" name="Lag" required placeholder="Exempel: P2015 Svår" /></div>
         <div class="priority-field"><label for="priority-age">Åldersklass</label><select id="priority-age" name="Åldersklass" required><option value="" selected disabled>Välj åldersklass</option><option>B2019</option><option>B2018</option><option>B2017</option><option>B2016</option><option>B2015</option><option>B2014</option><option>G2019</option><option>G2018</option><option>G2017</option><option>G2016</option><option>G2015</option><option>Annan</option></select></div>
         <div class="priority-field priority-field-wide"><label for="priority-message">Något vi bör veta? <span>Valfritt</span></label><textarea id="priority-message" name="Meddelande" rows="3" placeholder="Nivå, önskad spelform eller annan relevant information"></textarea></div>
@@ -285,19 +306,19 @@ const blixtPage = (cup) => `${detailHeader}
     <section class="cup-page-hero">
       <img src="/images/rastasjon-ip.webp" alt="Fotbollsplanerna på Råstasjöns IP i Solna" />
       <div class="cup-page-overlay"></div>
-      <div class="cup-page-title"><p>18 oktober · Råstasjöns IP, Solna</p><h1>Solna<br />Blixt Camp</h1><a class="cup-interest" href="/fortur?cup=solna-blixt-camp">Anmäl intresse ${arrow}</a></div>
+      <div class="cup-page-title"><p>18 oktober 2026 · Råstasjöns IP, Solna</p><h1>Solna<br />Blixt Camp</h1><a class="cup-interest" href="/fortur?cup=solna-blixt-camp">Anmäl intresse ${arrow}</a></div>
       <small>Foto: Sports Labs</small>
     </section>
     <nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>Solna Blixt Camp</strong></nav>
     <section class="cup-intro wrap">
-      <div class="cup-intro-copy"><p class="section-label">Inbjudningsturnering · 7v7</p><h2>Välkomna till<br />Solna Blixt Camp.</h2><p class="lead">En inbjudningsturnering för två åldersklasser som vänder sig till lag på svår och extra svår nivå. Cupen spelas på anrika Råstasjöns IP i Solna.</p><p>Alla lag garanteras sex matcher om 1 × 20 minuter. Här utmanas ni i att hålla ett högt tempo redan från start och får möjlighet att träna på att spela en effektiv fotboll under totalt 120 intensiva fotbollsminuter.</p><p>Samtliga lag har tillgång till omklädningsrum. Kiosk och grill finns på plats. Alla lag tilldelas medaljer och matchens spelare utses efter varje match.</p></div>
+      <div class="cup-intro-copy"><p class="section-label">Inbjudningsturnering · 5v5 · 7v7</p><h2>Välkomna till<br />Solna Blixt Camp.</h2><p class="lead">En inbjudningsturnering för två åldersklasser som vänder sig till lag på svår och extra svår nivå. Cupen spelas på anrika Råstasjöns IP i Solna.</p><p>Alla lag garanteras sex matcher om 1 × 20 minuter. Här utmanas ni i att hålla ett högt tempo redan från start och får möjlighet att träna på att spela en effektiv fotboll under totalt 120 intensiva fotbollsminuter.</p><p>Samtliga lag har tillgång till omklädningsrum. Kiosk och grill finns på plats. Alla lag tilldelas medaljer och matchens spelare utses efter varje match.</p></div>
       <aside class="cup-facts">
         <div class="detail-logos"><img src="/logos/supercuper-main.jpg" alt="Super Cuper logotyp" /><i>×</i><img src="/logos/as-solna-ff.jpg" alt="AS Solna FF logotyp" /></div>
-        <dl><div><dt>Var</dt><dd>Råstasjöns IP, Solna</dd></div><div><dt>När</dt><dd>18 oktober</dd></div><div><dt>Åldrar</dt><dd>B2018 · B2015</dd></div><div><dt>Spelform</dt><dd>5v5 · 7v7</dd></div><div><dt>Nivå</dt><dd>Svår · extra svår</dd></div><div><dt>Medarrangör</dt><dd>AS Solna FF</dd></div></dl>
+        <dl><div><dt>Var</dt><dd>Råstasjöns IP, Solna</dd></div><div><dt>När</dt><dd>18 oktober 2026</dd></div><div><dt>Åldrar</dt><dd>B2018 · B2015</dd></div><div><dt>Spelform</dt><dd>5v5 · 7v7</dd></div><div><dt>Nivå</dt><dd>Svår · extra svår</dd></div><div><dt>Medarrangör</dt><dd>AS Solna FF</dd></div></dl>
       </aside>
     </section>
     <section class="schedule-section">
-      <div class="wrap"><div class="schedule-heading"><p class="section-label">Grupper & spelschema</p><h2>Två klasser</h2><div><span>18 oktober</span><span>Råstasjöns IP</span><span>5v5 · 7v7</span></div></div>
+      <div class="wrap"><div class="schedule-heading"><p class="section-label">Grupper & spelschema</p><h2>Två klasser</h2><div><span>18 oktober 2026</span><span>Råstasjöns IP</span><span>5v5 · 7v7</span></div></div>
         <div class="age-schedules">
           <article class="age-column">
             <header class="age-heading"><p>B2015</p><button class="age-expand" type="button" data-age-label="7v7" aria-label="Öppna 7v7 i förstorat format"><strong>7v7</strong>${expandIcon}</button><span>2 planer · 8 lag</span></header>
@@ -320,7 +341,8 @@ const blixtPage = (cup) => `${detailHeader}
     </section>
     <dialog class="schedule-modal" aria-label="Förstorat spelschema"><button class="schedule-modal-close" type="button" aria-label="Stäng förstorat spelschema">×</button><div class="schedule-modal-content"></div></dialog>
     <section class="club-showcase" aria-label="Deltagande lag i Solna Blixt Camp">
-      <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><span>18 oktober · Råstasjöns IP</span></div>
+      <div class="club-showcase-heading"><p>Solna Blixt Camp · deltagande lag</p><span>18 oktober 2026 · Råstasjöns IP</span></div>
+      <button class="marquee-toggle" type="button" aria-pressed="false">Pausa loggor</button>
       <div class="club-marquee" aria-label="Deltagande klubbar"><div class="club-marquee-track"><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div><div class="club-logo-set">${clubLogoCards}</div><div class="club-logo-set" aria-hidden="true">${clubLogoCards}</div></div></div>
     </section>
   </main>${detailFooter}`;
@@ -328,7 +350,7 @@ const blixtPage = (cup) => `${detailHeader}
 const superFivePage = (cup) => `${detailHeader}
   <main id="top" class="cup-page generic-cup super-five-page">
     <section class="generic-hero super-five-hero">
-      <div><p>24–25 oktober · Plats meddelas snart</p><h1>Super<br />Five</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>
+      <div><p>24–25 oktober 2026 · Plats meddelas snart</p><h1>Super<br />Five</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>
       <img src="${cup.logo}" alt="Super Five logotyp" />
     </section>
     <nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>Super Five</strong></nav>
@@ -344,7 +366,7 @@ const superFivePage = (cup) => `${detailHeader}
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
-          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 2 × 15 min</dd></div>
+          <div><dt>Var</dt><dd>TBD</dd></div><div><dt>När</dt><dd>24–25 oktober 2026</dd></div><div><dt>Ålder</dt><dd>Pojkar födda 2019</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 2 × 15 min</dd></div>
         </dl>
       </aside>
     </section>
@@ -365,8 +387,10 @@ const isInformationPage = /^\/information\/?$/.test(window.location.pathname);
 const isAboutPage = /^\/om-oss\/?$/.test(window.location.pathname);
 const isValuesPage = /^\/var-vardegrund\/?$/.test(window.location.pathname);
 const isCompetitionRulesPage = /^\/tavlingsbestammelser\/?$/.test(window.location.pathname);
+const isPrivacyPage = /^\/integritet\/?$/.test(window.location.pathname);
+const isTermsPage = /^\/villkor\/?$/.test(window.location.pathname);
 if (isInformationPage) window.location.replace('/');
-document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : activeCup.slug === 'super-five' ? superFivePage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : isPrivacyPage ? privacyPage : isTermsPage ? termsPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : activeCup.slug === 'super-five' ? superFivePage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
@@ -391,6 +415,8 @@ if (isCompetitionRulesPage) {
   document.title = 'Tävlingsbestämmelser — Super Cuper';
   document.querySelector('meta[name="description"]')?.setAttribute('content', 'Tävlingsbestämmelser för Super Cupers fotbollsturneringar, inklusive spelformer, speltid, behörighet, Fair Play och trygg matchmiljö.');
 }
+if (isPrivacyPage) document.title = 'Integritet — Super Cuper';
+if (isTermsPage) document.title = 'Villkor — Super Cuper';
 
 const menuButton = document.querySelector('.menu-button');
 const nav = document.querySelector('.nav');
@@ -400,17 +426,17 @@ menuButton?.addEventListener('click', () => {
   nav.classList.toggle('open', !open);
   if (open) document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
     dropdown.classList.remove('is-open');
-    dropdown.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+    dropdown.querySelector(':scope > .nav-trigger')?.setAttribute('aria-expanded', 'false');
   });
 });
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  if (link.matches('.nav-dropdown > a') && (link.hasAttribute('data-menu-only') || window.matchMedia('(max-width: 900px)').matches)) return;
+  if (link.matches('.nav-dropdown > .nav-trigger') && (link.hasAttribute('data-menu-only') || window.matchMedia('(max-width: 900px)').matches)) return;
   nav.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
   link.blur();
 }));
 document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-  const trigger = dropdown.querySelector(':scope > a');
+  const trigger = dropdown.querySelector(':scope > .nav-trigger');
   trigger?.addEventListener('click', (event) => {
     if (trigger.hasAttribute('data-menu-only')) event.preventDefault();
     if (!window.matchMedia('(max-width: 900px)').matches) return;
@@ -418,7 +444,7 @@ document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
     const willOpen = !dropdown.classList.contains('is-open');
     document.querySelectorAll('.nav-dropdown').forEach((item) => {
       item.classList.remove('is-open');
-      item.querySelector(':scope > a')?.setAttribute('aria-expanded', 'false');
+      item.querySelector(':scope > .nav-trigger')?.setAttribute('aria-expanded', 'false');
     });
     dropdown.classList.toggle('is-open', willOpen);
     trigger.setAttribute('aria-expanded', String(willOpen));
@@ -457,6 +483,26 @@ if (priorityForm) {
     if (formIntro) formIntro.textContent = `Uppgifterna kopplas direkt till ${requestedCup.title}. Intresseanmälan är kostnadsfri och blir bindande först efter separat bekräftelse och betalning.`;
     const consent = priorityForm.querySelector('.priority-consent span');
     if (consent) consent.textContent = `Jag godkänner att Super Cuper kontaktar mig angående ${requestedCup.title}.`;
+    const cupAgeOptions = {
+      'solna-blixt-camp': ['B2018', 'B2015'],
+      'super-five': ['B2019'],
+      'super-eight': ['B2015'],
+      'super-nine': ['B2015', 'B2014'],
+      'solna-masterskapen': ['B2019', 'B2018', 'B2017', 'B2016', 'B2015', 'G2019', 'G2018', 'G2017', 'G2016', 'G2015'],
+    };
+    const validAges = cupAgeOptions[requestedCup.slug];
+    const ageSelect = priorityForm.querySelector('#priority-age');
+    if (validAges && ageSelect) {
+      ageSelect.replaceChildren(...validAges.map((age) => new Option(age, age)));
+      if (validAges.length === 1) {
+        ageSelect.value = validAges[0];
+        ageSelect.setAttribute('aria-describedby', 'fixed-age-note');
+        ageSelect.insertAdjacentHTML('afterend', `<small id="fixed-age-note" class="fixed-field-note">Den här cupen gäller ${validAges[0]}.</small>`);
+      } else {
+        ageSelect.prepend(new Option('Välj åldersklass', '', true, true));
+        ageSelect.options[0].disabled = true;
+      }
+    }
     document.title = `Intresseanmälan till ${requestedCup.title} — Super Cuper`;
   }
 
@@ -470,7 +516,6 @@ if (priorityForm) {
     submitButton.textContent = 'Skickad ✓';
     status.className = 'priority-form-status is-success';
     status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} skickas nu.` : 'Tack! Lagets generella intresseanmälan skickas nu.';
-    priorityForm.reset();
 
     fetch(`https://formsubmit.co/ajax/${atob('cm9iZXJ0Z2l1cmljaWNpQGdtYWlsLmNvbQ==')}`, {
       method: 'POST',
@@ -480,6 +525,7 @@ if (priorityForm) {
     }).then(async (response) => {
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Formuläret kunde inte skickas.');
+      priorityForm.reset();
       status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} är skickad.` : 'Tack! Lagets generella intresseanmälan är skickad.';
     }).catch(() => {
       status.className = 'priority-form-status is-error';
@@ -495,6 +541,27 @@ const rail = document.querySelector('.cups-rail');
 document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
   rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
 }));
+
+const rulesMedia = window.matchMedia('(max-width: 900px)');
+document.querySelectorAll('.rule-section').forEach((section, index) => {
+  const heading = section.querySelector('h2');
+  const content = section.querySelector(':scope > div');
+  if (!heading || !content) return;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'rule-toggle';
+  button.setAttribute('aria-label', `Visa eller dölj ${heading.textContent}`);
+  button.innerHTML = '<span aria-hidden="true"></span>';
+  heading.append(button);
+  const setState = (expanded) => {
+    section.classList.toggle('is-collapsed', !expanded);
+    button.setAttribute('aria-expanded', String(expanded));
+  };
+  setState(!rulesMedia.matches || index === 0);
+  button.addEventListener('click', () => setState(button.getAttribute('aria-expanded') !== 'true'));
+  rulesMedia.addEventListener('change', ({ matches }) => setState(!matches || index === 0));
+  if ((index + 1) % 5 === 0 && index < 24) section.insertAdjacentHTML('beforeend', '<a class="rules-to-top" href="#top">Till toppen ↑</a>');
+});
 
 const scheduleModal = document.querySelector('.schedule-modal');
 const scheduleModalContent = scheduleModal?.querySelector('.schedule-modal-content');
@@ -523,8 +590,10 @@ scheduleModal?.addEventListener('click', (event) => {
 const clubMarquee = document.querySelector('.club-marquee');
 if (clubMarquee) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const pixelsPerMillisecond = reduceMotion ? .012 : .03;
-  let paused = false;
+  const pixelsPerMillisecond = .03;
+  const marqueeToggle = document.querySelector('.marquee-toggle');
+  let userPaused = reduceMotion;
+  let paused = reduceMotion;
   let dragging = false;
   let touching = false;
   let pointerId;
@@ -541,7 +610,7 @@ if (clubMarquee) {
   };
   const resumeSoon = () => {
     clearTimeout(resumeTimer);
-    resumeTimer = window.setTimeout(() => { paused = false; }, 850);
+    resumeTimer = window.setTimeout(() => { paused = userPaused; }, 850);
   };
   const animate = (now) => {
     if (!paused && !dragging) {
@@ -599,6 +668,18 @@ if (clubMarquee) {
     position = clubMarquee.scrollLeft;
     if (!touching) resumeSoon();
   }, { passive: true });
+  const updateToggle = () => {
+    if (!marqueeToggle) return;
+    marqueeToggle.setAttribute('aria-pressed', String(userPaused));
+    marqueeToggle.textContent = userPaused ? 'Starta loggor' : 'Pausa loggor';
+  };
+  marqueeToggle?.addEventListener('click', () => {
+    userPaused = !userPaused;
+    paused = userPaused;
+    clearTimeout(resumeTimer);
+    updateToggle();
+  });
+  updateToggle();
   requestAnimationFrame((now) => {
     position = clubMarquee.scrollWidth / 3;
     clubMarquee.scrollLeft = position;
