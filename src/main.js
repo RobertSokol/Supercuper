@@ -31,10 +31,10 @@ const footerMarkup = (prefix = '') => `<footer class="site-footer">
 </footer>`;
 const priorityMarkup = () => `<section class="priority-invite" aria-labelledby="priority-title">
   <div class="priority-inner">
-    <p class="priority-label">Förtur för lag</p>
-    <h2 id="priority-title">Först till nästa avspark.</h2>
-    <p>Anslut laget till Super Cupers förturslista. Ni får inbjudningar till nya cuper och matchcamper innan platserna släpps brett.</p>
-    <a href="/fortur">Säkra lagets förtur ${arrow}</a>
+    <p class="priority-label">Intresseanmälan</p>
+    <h2 id="priority-title">Få nästa inbjudan först.</h2>
+    <p>Anmäl lagets generella intresse för Super Cuper. Då kan vi skicka nyheter och relevanta inbjudningar till kommande cuper och matchcamper.</p>
+    <a href="/fortur">Anmäl lagets intresse ${arrow}</a>
   </div>
 </section>`;
 const faqQuestions = [
@@ -101,7 +101,7 @@ const homeMarkup = `
     <nav id="menu" class="nav" aria-label="Huvudmeny">
       <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}
     </nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${mailIcon}</a></div>
   </header>
   <main id="top">
     <section class="hero">
@@ -188,7 +188,7 @@ const detailHeader = `
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
     <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}</nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Säkra lagets förtur">${mailIcon}</a></div>
+    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${mailIcon}</a></div>
   </header>`;
 
 const detailFooter = `${faqMarkup}${priorityMarkup()}${footerMarkup('/')}`;
@@ -257,13 +257,13 @@ const competitionRulesPage = `${detailHeader}
 const priorityPage = `${detailHeader}
   <main id="top" class="priority-page">
     <section class="priority-page-intro">
-      <div class="priority-page-copy"><p>Super Cuper · Förturslistan</p><h1>Var först<br />på bollen.</h1><p>De bästa matcherna börjar med rätt lag. Registrera ert intresse så får ni information om nya cuper och matchcamper innan platserna släpps brett.</p></div>
-      <div class="priority-benefits" aria-label="Fördelar med förturslistan"><span><b>01</b>Tidig information</span><span><b>02</b>Personliga inbjudningar</span><span><b>03</b>Rätt nivå från start</span></div>
+      <div class="priority-page-copy"><p>Super Cuper · Intresseanmälan</p><h1>Var först<br />på bollen.</h1><p>Anmäl lagets generella intresse. Då kan vi hålla er uppdaterade med nyheter och bjuda in er till relevanta cuper och matchcamper.</p></div>
+      <div class="priority-benefits" aria-label="Fördelar med generell intresseanmälan"><span><b>01</b>Tidig information</span><span><b>02</b>Personliga inbjudningar</span><span><b>03</b>Rätt nivå från start</span></div>
     </section>
     <section class="priority-form-section">
-      <div class="priority-form-heading"><p class="section-label">Registrera laget</p><h2>Berätta vilka<br />ni är.</h2><p>Det tar mindre än en minut. En registrering är kostnadsfri och innebär ingen bindande anmälan till en cup.</p></div>
+      <div class="priority-form-heading"><p class="section-label">Generell intresseanmälan</p><h2>Berätta vilka<br />ni är.</h2><p>Det tar mindre än en minut. Intresseanmälan är kostnadsfri, gäller nyheter och inbjudningar och innebär ingen bindande cupanmälan.</p></div>
       <form id="priority-form" class="priority-form" method="POST">
-        <input type="hidden" name="_subject" value="Ny intresseanmälan till Super Cuper" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_url" value="https://supercuper.se/fortur" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_subject" value="Generell intresseanmälan – nyheter och inbjudningar" /><input type="hidden" name="Typ av intresseanmälan" value="Generell – nyheter och inbjudningar" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_url" value="https://supercuper.se/fortur" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
         <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" required placeholder="För- och efternamn" /></div>
         <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" required placeholder="namn@klubb.se" /></div>
         <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" required placeholder="070 000 00 00" /></div>
@@ -272,7 +272,7 @@ const priorityPage = `${detailHeader}
         <div class="priority-field"><label for="priority-age">Åldersklass</label><select id="priority-age" name="Åldersklass" required><option value="" selected disabled>Välj åldersklass</option><option>B2019</option><option>B2018</option><option>B2017</option><option>B2016</option><option>B2015</option><option>B2014</option><option>G2019</option><option>G2018</option><option>G2017</option><option>G2016</option><option>G2015</option><option>Annan</option></select></div>
         <div class="priority-field priority-field-wide"><label for="priority-message">Något vi bör veta? <span>Valfritt</span></label><textarea id="priority-message" name="Meddelande" rows="3" placeholder="Nivå, önskad spelform eller annan relevant information"></textarea></div>
         <label class="priority-consent"><input type="checkbox" name="Godkännande" value="Ja" required /><span>Jag godkänner att Super Cuper kontaktar mig med information och relevanta inbjudningar.</span></label>
-        <button type="submit">Registrera laget ${arrow}</button>
+        <button type="submit">Skicka intresseanmälan ${arrow}</button>
         <p class="priority-form-status" role="status" aria-live="polite"></p>
         <p class="priority-privacy">Uppgifterna används endast av Super Cuper och delas inte med andra.</p>
       </form>
@@ -371,8 +371,8 @@ if (activeCup) {
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
 }
 if (isPriorityPage) {
-  document.title = 'Förturslistan — Super Cuper';
-  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Registrera laget för tidig information och personliga inbjudningar till Super Cupers kommande cuper och matchcamper.');
+  document.title = 'Intresseanmälan — Super Cuper';
+  document.querySelector('meta[name="description"]')?.setAttribute('content', 'Anmäl lagets intresse för nyheter och personliga inbjudningar till Super Cupers kommande cuper och matchcamper.');
 }
 if (isInformationPage) {
   document.title = 'Information — Super Cuper';
@@ -436,38 +436,56 @@ if (priorityForm) {
     cupField.name = 'Cup eller matchcamp';
     cupField.value = requestedCup.title;
     priorityForm.prepend(cupField);
+    priorityForm.querySelector('input[name="_subject"]').value = `Cupintresse – ${requestedCup.title}`;
+    priorityForm.querySelector('input[name="Typ av intresseanmälan"]').value = 'Specifik cup eller matchcamp';
+    priorityForm.insertAdjacentHTML('afterbegin', `<div class="cup-form-context"><span>Intresseanmälan gäller</span><strong>${requestedCup.title}</strong><p>${requestedCup.date} · ${requestedCup.ages} · ${requestedCup.format}</p></div>`);
+    const pageEyebrow = document.querySelector('.priority-page-copy > p:first-child');
+    const pageTitle = document.querySelector('.priority-page-copy h1');
+    const pageIntro = document.querySelector('.priority-page-copy > p:last-child');
+    if (pageEyebrow) pageEyebrow.textContent = `Super Cuper · ${requestedCup.title}`;
+    if (pageTitle) pageTitle.innerHTML = 'Anmäl ert<br />intresse.';
+    if (pageIntro) pageIntro.textContent = `Det här formuläret gäller ${requestedCup.title}. Skicka lagets uppgifter så återkommer vi med information om just den här cupen.`;
+    const benefits = document.querySelector('.priority-benefits');
+    if (benefits) benefits.innerHTML = `<span><b>01</b>${requestedCup.title}</span><span><b>02</b>${requestedCup.ages}</span><span><b>03</b>${requestedCup.format}</span>`;
+    const formLabel = document.querySelector('.priority-form-heading .section-label');
     const formHeading = document.querySelector('.priority-form-heading h2');
+    const formIntro = document.querySelector('.priority-form-heading > p:last-child');
+    if (formLabel) formLabel.textContent = 'Cupspecifik intresseanmälan';
     if (formHeading) formHeading.innerHTML = `Intresse för<br />${requestedCup.title}.`;
+    if (formIntro) formIntro.textContent = `Uppgifterna kopplas direkt till ${requestedCup.title}. Intresseanmälan är kostnadsfri och blir bindande först efter separat bekräftelse och betalning.`;
+    const consent = priorityForm.querySelector('.priority-consent span');
+    if (consent) consent.textContent = `Jag godkänner att Super Cuper kontaktar mig angående ${requestedCup.title}.`;
+    document.title = `Intresseanmälan till ${requestedCup.title} — Super Cuper`;
   }
 
-  priorityForm.addEventListener('submit', async (event) => {
+  priorityForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const status = priorityForm.querySelector('.priority-form-status');
     const submitButton = priorityForm.querySelector('button[type="submit"]');
     const originalButtonContent = submitButton.innerHTML;
+    const payload = Object.fromEntries(new FormData(priorityForm).entries());
     submitButton.disabled = true;
-    submitButton.textContent = 'Skickar…';
-    status.className = 'priority-form-status';
-    status.textContent = '';
+    submitButton.textContent = 'Skickad ✓';
+    status.className = 'priority-form-status is-success';
+    status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} skickas nu.` : 'Tack! Lagets generella intresseanmälan skickas nu.';
+    priorityForm.reset();
 
-    try {
-      const response = await fetch(`https://formsubmit.co/ajax/${atob('cm9iZXJ0Z2l1cmljaWNpQGdtYWlsLmNvbQ==')}`, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(priorityForm),
-      });
-      const result = await response.json();
+    fetch(`https://formsubmit.co/ajax/${atob('cm9iZXJ0Z2l1cmljaWNpQGdtYWlsLmNvbQ==')}`, {
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).then(async (response) => {
+      const result = await response.json().catch(() => ({}));
       if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Formuläret kunde inte skickas.');
-      priorityForm.reset();
-      status.classList.add('is-success');
-      status.textContent = 'Tack! Er intresseanmälan är skickad. Vi återkommer via e-post.';
-    } catch (error) {
+      status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} är skickad.` : 'Tack! Lagets generella intresseanmälan är skickad.';
+    }).catch(() => {
+      status.className = 'priority-form-status is-error';
       status.classList.add('is-error');
       status.textContent = 'Något gick fel. Försök igen eller kontakta hej@supercuper.se.';
-    } finally {
       submitButton.disabled = false;
       submitButton.innerHTML = originalButtonContent;
-    }
+    });
   });
 }
 

@@ -102,6 +102,10 @@
 .priority-form-heading h2{margin:16px 0 28px;font:800 clamp(52px,5.7vw,80px)/.94 'Manrope',sans-serif;letter-spacing:-.06em;text-transform:uppercase}
 .priority-form-heading>p:last-child{max-width:390px;margin:0;color:#5a7088;font-size:15px;line-height:1.7}
 .priority-form{display:grid;grid-template-columns:1fr 1fr;gap:30px 24px;background:white;border-top:5px solid var(--orange);padding:42px;box-shadow:0 25px 70px rgba(0,31,70,.08)}
+.cup-form-context{grid-column:1/-1;margin:-10px 0 5px;padding:20px 22px;background:var(--forest-2);color:white}
+.cup-form-context span{display:block;margin-bottom:8px;color:#ff9b73;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.cup-form-context strong{display:block;font:800 26px/1 'Manrope',sans-serif;letter-spacing:-.04em;text-transform:uppercase}
+.cup-form-context p{margin:9px 0 0;color:rgba(255,255,255,.7);font-size:12px}
 .priority-field{display:flex;flex-direction:column;gap:10px}
 .priority-field-wide,.priority-consent,.priority-form>button,.priority-privacy{grid-column:1/-1}
 .priority-field label{font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#4f647b}
@@ -139,7 +143,7 @@
   .priority-form-section{padding:62px 0 72px}
   .priority-form-heading h2{font-size:45px;margin-bottom:20px}
   .priority-form{grid-template-columns:1fr;padding:30px 22px;gap:26px}
-  .priority-field-wide,.priority-consent,.priority-form>button,.priority-privacy{grid-column:auto}
+  .priority-field-wide,.priority-consent,.priority-form>button,.priority-privacy{grid-column:auto}.cup-form-context{grid-column:auto;margin:-6px 0 2px;padding:18px}
 }
 .faq-section{background:var(--paper);padding:48px 0 52px}
 .faq-inner{width:min(980px,calc(100% - 80px));margin-inline:auto}
