@@ -622,3 +622,5 @@ body:has(.schedule-modal[open]){overflow:hidden}
   .generic-copy-main .primary{width:100%;justify-content:space-between}
   .generic-facts dl div{grid-template-columns:92px minmax(0,1fr)}
 }
+.instagram-link{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;font-weight:700}
+.instagram-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8}
