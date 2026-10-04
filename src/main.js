@@ -287,7 +287,7 @@ const priorityPage = `${detailHeader}
       <form id="priority-form" class="priority-form" method="POST">
         <input type="hidden" name="Typ av intresseanmälan" value="Generell – nyheter och inbjudningar" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
         <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" maxlength="80" required placeholder="För- och efternamn" /></div>
-        <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="namn@klubb.se" /></div>
+        <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="namn@klubb.se" aria-describedby="priority-email-error" /><small id="priority-email-error" class="priority-field-error">Ange en fullständig e-postadress, exempelvis namn@klubb.se.</small></div>
         <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="070 000 00 00" /></div>
         <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" autocomplete="organization" maxlength="100" required placeholder="Klubbens namn" /></div>
         <div class="priority-field"><label for="priority-team">Lag</label><input id="priority-team" name="Lag" maxlength="100" required placeholder="Exempel: P2015 Svår" /></div>
@@ -459,6 +459,16 @@ document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
 
 const priorityForm = document.querySelector('#priority-form');
 if (priorityForm) {
+  const emailInput = priorityForm.querySelector('#priority-email');
+  const updateEmailValidity = (showError = false) => {
+    const invalid = !emailInput.validity.valid && (showError || emailInput.value.length > 0);
+    emailInput.classList.toggle('is-invalid', invalid);
+    emailInput.setAttribute('aria-invalid', String(invalid));
+  };
+  emailInput.addEventListener('blur', () => updateEmailValidity(true));
+  emailInput.addEventListener('input', () => updateEmailValidity(false));
+  emailInput.addEventListener('invalid', () => updateEmailValidity(true));
+
   const requestedCup = cups.find((cup) => cup.slug === new URLSearchParams(window.location.search).get('cup'));
   if (requestedCup) {
     const cupField = document.createElement('input');
@@ -552,6 +562,7 @@ if (priorityForm) {
       if (!response.ok || result.ok !== true) throw new Error(result.error || 'Formuläret kunde inte skickas.');
       priorityForm.reset();
       priorityForm.setAttribute('aria-busy', 'false');
+      priorityForm.classList.add('is-complete');
       submitButton.textContent = 'Skickad ✓';
       status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} är skickad.` : 'Tack! Lagets generella intresseanmälan är skickad.';
     }).catch(() => {

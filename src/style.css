@@ -114,12 +114,16 @@
 .priority-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink) 50%),linear-gradient(135deg,var(--ink) 50%,transparent 50%);background-position:calc(100% - 8px) 50%,calc(100% - 3px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:24px}
 .priority-field input::placeholder,.priority-field textarea::placeholder{color:#95a2b1}
 .priority-field input:focus,.priority-field select:focus,.priority-field textarea:focus{border-bottom-color:var(--orange)}
+.priority-field-error{display:none;margin:-3px 0 0;color:#a72f1f;font-size:12px;line-height:1.4}
+.priority-field input.is-invalid{border-bottom-color:#c43d2a;background:linear-gradient(0deg,rgba(196,61,42,.06),transparent 75%)}
+.priority-field input.is-invalid+.priority-field-error{display:block}
 .priority-consent{display:grid;grid-template-columns:20px 1fr;gap:12px;align-items:start;color:#5c7086;font-size:12px;line-height:1.55;cursor:pointer}
 .priority-consent input{width:18px;height:18px;margin:1px 0 0;accent-color:var(--orange)}
 .priority-form>button{display:flex;align-items:center;justify-content:space-between;border:0;background:var(--orange);color:var(--forest-2);padding:18px 20px;font-weight:800;cursor:pointer}
 .priority-form>button svg{width:20px;fill:none;stroke:currentColor;stroke-width:1.7}
 .priority-form>button:hover{background:#ff6414}
 .priority-form>button:disabled{cursor:wait;opacity:.65}
+.priority-form.is-complete>button:disabled{cursor:default;opacity:1;background:#dbeee2;color:#175c31}
 .form-honey{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important}
 .priority-form-status{display:none;grid-column:1/-1;margin:-8px 0 0;padding:13px 15px;font-size:13px;line-height:1.5}
 .priority-form-status.is-success,.priority-form-status.is-error{display:block}
