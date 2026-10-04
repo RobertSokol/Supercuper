@@ -541,7 +541,9 @@ if (priorityForm) {
 
     fetch('https://supercuper-forms.robertgiuricici.workers.dev/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      // text/plain keeps this cross-origin request "simple" and avoids an
+      // unnecessary browser preflight; the Worker still parses the JSON body.
+      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
       body: JSON.stringify(payload),
       keepalive: true,
     }).then(async (response) => {

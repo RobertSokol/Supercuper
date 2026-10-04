@@ -44,7 +44,16 @@ export default {
       return new Response('Forbidden', { status: 403 });
     }
 
-    if (request.method === 'OPTIONS') return json({}, 204, origin);
+    if (request.method === 'OPTIONS') return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': origin,
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400',
+        'Vary': 'Origin',
+      },
+    });
     if (request.method !== 'POST') return json({ ok: false, error: 'Method not allowed' }, 405, origin);
 
     const contentLength = Number(request.headers.get('Content-Length') || 0);
