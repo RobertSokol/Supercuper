@@ -285,7 +285,7 @@ const priorityPage = `${detailHeader}
     <section class="priority-form-section">
       <div class="priority-form-heading"><p class="section-label">Generell intresseanmälan</p><h2>Berätta vilka<br />ni är.</h2><p>Det tar mindre än en minut. Intresseanmälan är kostnadsfri, gäller nyheter och inbjudningar och innebär ingen bindande cupanmälan.</p></div>
       <form id="priority-form" class="priority-form" method="POST">
-        <input type="hidden" name="_subject" value="Generell intresseanmälan – nyheter och inbjudningar" /><input type="hidden" name="Typ av intresseanmälan" value="Generell – nyheter och inbjudningar" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_url" value="https://supercuper.se/fortur" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="Typ av intresseanmälan" value="Generell – nyheter och inbjudningar" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
         <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" maxlength="80" required placeholder="För- och efternamn" /></div>
         <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="namn@klubb.se" /></div>
         <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="070 000 00 00" /></div>
@@ -466,7 +466,6 @@ if (priorityForm) {
     cupField.name = 'Cup eller matchcamp';
     cupField.value = requestedCup.title;
     priorityForm.prepend(cupField);
-    priorityForm.querySelector('input[name="_subject"]').value = `Cupintresse – ${requestedCup.title}`;
     priorityForm.querySelector('input[name="Typ av intresseanmälan"]').value = 'Specifik cup eller matchcamp';
     priorityForm.insertAdjacentHTML('afterbegin', `<div class="cup-form-context"><span>Intresseanmälan gäller</span><strong>${requestedCup.title}</strong><p>${requestedCup.date} · ${requestedCup.ages} · ${requestedCup.format}</p></div>`);
     const pageEyebrow = document.querySelector('.priority-page-copy > p:first-child');
@@ -540,15 +539,15 @@ if (priorityForm) {
       status.textContent = 'Sändningen tar lite längre tid än normalt. Låt sidan vara öppen så försöker vi klart.';
     }, 6000);
 
-    fetch(`https://formsubmit.co/ajax/${atob('cm9iZXJ0Z2l1cmljaWNpQGdtYWlsLmNvbQ==')}`, {
+    fetch('https://supercuper-forms.robertgiuricici.workers.dev/', {
       method: 'POST',
-      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       keepalive: true,
     }).then(async (response) => {
       clearTimeout(slowMessage);
       const result = await response.json().catch(() => ({}));
-      if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Formuläret kunde inte skickas.');
+      if (!response.ok || result.ok !== true) throw new Error(result.error || 'Formuläret kunde inte skickas.');
       priorityForm.reset();
       priorityForm.setAttribute('aria-busy', 'false');
       submitButton.textContent = 'Skickad ✓';
