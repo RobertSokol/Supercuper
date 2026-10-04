@@ -602,6 +602,11 @@ body:has(.schedule-modal[open]){overflow:hidden}
 .generic-copy-main h2{margin-bottom:30px}
 .generic-copy-main>p:not(.section-label){max-width:660px;color:#526981;font-size:16px;line-height:1.75}
 .generic-copy-main .generic-lead{color:var(--ink)!important;font:600 21px/1.55 'Manrope',sans-serif!important;letter-spacing:-.02em}
+.generic-description{max-width:700px;margin-bottom:30px}
+.generic-description p{margin:0 0 20px;color:#526981;font-size:16px;line-height:1.75}
+.generic-description strong{color:var(--ink);font-weight:800}
+.generic-description .generic-emphasis{margin:30px 0;color:var(--ink);font:800 19px/1.5 'Manrope',sans-serif;letter-spacing:-.02em}
+.generic-description .generic-signature{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--line);color:var(--orange);font:800 18px/1.5 'Manrope',sans-serif}
 .generic-copy-main .primary{margin-top:18px;border-radius:999px}
 .generic-facts{padding:30px;background:white;border-top:4px solid var(--orange);box-shadow:0 20px 55px rgba(0,31,70,.07)}
 .generic-facts>p{margin:0 0 18px;color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
