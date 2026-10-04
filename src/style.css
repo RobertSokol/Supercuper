@@ -624,7 +624,7 @@ body:has(.schedule-modal[open]){overflow:hidden}
 /* Compact, optically aligned cup cards. Every title starts on the same line. */
 .cup-card{flex-basis:clamp(248px,19.5vw,292px);min-height:468px}
 .cup-visual,.cup-visual.cup-artwork{height:178px;min-height:178px;aspect-ratio:auto}
-.cup-visual.cup-artwork>img{object-fit:contain}
+.cup-visual.cup-artwork>img{object-fit:cover;object-position:center}
 .cup-details{padding:19px 20px 21px}
 .cup-details h3{min-height:50px;margin-bottom:14px;font-size:21px}
 .cup-details dl div{grid-template-columns:82px 1fr;font-size:12px;margin-bottom:6px}
