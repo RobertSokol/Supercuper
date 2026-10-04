@@ -4,10 +4,10 @@ import { competitionRulesHtml } from './competitionRules.js';
 const cups = [
   { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober 2026', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
   { slug: 'super-five', title: 'Super Five', place: 'TBD', date: '24–25 oktober 2026', ages: 'B2019', format: '5v5', logo: '/logos/super-five.jpg' },
-  { slug: 'super-six', title: 'Super Six', place: 'Meddelas snart', date: 'TBD', ages: 'Meddelas snart', format: '6v6', logo: '/logos/super-six.jpg' },
-  { slug: 'super-eight', title: 'Super Eight', place: 'Meddelas snart', date: 'TBD', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg' },
-  { slug: 'super-nine', title: 'Super Nine', place: 'Meddelas snart', date: 'TBD', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg' },
-  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas snart', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Meddelas snart', logo: '/logos/solna-masterskapen-2027.webp', cardLogo: '/logos/solna-masterskapen-2027-card.webp', artwork: true },
+  { slug: 'super-six', title: 'Super Six', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'Åldersklass meddelas', format: '6v6', logo: '/logos/super-six.jpg', summary: 'Ett kommande Super Cuper-format med sex spelare per lag. Datum, plats och åldersklass publiceras när upplägget är fastställt.' },
+  { slug: 'super-eight', title: 'Super Eight', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg', summary: 'Super Eight planeras för B2015 och spelas i spelformen 8v8. Fullständig turneringsinformation publiceras när datum och arena är bekräftade.' },
+  { slug: 'super-nine', title: 'Super Nine', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg', summary: 'Super Nine planeras för B2015 och B2014 i spelformen 9v9. Datum, arena och matchupplägg publiceras när planeringen är klar.' },
+  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Spelformer meddelas', logo: '/logos/solna-masterskapen-2027.webp', cardLogo: '/logos/solna-masterskapen-2027-card.webp', artwork: true, summary: 'Solna Mästerskapen samlar pojk- och flicklag födda 2019–2015. Arena, spelformer och datum publiceras när respektive klass är fastställd.' },
 ];
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
@@ -22,7 +22,7 @@ const aboutNavigation = '<div class="nav-dropdown"><a class="nav-trigger" href="
 const footerMarkup = (prefix = '') => `<footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-contact"><h2>Kontakt</h2><a href="mailto:hej@supercuper.se">hej@supercuper.se</a><p>Solna<br />Sverige</p></div>
-    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
+    <div class="footer-links"><h2>Länkar</h2><a href="${prefix}#top">Hem</a><a href="${prefix}#super-tv">Super-TV</a><a href="${prefix}#arrangemang">Cuper</a><a href="/fortur">Intresseanmälan</a><a href="/tavlingsbestammelser">Tävlingsbestämmelser</a><a href="/om-oss">Om oss</a><a href="/var-vardegrund">Vår värdegrund</a></div>
     <div class="footer-social"><h2>Följ Super Cuper</h2><p class="social-coming">Våra sociala kanaler publiceras snart.</p><a class="footer-policy" href="/integritet">Integritet</a><a class="footer-policy" href="/villkor">Villkor</a><p class="footer-copy">© ${new Date().getFullYear()} Super Cuper</p></div>
   </div>
 </footer>`;
@@ -103,7 +103,7 @@ const homeMarkup = `
   </header>
   <main id="top">
     <section class="hero">
-      <img class="hero-photo" src="/images/hero-real-madrid.webp" alt="Ungdomsspelare från Super Cuper i match mot Real Madrid" />
+      <img class="hero-photo" fetchpriority="high" decoding="async" src="/images/hero-real-madrid.webp" alt="Ungdomsspelare från Super Cuper i match mot Real Madrid" />
       <div class="hero-shade"></div>
       <div class="hero-content">
         <p class="kicker">Super Cuper · Solna</p>
@@ -285,14 +285,15 @@ const priorityPage = `${detailHeader}
       <div class="priority-form-heading"><p class="section-label">Generell intresseanmälan</p><h2>Berätta vilka<br />ni är.</h2><p>Det tar mindre än en minut. Intresseanmälan är kostnadsfri, gäller nyheter och inbjudningar och innebär ingen bindande cupanmälan.</p></div>
       <form id="priority-form" class="priority-form" method="POST">
         <input type="hidden" name="_subject" value="Generell intresseanmälan – nyheter och inbjudningar" /><input type="hidden" name="Typ av intresseanmälan" value="Generell – nyheter och inbjudningar" /><input type="hidden" name="_template" value="table" /><input type="hidden" name="_url" value="https://supercuper.se/fortur" /><input class="form-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
-        <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" required placeholder="För- och efternamn" /></div>
-        <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" required placeholder="namn@klubb.se" /></div>
-        <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" required placeholder="070 000 00 00" /></div>
-        <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" autocomplete="organization" required placeholder="Klubbens namn" /></div>
-        <div class="priority-field"><label for="priority-team">Lag</label><input id="priority-team" name="Lag" required placeholder="Exempel: P2015 Svår" /></div>
+        <div class="priority-field"><label for="contact-name">Kontaktperson</label><input id="contact-name" name="Kontaktperson" autocomplete="name" maxlength="80" required placeholder="För- och efternamn" /></div>
+        <div class="priority-field"><label for="priority-email">E-post</label><input id="priority-email" name="email" type="email" autocomplete="email" maxlength="160" required placeholder="namn@klubb.se" /></div>
+        <div class="priority-field"><label for="priority-phone">Telefon</label><input id="priority-phone" name="Telefon" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required placeholder="070 000 00 00" /></div>
+        <div class="priority-field"><label for="priority-club">Klubb</label><input id="priority-club" name="Klubb" autocomplete="organization" maxlength="100" required placeholder="Klubbens namn" /></div>
+        <div class="priority-field"><label for="priority-team">Lag</label><input id="priority-team" name="Lag" maxlength="100" required placeholder="Exempel: P2015 Svår" /></div>
         <div class="priority-field"><label for="priority-age">Åldersklass</label><select id="priority-age" name="Åldersklass" required><option value="" selected disabled>Välj åldersklass</option><option>B2019</option><option>B2018</option><option>B2017</option><option>B2016</option><option>B2015</option><option>B2014</option><option>G2019</option><option>G2018</option><option>G2017</option><option>G2016</option><option>G2015</option><option>Annan</option></select></div>
-        <div class="priority-field priority-field-wide"><label for="priority-message">Något vi bör veta? <span>Valfritt</span></label><textarea id="priority-message" name="Meddelande" rows="3" placeholder="Nivå, önskad spelform eller annan relevant information"></textarea></div>
-        <label class="priority-consent"><input type="checkbox" name="Godkännande" value="Ja" required /><span>Jag godkänner att Super Cuper kontaktar mig med information och relevanta inbjudningar.</span></label>
+        <div class="priority-field"><label for="priority-level">Nivå</label><select id="priority-level" name="Nivå" required><option value="" selected disabled>Välj nivå</option><option>Lätt</option><option>Medel</option><option>Svår</option><option>Extra svår</option><option>Osäker</option></select></div>
+        <div class="priority-field priority-field-wide"><label for="priority-message">Något vi bör veta? <span>Valfritt</span></label><textarea id="priority-message" name="Meddelande" rows="3" maxlength="800" placeholder="Nivå, önskad spelform eller annan relevant information"></textarea></div>
+        <label class="priority-consent"><input type="checkbox" name="Godkännande" value="Ja" required /><span>Jag godkänner att Super Cuper kontaktar mig med information och relevanta inbjudningar. Läs vår <a href="/integritet">integritetspolicy</a>.</span></label>
         <button type="submit">Skicka intresseanmälan ${arrow}</button>
         <p class="priority-form-status" role="status" aria-live="polite"></p>
         <p class="priority-privacy">Uppgifterna används endast av Super Cuper och delas inte med andra.</p>
@@ -378,7 +379,7 @@ const superFivePage = (cup) => `${detailHeader}
     </section>
   </main>${detailFooter}`;
 
-const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div><img src="${cup.logo || cup.image}" alt="${cup.title}" /></section>${cup.artwork ? `<div class="cup-interest-bar"><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>` : ''}<nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><p class="section-label">Kommande cup</p><h2>Mer information<br />kommer snart.</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl></section></main>${detailFooter}`;
+const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div><img src="${cup.logo || cup.image}" alt="${cup.title} logotyp" fetchpriority="high" /></section>${cup.artwork ? `<div class="cup-interest-bar"><a class="cup-interest" href="/fortur?cup=${cup.slug}">Anmäl intresse ${arrow}</a></div>` : ''}<nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><div class="generic-copy-main"><p class="section-label">Planeras just nu</p><h2>Förhandsintresset<br />är öppet.</h2><p class="generic-lead">${cup.summary}</p><p>Skicka en kostnadsfri intresseanmälan om ni vill få information när de återstående detaljerna är klara. En intresseanmälan är inte bindande och garanterar inte en plats.</p><a class="primary" href="/fortur?cup=${cup.slug}">Anmäl lagets intresse ${arrow}</a></div><aside class="generic-facts"><p>Det här vet vi</p><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><small>Informationen uppdateras när planeringen är fastställd.</small></aside></section></main>${detailFooter}`;
 
 const slug = decodeURIComponent(window.location.pathname).match(/^\/cuper\/([^/]+)\/?$/)?.[1];
 const activeCup = cups.find((cup) => cup.slug === slug);
@@ -482,7 +483,7 @@ if (priorityForm) {
     if (formHeading) formHeading.innerHTML = `Intresse för<br />${requestedCup.title}.`;
     if (formIntro) formIntro.textContent = `Uppgifterna kopplas direkt till ${requestedCup.title}. Intresseanmälan är kostnadsfri och blir bindande först efter separat bekräftelse och betalning.`;
     const consent = priorityForm.querySelector('.priority-consent span');
-    if (consent) consent.textContent = `Jag godkänner att Super Cuper kontaktar mig angående ${requestedCup.title}.`;
+    if (consent) consent.innerHTML = `Jag godkänner att Super Cuper kontaktar mig angående ${requestedCup.title}. Läs vår <a href="/integritet">integritetspolicy</a>.`;
     const cupAgeOptions = {
       'solna-blixt-camp': ['B2018', 'B2015'],
       'super-five': ['B2019'],
@@ -503,6 +504,23 @@ if (priorityForm) {
         ageSelect.options[0].disabled = true;
       }
     }
+    const cupLevelOptions = {
+      'solna-blixt-camp': ['Svår', 'Extra svår'],
+      'super-five': ['Svår'],
+    };
+    const validLevels = cupLevelOptions[requestedCup.slug];
+    const levelSelect = priorityForm.querySelector('#priority-level');
+    if (validLevels && levelSelect) {
+      levelSelect.replaceChildren(...validLevels.map((level) => new Option(level, level)));
+      if (validLevels.length === 1) {
+        levelSelect.value = validLevels[0];
+        levelSelect.setAttribute('aria-describedby', 'fixed-level-note');
+        levelSelect.insertAdjacentHTML('afterend', `<small id="fixed-level-note" class="fixed-field-note">Den här cupen riktar sig till nivå ${validLevels[0].toLowerCase()}.</small>`);
+      } else {
+        levelSelect.prepend(new Option('Välj nivå', '', true, true));
+        levelSelect.options[0].disabled = true;
+      }
+    }
     document.title = `Intresseanmälan till ${requestedCup.title} — Super Cuper`;
   }
 
@@ -513,9 +531,13 @@ if (priorityForm) {
     const originalButtonContent = submitButton.innerHTML;
     const payload = Object.fromEntries(new FormData(priorityForm).entries());
     submitButton.disabled = true;
-    submitButton.textContent = 'Skickad ✓';
+    submitButton.textContent = 'Skickar…';
+    priorityForm.setAttribute('aria-busy', 'true');
     status.className = 'priority-form-status is-success';
     status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} skickas nu.` : 'Tack! Lagets generella intresseanmälan skickas nu.';
+    const slowMessage = window.setTimeout(() => {
+      status.textContent = 'Sändningen tar lite längre tid än normalt. Låt sidan vara öppen så försöker vi klart.';
+    }, 6000);
 
     fetch(`https://formsubmit.co/ajax/${atob('cm9iZXJ0Z2l1cmljaWNpQGdtYWlsLmNvbQ==')}`, {
       method: 'POST',
@@ -523,11 +545,16 @@ if (priorityForm) {
       body: JSON.stringify(payload),
       keepalive: true,
     }).then(async (response) => {
+      clearTimeout(slowMessage);
       const result = await response.json().catch(() => ({}));
       if (!response.ok || result.success === 'false' || result.success === false) throw new Error(result.message || 'Formuläret kunde inte skickas.');
       priorityForm.reset();
+      priorityForm.setAttribute('aria-busy', 'false');
+      submitButton.textContent = 'Skickad ✓';
       status.textContent = requestedCup ? `Tack! Er intresseanmälan till ${requestedCup.title} är skickad.` : 'Tack! Lagets generella intresseanmälan är skickad.';
     }).catch(() => {
+      clearTimeout(slowMessage);
+      priorityForm.setAttribute('aria-busy', 'false');
       status.className = 'priority-form-status is-error';
       status.classList.add('is-error');
       status.textContent = 'Något gick fel. Försök igen eller kontakta hej@supercuper.se.';

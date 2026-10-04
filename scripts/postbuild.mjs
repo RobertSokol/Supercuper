@@ -20,13 +20,26 @@ const pages = [
 ];
 
 const template = await readFile('dist/index.html', 'utf8');
+const knownEvents = {
+  'cuper/solna-blixt-camp': {
+    '@type': 'SportsEvent',
+    name: 'Solna Blixt Camp',
+    startDate: '2026-10-18',
+    endDate: '2026-10-18',
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: { '@type': 'Place', name: 'Råstasjöns IP', address: { '@type': 'PostalAddress', addressLocality: 'Solna', addressCountry: 'SE' } },
+  },
+};
 const escapeHtml = (value) => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const pageHtml = (route, title, description) => {
   const url = `${origin}/${route ? `${route}/` : ''}`;
-  const eventName = route.startsWith('cuper/') ? title.replace(' — Super Cuper', '') : null;
-  const schema = eventName
-    ? { '@context': 'https://schema.org', '@type': 'SportsEvent', name: eventName, url, organizer: { '@type': 'Organization', name: 'Super Cuper', url: origin } }
-    : { '@context': 'https://schema.org', '@type': 'Organization', name: 'Super Cuper', url: origin, email: 'hej@supercuper.se', logo: `${origin}/images/social-supercuper.png` };
+  const organizer = { '@type': 'Organization', name: 'Super Cuper', url: origin, email: 'hej@supercuper.se' };
+  const schema = route === ''
+    ? { '@context': 'https://schema.org', ...organizer, logo: `${origin}/images/social-supercuper.png` }
+    : knownEvents[route]
+      ? { '@context': 'https://schema.org', ...knownEvents[route], url, organizer }
+      : { '@context': 'https://schema.org', '@type': 'WebPage', name: title, description, url, isPartOf: { '@type': 'WebSite', name: 'Super Cuper', url: origin } };
   return template
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
@@ -49,4 +62,4 @@ for (const [route, title, description] of pages) {
 }
 await writeFile('dist/404.html', pageHtml('', pages[0][1], pages[0][2]));
 await writeFile('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${origin}/sitemap.xml\n`);
-await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter(([route]) => route !== 'fortur').map(([route]) => `  <url><loc>${origin}/${route ? `${route}/` : ''}</loc></url>`).join('\n')}\n</urlset>\n`);
+await writeFile('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter(([route]) => route !== 'fortur').map(([route]) => `  <url><loc>${origin}/${route ? `${route}/` : ''}</loc><lastmod>2026-10-04</lastmod></url>`).join('\n')}\n</urlset>\n`);

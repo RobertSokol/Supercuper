@@ -591,3 +591,34 @@ body:has(.schedule-modal[open]){overflow:hidden}
 :where(a,button,input,select,textarea,summary):focus-visible{outline:3px solid var(--orange);outline-offset:3px}
 
 .nav-dropdown>button.nav-trigger{border:0;background:transparent;color:inherit;cursor:pointer;padding-inline:0}
+
+/* Final UX pass: intentional forthcoming-cup pages and clearer form states. */
+.generic-copy{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(310px,.55fr);gap:clamp(70px,9vw,140px);align-items:start}
+.generic-copy-main{max-width:720px}
+.generic-copy-main h2{margin-bottom:30px}
+.generic-copy-main>p:not(.section-label){max-width:660px;color:#526981;font-size:16px;line-height:1.75}
+.generic-copy-main .generic-lead{color:var(--ink)!important;font:600 21px/1.55 'Manrope',sans-serif!important;letter-spacing:-.02em}
+.generic-copy-main .primary{margin-top:18px;border-radius:999px}
+.generic-facts{padding:30px;background:white;border-top:4px solid var(--orange);box-shadow:0 20px 55px rgba(0,31,70,.07)}
+.generic-facts>p{margin:0 0 18px;color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.generic-facts dl{margin:0}
+.generic-facts small{display:block;margin-top:18px;color:#718398;line-height:1.55}
+.priority-consent a{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px;font-weight:700}
+.priority-form[aria-busy=true]{cursor:progress}
+.priority-form[aria-busy=true] :is(input,select,textarea){opacity:.72}
+.cup-card{transition:transform .25s ease,box-shadow .25s ease}
+.cup-card:hover{transform:translateY(-4px);box-shadow:0 22px 52px rgba(0,31,70,.13)}
+.cup-card:hover .cup-more svg{transform:translateX(4px)}
+.cup-more svg{transition:transform .2s ease}
+@media(max-width:900px){
+  .generic-copy{grid-template-columns:1fr;gap:42px}
+  .generic-copy-main .generic-lead{font-size:19px!important}
+  .generic-facts{padding:25px 22px}
+}
+@media(prefers-reduced-motion:reduce){.cup-card{transition:none}.cup-card:hover{transform:none}.cup-more svg{transition:none}}
+.generic-copy-main,.generic-facts{min-width:0}
+@media(max-width:380px){
+  .generic-copy-main h2{font-size:39px;overflow-wrap:anywhere}
+  .generic-copy-main .primary{width:100%;justify-content:space-between}
+  .generic-facts dl div{grid-template-columns:92px minmax(0,1fr)}
+}
