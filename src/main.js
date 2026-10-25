@@ -359,7 +359,7 @@ const superFivePage = (cup) => `${detailHeader}
     <section class="cup-intro wrap super-five-intro">
       <div class="cup-intro-copy">
         <p class="section-label">Inbjudningsturnering · B2018 · 5v5</p>
-        <h2>Välkomna till Super Five</h2>
+        <h2>Välkomna till<br />Super Five</h2>
         <p class="lead"><strong>Super Five</strong> är en inbjudningsturnering för pojkar födda 2018, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, utvecklande och intensiva matcher.</p>
         <p>Turneringen inleds med fyra grupper om fyra lag, där samtliga möter varandra. Efter första gruppspelsomgången sker en omgruppering baserad på placeringen i det inledande gruppspelet.</p>
         <p>I den andra fasen bildas fyra nya, nivåindelade grupper:</p>
