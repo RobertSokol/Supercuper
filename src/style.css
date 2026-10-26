@@ -650,7 +650,7 @@ body:has(.schedule-modal[open]){overflow:hidden}
 
 .reviews-section{background:#eef1f4;padding:64px 0}
 .reviews-inner{width:min(980px,calc(100% - 80px));margin-inline:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-.review{margin:0;padding-top:22px;border-top:3px solid var(--orange);color:var(--ink)}
+.review{margin:0;color:var(--ink)}
 .review blockquote{margin:0 0 20px}
 .review blockquote p{margin:0;font-size:17px;line-height:1.7}
 .review figcaption{font-size:14px;line-height:1.6}
