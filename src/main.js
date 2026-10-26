@@ -62,6 +62,13 @@ const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
     <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
     <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true">${footballIcon}</b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
+</section>
+<section class="reviews-section" aria-label="Recensioner">
+  <div class="reviews-inner">
+    <figure class="review"><blockquote><p>”Tack för en rolig dag med fina matcher och härlig stämning.”</p></blockquote><figcaption><strong>Rojvan, Tränare IFK Haninge P15A</strong></figcaption></figure>
+    <figure class="review"><blockquote><p>”Rolig och välorganiserad cup! Bra jobbat!”</p></blockquote><figcaption><strong>Carl, Tränare IFK Stocksund P18</strong></figcaption></figure>
+    <figure class="review"><blockquote><p>”Stort tack för en riktigt bra och välarrangerad cup! Bra matcher, härlig stämning och framförallt en rolig dag för grabbarna! Tack för ett grymt arrangemang!”</p></blockquote><figcaption><strong>Manni, Tränare Södertälje FF</strong></figcaption></figure>
+  </div>
 </section>`;
 const blixtClubs = [
   ['AS Solna FF', 'as-solna'], ['Järfälla FF', 'jarfalla'], ['AIK', 'aik'], ['Södertälje FF', 'sodertalje'],

@@ -647,3 +647,12 @@ body:has(.schedule-modal[open]){overflow:hidden}
 }
 .instagram-link{display:inline-flex;align-items:center;gap:10px;margin:0 0 20px;font-weight:700}
 .instagram-link svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8}
+
+.reviews-section{background:var(--paper);padding:12px 0 64px}
+.reviews-inner{width:min(980px,calc(100% - 80px));margin-inline:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid rgba(0,45,98,.18);padding-top:36px}
+.review{margin:0;color:var(--ink)}
+.review blockquote{margin:0 0 20px}
+.review blockquote p{margin:0;font-size:17px;line-height:1.7}
+.review figcaption{font-size:14px;line-height:1.6}
+.review figcaption strong{font-weight:800}
+@media(max-width:900px){.reviews-inner{width:calc(100% - 44px);grid-template-columns:1fr;gap:30px}.reviews-section{padding-bottom:44px}.review blockquote{margin-bottom:12px}}
