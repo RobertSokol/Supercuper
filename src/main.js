@@ -62,8 +62,8 @@ const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
     <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
     <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true">${footballIcon}</b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
-</section>
-<section class="reviews-section" aria-label="Recensioner">
+</section>`;
+const reviewsMarkup = `<section class="reviews-section" aria-label="Recensioner">
   <div class="reviews-inner">
     <figure class="review"><blockquote><p>”Tack för en rolig dag med fina matcher och härlig stämning.”</p></blockquote><figcaption><strong>Rojvan, Tränare IFK Haninge P15A</strong></figcaption></figure>
     <figure class="review"><blockquote><p>”Rolig och välorganiserad cup! Bra jobbat!”</p></blockquote><figcaption><strong>Carl, Tränare IFK Stocksund P18</strong></figcaption></figure>
@@ -131,6 +131,7 @@ const homeMarkup = `
     <section id="super-tv" class="tv-teaser"><div class="wrap"><p class="section-label light">Super-TV</p><h2>Matcherna.<br />Minnena. <em>Snart här.</em></h2><p>Livesändningar, repriser och höjdpunkter från våra cuper samlas på ett ställe.</p></div></section>
   </main>
   ${faqMarkup}
+  ${reviewsMarkup}
   ${priorityMarkup()}
   ${footerMarkup()}
 `;
