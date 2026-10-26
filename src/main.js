@@ -376,7 +376,7 @@ const superFivePage = (cup) => `${detailHeader}
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
-          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>B2018 · Pojkar födda 2018</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
+          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>B2018</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
         </dl>
       </aside>
     </section>
