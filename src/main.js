@@ -368,18 +368,20 @@ const superFivePage = (cup) => `${detailHeader}
       <div class="cup-intro-copy">
         <p class="section-label">Inbjudningsturnering · B2018 · B2019 · 5v5</p>
         <h2>Välkomna till<br />Super Five</h2>
-        <p class="lead"><strong>Super Five</strong> är en inbjudningsturnering för pojkar födda 2018 och 2019, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, utvecklande och intensiva matcher.</p>
-        <p>Turneringen inleds med fyra grupper om fyra lag, där samtliga möter varandra. Efter första gruppspelsomgången sker en omgruppering baserad på placeringen i det inledande gruppspelet.</p>
+        <p class="lead">Super Five är en exklusiv inbjudningsturnering för pojkar födda <strong>2018 och 2019</strong>, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, intensiva och utvecklande matcher.</p>
+        <h3>TURNERINGSFORMAT</h3>
+        <p>Turneringen spelas i två faser och inleds med fyra grupper om fyra lag, där samtliga lag möter varandra en gång. Efter tre spelade matcher sker en omgruppering utifrån lagens placeringar i det inledande gruppspelet.</p>
         <p>I den andra fasen bildas fyra nya, nivåindelade grupper:</p>
         <ul>
-          <li><strong>Guldgruppen:</strong> Ettorna från respektive grundgrupp.</li>
-          <li><strong>Silvergruppen:</strong> Tvåorna från respektive grundgrupp.</li>
-          <li><strong>Bronsgruppen:</strong> Treorna från respektive grundgrupp.</li>
-          <li><strong>Safirgruppen:</strong> Fyrorna från respektive grundgrupp.</li>
+          <li><strong>Guldgruppen:</strong> Gruppettorna från respektive grundgrupp.</li>
+          <li><strong>Silvergruppen:</strong> Grupptvåorna från respektive grundgrupp.</li>
+          <li><strong>Bronsgruppen:</strong> Grupptreorna från respektive grundgrupp.</li>
+          <li><strong>Safirgruppen:</strong> Gruppfyrorna från respektive grundgrupp.</li>
         </ul>
-        <p>I de nya grupperna möter alla lag varandra ytterligare en gång, vilket innebär tre nya matcher mot lag med motsvarande placering från det inledande gruppspelet.</p>
-        <p><strong>Samtliga lag garanteras sex matcher à 1 × 20 minuter – totalt 120 matchminuter under turneringen.</strong></p>
-        <p>Alla deltagande spelare tilldelas medaljer (max 10 per lag).</p>
+        <p>I de nya grupperna möter lagen varandra i ytterligare tre matcher. Det nivåindelade upplägget skapar förutsättningar för jämna och konkurrenskraftiga möten, där varje lag får mäta sig med motståndare som placerat sig på motsvarande nivå i den första fasen.</p>
+        <h3>MATCHGARANTI &amp; SPELTID</h3>
+        <p>Samtliga lag garanteras <strong>sex matcher à 1 × 20 minuter</strong>, vilket innebär totalt <strong>120 matchminuter per lag</strong> under turneringen.</p>
+        <p>Alla deltagande spelare tilldelas medaljer, med maximalt 10 medaljer per lag.</p>
       </div>
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
