@@ -3,7 +3,7 @@ import { competitionRulesHtml } from './competitionRules.js';
 
 const cups = [
   { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober 2026', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
-  { slug: 'super-five', title: 'Super Five', place: 'Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby', date: '21 november 2026', ages: 'B2018', format: '5v5', logo: '/logos/super-five.jpg' },
+  { slug: 'super-five', title: 'Super Five', place: 'Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby', date: '21 november 2026', ages: 'B2018 · B2019', format: '5v5', logo: '/logos/super-five.jpg' },
   { slug: 'super-six', title: 'Super Six', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'Åldersklass meddelas', format: '6v6', logo: '/logos/super-six.jpg', descriptionHtml: '<p class="generic-lead">Sex spelare. Mer involvering. Fler beslut.</p><p>Super Six är en intensiv matchcamp i spelformen <strong>6v6</strong>, skapad för att ge varje spelare en större roll i spelet.</p><p>Med färre spelare på planen uppstår fler situationer där spelarna behöver agera: utmana 1v1, kombinera med lagkamrater, hitta spelbara ytor, försvara, ställa om och fatta snabba beslut med och utan boll.</p><p>6v6 skapar en spännande balans mellan <strong>individuell skicklighet och lagspel</strong>. Spelarna får mycket kontakt med spelet, samtidigt som formatet ger utrymme för passningsspel, spelbredd, speldjup och kollektiva lösningar.</p><p class="generic-emphasis">Högt tempo. Många aktioner. Nya fotbollsproblem att lösa.</p><p>Super Six är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg', descriptionHtml: '<p class="generic-lead">Åtta spelare. Större ytor. Fler möjligheter.</p><p>Super Eight är en matchcamp i spelformen <strong>8v8</strong>, där spelarna får ta steget från smålagsspelets intensitet till ett mer utvecklat positions- och lagspel.</p><p>De större ytorna skapar nya fotbollsproblem att lösa. Spelarna behöver orientera sig över större avstånd, skapa och utnyttja spelbredd och speldjup, värdera när laget ska kombinera på små ytor och när spelet ska flyttas till en annan del av planen.</p><p>Formatet ställer större krav på <strong>scanning, positionering, passningsspel och rörelse utan boll</strong>, samtidigt som 1v1-dueller, omställningar och individuella initiativ fortfarande är en central del av spelet.</p><p class="generic-emphasis">Större ytor. Fler relationer. Nya beslut.</p><p>Super Eight är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg', descriptionHtml: '<p class="generic-lead">Nio spelare. Större plan. Ett större spel.</p><p>Super Nine är en matchcamp i spelformen <strong>9v9</strong>, där spelarna möter ett spel som börjar närma sig fotbollens fullskaliga struktur.</p><p>Med fler spelare och större ytor blir relationerna mellan lagdelarna tydligare. Spelarna utmanas i att läsa spelet över större avstånd, skapa balans mellan spelbredd och speldjup, flytta laget tillsammans och förstå hur den egna positionen påverkar helheten.</p><p>9v9 skapar förutsättningar för ett mer utvecklat <strong>uppbyggnadsspel, spelvändningar, djupledsspel, press och omställningar</strong>, samtidigt som varje spelare fortfarande behöver kunna lösa situationer individuellt.</p><p class="generic-emphasis">Större ytor. Fler lagdelar. Mer komplexa fotbollsproblem.</p><p>Super Nine är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
@@ -366,9 +366,9 @@ const superFivePage = (cup) => `${detailHeader}
     <nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>Super Five</strong></nav>
     <section class="cup-intro wrap super-five-intro">
       <div class="cup-intro-copy">
-        <p class="section-label">Inbjudningsturnering · B2018 · 5v5</p>
+        <p class="section-label">Inbjudningsturnering · B2018 · B2019 · 5v5</p>
         <h2>Välkomna till<br />Super Five</h2>
-        <p class="lead"><strong>Super Five</strong> är en inbjudningsturnering för pojkar födda 2018, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, utvecklande och intensiva matcher.</p>
+        <p class="lead"><strong>Super Five</strong> är en inbjudningsturnering för pojkar födda 2018 och 2019, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, utvecklande och intensiva matcher.</p>
         <p>Turneringen inleds med fyra grupper om fyra lag, där samtliga möter varandra. Efter första gruppspelsomgången sker en omgruppering baserad på placeringen i det inledande gruppspelet.</p>
         <p>I den andra fasen bildas fyra nya, nivåindelade grupper:</p>
         <ul>
@@ -384,7 +384,7 @@ const superFivePage = (cup) => `${detailHeader}
       <aside class="cup-facts">
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
-          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>B2018</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
+          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
         </dl>
       </aside>
     </section>
@@ -512,7 +512,7 @@ if (priorityForm) {
     if (consent) consent.innerHTML = `Jag godkänner att Super Cuper kontaktar mig angående ${requestedCup.title}. Läs vår <a href="/integritet">integritetspolicy</a>.`;
     const cupAgeOptions = {
       'solna-blixt-camp': ['B2018', 'B2015'],
-      'super-five': ['B2018'],
+      'super-five': ['B2018', 'B2019'],
       'super-eight': ['B2015'],
       'super-nine': ['B2015', 'B2014'],
       'solna-masterskapen': ['B2019', 'B2018', 'B2017', 'B2016', 'B2015', 'G2019', 'G2018', 'G2017', 'G2016', 'G2015'],

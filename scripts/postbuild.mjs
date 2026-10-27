@@ -12,7 +12,7 @@ const pages = [
   ['integritet', 'Integritet — Super Cuper', 'Så hanterar Super Cuper kontaktuppgifter och intresseanmälningar.'],
   ['villkor', 'Villkor — Super Cuper', 'Grundvillkor för intresseanmälan och deltagande i Super Cupers arrangemang.'],
   ['cuper/solna-blixt-camp', 'Solna Blixt Camp — Super Cuper', 'Solna Blixt Camp på Råstasjöns IP den 18 oktober 2026 för B2018 i 5v5 och B2015 i 7v7.'],
-  ['cuper/super-five', 'Super Five — Super Cuper', 'Super Five på Ultimate Football i Upplands Väsby den 21 november 2026: en inbjudningsturnering i 5v5 för pojkar födda 2018.'],
+  ['cuper/super-five', 'Super Five — Super Cuper', 'Super Five på Ultimate Football i Upplands Väsby den 21 november 2026: en inbjudningsturnering i 5v5 för pojkar födda 2018 och 2019.'],
   ['cuper/super-six', 'Super Six — Super Cuper', 'Kommande 6v6-turnering från Super Cuper.'],
   ['cuper/super-eight', 'Super Eight — Super Cuper', 'Kommande 8v8-turnering för B2015 från Super Cuper.'],
   ['cuper/super-nine', 'Super Nine — Super Cuper', 'Kommande 9v9-turnering för B2015 och B2014 från Super Cuper.'],
