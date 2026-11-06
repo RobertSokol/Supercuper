@@ -661,8 +661,9 @@ body:has(.schedule-modal[open]){overflow:hidden}
 .brand-language{display:flex;align-items:center;gap:24px;flex-shrink:0}
 .language-switch{position:relative;color:white}
 .language-switch:after{content:'';position:absolute;right:5px;top:calc(50% - 4px);width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);pointer-events:none}
-.language-switch select{appearance:none;-webkit-appearance:none;border:0;border-radius:4px;background:transparent;color:inherit;font:500 16px/1.4 'DM Sans',sans-serif;padding:10px 24px 10px 4px;cursor:pointer;color-scheme:dark}
+.language-switch select{appearance:none;-webkit-appearance:none;border:0;border-radius:4px;background:transparent;color:inherit;font:400 15px/1.4 'DM Sans',sans-serif;padding:10px 24px 10px 4px;cursor:pointer;color-scheme:dark;accent-color:#dce3ed}
 .language-switch select option{background:#172336;color:white}
-.language-switch select:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.language-switch select:focus{background:transparent;box-shadow:none;outline:none}
+.language-switch select:focus-visible{outline:1px solid rgba(255,255,255,.65);outline-offset:3px}
 @media(max-width:900px){.header>.brand-language{grid-column:2;grid-row:1;justify-self:center;gap:10px;z-index:3}.brand-language .brand img{width:48px;height:48px}.language-switch select{font-size:13px;padding-left:0;padding-right:20px}.mobile-tools-left{gap:12px}}
 @media(max-width:360px){.header{padding-inline:12px}.brand-language .brand img{width:42px;height:42px}.header>.brand-language{gap:7px}.mobile-tools-left{gap:10px}}
