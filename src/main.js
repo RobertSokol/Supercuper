@@ -1,4 +1,5 @@
 import './style.css';
+import { initializeLanguage } from './i18n.js';
 import { competitionRulesHtml } from './competitionRules.js';
 
 const cups = [
@@ -745,3 +746,5 @@ if (clubMarquee) {
     requestAnimationFrame(animate);
   });
 }
+
+initializeLanguage();
