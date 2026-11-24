@@ -38,6 +38,25 @@ test('Worker registration data matches the website source of truth', async () =>
   }
 });
 
+test('preflight returns an empty 204 with CORS headers for allowed origins', async () => {
+  for (const origin of ['https://supercuper.se', 'https://www.supercuper.se']) {
+    const response = await worker.fetch(new Request('https://forms.example.test/', {
+      method: 'OPTIONS',
+      headers: { Origin: origin, 'Access-Control-Request-Method': 'POST' },
+    }), {});
+    assert.equal(response.status, 204);
+    assert.equal(await response.text(), '');
+    assert.equal(response.headers.get('Access-Control-Allow-Origin'), origin);
+    assert.equal(response.headers.get('Access-Control-Allow-Methods'), 'POST, OPTIONS');
+    assert.equal(response.headers.get('Access-Control-Allow-Headers'), 'Content-Type');
+  }
+  const forbidden = await worker.fetch(new Request('https://forms.example.test/', {
+    method: 'OPTIONS',
+    headers: { Origin: 'https://other.example' },
+  }), {});
+  assert.equal(forbidden.status, 403);
+});
+
 test('generic contact-form submissions continue through Resend', async () => {
   const originalFetch = globalThis.fetch;
   let resendPayload;
@@ -51,6 +70,7 @@ test('generic contact-form submissions continue through Resend', async () => {
       ...validFields,
     }), { RESEND_API_KEY: 'test-key' });
     assert.equal(response.status, 200);
+    assert.deepEqual(resendPayload.to, ['hej@supercuper.se']);
     assert.equal(resendPayload.reply_to, 'team@example.com');
   } finally {
     globalThis.fetch = originalFetch;
@@ -171,7 +191,7 @@ test('valid cup-specific registrations continue through Resend', async () => {
       cupSlug: 'super-six',
     }), { RESEND_API_KEY: 'test-key' });
     assert.equal(response.status, 200);
-    assert.ok(resendPayload.to.length > 0);
+    assert.deepEqual(resendPayload.to, ['hej@supercuper.se']);
   } finally {
     globalThis.fetch = originalFetch;
   }

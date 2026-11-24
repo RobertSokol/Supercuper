@@ -185,7 +185,7 @@ export default {
       },
       body: JSON.stringify({
         from: 'Super Cuper <formular@supercuper.se>',
-        to: ['robertgiuricici@gmail.com'],
+        to: ['hej@supercuper.se'],
         reply_to: data.email,
         subject,
         html: `<div style="background:#f5f7f9;padding:28px;font-family:Arial,sans-serif"><div style="max-width:680px;margin:auto;background:#fff;border-radius:14px;overflow:hidden"><div style="background:#002d62;color:#fff;padding:25px 28px"><p style="margin:0;color:#ff6414;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Super Cuper</p><h1 style="margin:8px 0 0;font-size:24px">Ny intresseanmälan</h1></div><table role="presentation" style="width:100%;border-collapse:collapse;font-size:15px">${rows}</table></div></div>`,

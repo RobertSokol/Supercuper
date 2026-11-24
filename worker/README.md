@@ -4,9 +4,9 @@ Cloudflare Worker that validates interest forms and sends them through Resend.
 
 ## Deployment
 
-1. Paste `supercuper-forms.js` into the Cloudflare Worker editor.
-2. Add `RESEND_API_KEY` as an encrypted Worker secret.
-3. Deploy and verify the public endpoint before changing the website form endpoint.
+For the existing production Worker, record its deployed version, code, settings, bindings, and routes before deploying. Paste `supercuper-forms.js` into the existing Worker's editor without changing its configuration. Preserve the existing `RESEND_API_KEY` secret and do not replace or delete it. Confirm the secret binding, compatibility settings, and routes remain unchanged after deployment; stop the website rollout if they cannot be verified.
+
+For a new Worker only, add `RESEND_API_KEY` as an encrypted Worker secret. Deploy the Worker and verify the public endpoint before publishing the website.
 
 The secret must never be committed or exposed to browser code.
 
