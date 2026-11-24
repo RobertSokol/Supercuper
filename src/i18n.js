@@ -39,6 +39,8 @@ export function translate(value) {
       (_, index) => english[normalize(groups[Number(index)])] ?? groups[Number(index)]))
       .replace(/18 oktober 2026/g, 'October 18, 2026')
       .replace(/21 november 2026/g, 'November 21, 2026')
+      .replace(/28 december 2026/g, 'December 28, 2026')
+      .replace(/Solnahallen, B-hallen/g, 'Solnahallen, Hall B')
       .replace(/\bextra svår\b/g, 'highly advanced').replace(/\bsvår\b/g, 'advanced');
   }
   return key;

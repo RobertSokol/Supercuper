@@ -83,6 +83,7 @@ test('a cup remains open through its final Stockholm day, then closes at midnigh
     status: 410,
     error: 'Anmälan till Solna Blixt Camp har stängt.',
   });
+
   assert.deepEqual(cupRegistrationError({
     ...expiredCupSubmission,
     cupSlug: '',
@@ -91,6 +92,42 @@ test('a cup remains open through its final Stockholm day, then closes at midnigh
     status: 422,
     error: 'Turneringens anmälan kunde inte verifieras.',
   });
+});
+
+test('Futsal Edition registrations close at Stockholm midnight after December 28', () => {
+  const submission = {
+    'Typ av intresseanmälan': 'Specifik cup eller matchcamp',
+    'Cup eller matchcamp': 'Super Five – Futsal Edition',
+    cupSlug: 'super-five-futsal',
+  };
+  assert.equal(cupRegistrationError(submission, new Date('2026-12-28T22:59:59Z')), null);
+  assert.deepEqual(cupRegistrationError(submission, new Date('2026-12-28T23:00:00Z')), {
+    status: 410,
+    error: 'Anmälan till Super Five – Futsal Edition har stängt.',
+  });
+});
+
+test('Worker accepts Futsal before midnight and rejects it afterward without sending email', async (t) => {
+  const submission = {
+    ...validFields,
+    'Åldersklass': 'U11',
+    'Typ av intresseanmälan': 'Specifik cup eller matchcamp',
+    'Cup eller matchcamp': 'Super Five – Futsal Edition',
+    cupSlug: 'super-five-futsal',
+  };
+  t.mock.timers.enable({ apis: ['Date'], now: new Date('2026-12-28T22:59:59Z') });
+  let resendCalls = 0;
+  t.mock.method(globalThis, 'fetch', async () => {
+    resendCalls += 1;
+    return new Response('{}', { status: 200 });
+  });
+  const open = await worker.fetch(makeRequest(submission), { RESEND_API_KEY: 'test-key' });
+  assert.equal(open.status, 200);
+  assert.equal(resendCalls, 1);
+  t.mock.timers.tick(1000);
+  const closed = await worker.fetch(makeRequest(submission), { RESEND_API_KEY: 'test-key' });
+  assert.equal(closed.status, 410);
+  assert.equal(resendCalls, 1);
 });
 
 test('legacy cup-specific requests use the server registry when their slug is absent', () => {
