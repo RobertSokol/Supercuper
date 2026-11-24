@@ -643,7 +643,10 @@ body:has(.schedule-modal[open]){overflow:hidden}
   .cup-visual,.cup-visual.cup-artwork{height:174px;min-height:174px}
   .cup-details h3{font-size:20px}
 }
-@media(max-width:600px){.cups-rail{grid-template-columns:1fr;width:calc(100% - 38px)}}
+@media(max-width:600px){
+  .cups-rail{display:flex;width:100%;padding:0 19px 24px;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:19px;-webkit-overflow-scrolling:touch}
+  .cup-card{flex:0 0 min(82vw,330px)}
+}
 .cups-empty{grid-column:1/-1;width:100%;margin:0;padding:16px 0 32px;text-align:center;color:#718197;font-size:14px}
 .generic-copy-main,.generic-facts{min-width:0}
 .cup-photo-hero{position:relative;isolation:isolate;overflow:hidden;background-color:var(--forest-2);background-image:linear-gradient(90deg,rgba(0,31,70,.84),rgba(0,45,98,.6) 48%,rgba(0,31,70,.5)),var(--cup-photo);background-position:var(--photo-position,50% 50%);background-repeat:no-repeat;background-size:cover}
