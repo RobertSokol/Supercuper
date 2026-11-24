@@ -5,6 +5,23 @@ const ALLOWED_ORIGINS = new Set([
 
 const REQUIRED_FIELDS = ['Kontaktperson', 'email', 'Telefon', 'Klubb', 'Lag', 'Åldersklass', 'Nivå', 'Godkännande'];
 const MAX_BODY_BYTES = 16_384;
+export const CUP_REGISTRATIONS = [
+  { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', endDate: '2026-10-18' },
+  { slug: 'super-five', title: 'Super Five', endDate: '2026-11-21' },
+  { slug: 'super-six', title: 'Super Six', endDate: null },
+  { slug: 'super-eight', title: 'Super Eight', endDate: null },
+  { slug: 'super-nine', title: 'Super Nine', endDate: null },
+  { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', endDate: null },
+];
+const cupRegistrationsBySlug = new Map(CUP_REGISTRATIONS.map((cup) => [cup.slug, cup]));
+const stockholmDateFormatter = new Intl.DateTimeFormat('sv-SE', {
+  timeZone: 'Europe/Stockholm',
+  calendar: 'gregory',
+  numberingSystem: 'latn',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
 
 const json = (body, status, origin) => new Response(JSON.stringify(body), {
   status,
@@ -21,6 +38,38 @@ const json = (body, status, origin) => new Response(JSON.stringify(body), {
 const clean = (value, maxLength = 200) => typeof value === 'string'
   ? value.trim().replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '').slice(0, maxLength)
   : '';
+
+const isValidDateKey = (value) => {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
+};
+
+const stockholmDateKey = (now) => {
+  const parts = Object.fromEntries(stockholmDateFormatter.formatToParts(now).map(({ type, value }) => [type, value]));
+  return `${parts.year}-${parts.month}-${parts.day}`;
+};
+
+export const isRegistrationOpenUntil = (endDate, now = new Date()) => {
+  if (endDate === null) return true;
+  return isValidDateKey(endDate) && endDate >= stockholmDateKey(now);
+};
+
+export const cupRegistrationError = (input, now = new Date()) => {
+  const type = clean(input['Typ av intresseanmälan'], 100);
+  const slug = clean(input.cupSlug, 100);
+  const title = clean(input['Cup eller matchcamp'], 100);
+  const hasCupDetails = Boolean(slug || title || type === 'Specifik cup eller matchcamp');
+  if (!hasCupDetails) return null;
+
+  const cup = cupRegistrationsBySlug.get(slug);
+  if (type !== 'Specifik cup eller matchcamp' || !cup || title !== cup.title || !(cup.endDate === null || isValidDateKey(cup.endDate))) {
+    return { status: 422, error: 'Turneringens anmälan kunde inte verifieras.' };
+  }
+  return isRegistrationOpenUntil(cup.endDate, now)
+    ? null
+    : { status: 410, error: `Anmälan till ${cup.title} har stängt.` };
+};
 
 const escapeHtml = (value) => value
   .replaceAll('&', '&amp;')
@@ -76,6 +125,7 @@ export default {
     const data = {
       type: clean(input['Typ av intresseanmälan'], 100),
       cup: clean(input['Cup eller matchcamp'], 100),
+      cupSlug: clean(input.cupSlug, 100),
       contact: clean(input.Kontaktperson, 80),
       email: clean(input.email, 160).toLowerCase(),
       phone: clean(input.Telefon, 30),
@@ -99,6 +149,11 @@ export default {
     };
     if (REQUIRED_FIELDS.some((field) => !normalized[field]) || !isEmail(data.email) || data.consent !== 'Ja') {
       return json({ ok: false, error: 'Kontrollera att alla obligatoriska uppgifter är korrekt ifyllda.' }, 422, origin);
+    }
+
+    const registrationError = cupRegistrationError(input);
+    if (registrationError) {
+      return json({ ok: false, error: registrationError.error }, registrationError.status, origin);
     }
 
     if (!env.RESEND_API_KEY) return json({ ok: false, error: 'Tjänsten är inte konfigurerad.' }, 500, origin);

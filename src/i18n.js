@@ -26,6 +26,7 @@ const patterns = [
   [/^Den här cupen riktar sig till nivå (.+)\.$/, 'This tournament is for teams at the $1 level.'],
   [/^Tack! Er intresseanmälan till (.+) skickas nu\.$/, 'Thank you! Your expression of interest in $1 is being sent.'],
   [/^Tack! Er intresseanmälan till (.+) är skickad\.$/, 'Thank you! Your expression of interest in $1 has been sent.'],
+  [/^Anmälan till (.+) har stängt\.$/, 'Registration for $1 has closed.'],
   [/^Intresseanmälan till (.+) — Super Cuper$/, 'Expression of interest in $1 — Super Cuper'],
   [/^(.+): (.+)\. Åldrar (.+), spelform (.+)\.$/, '$1: $2. Age groups $3, playing format $4.'],
 ];

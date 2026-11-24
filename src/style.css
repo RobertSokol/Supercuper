@@ -639,6 +639,9 @@ body:has(.schedule-modal[open]){overflow:hidden}
   .cup-visual,.cup-visual.cup-artwork{height:174px;min-height:174px}
   .cup-details h3{font-size:20px}
 }
+.cups-heading.is-empty{justify-content:flex-start}
+.cups-heading.has-no-scroll .cup-controls{display:none}
+.cups-empty{width:100%;margin:0;padding:16px 0 32px;text-align:center;color:#718197;font-size:14px}
 .generic-copy-main,.generic-facts{min-width:0}
 @media(max-width:380px){
   .generic-copy-main h2{font-size:39px;overflow-wrap:anywhere}
