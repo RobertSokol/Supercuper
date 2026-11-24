@@ -62,7 +62,9 @@ export const cupRegistrationError = (input, now = new Date()) => {
   const hasCupDetails = Boolean(slug || title || type === 'Specifik cup eller matchcamp');
   if (!hasCupDetails) return null;
 
-  const cup = cupRegistrationsBySlug.get(slug);
+  const cup = slug
+    ? cupRegistrationsBySlug.get(slug)
+    : CUP_REGISTRATIONS.find((registeredCup) => registeredCup.title === title);
   if (type !== 'Specifik cup eller matchcamp' || !cup || title !== cup.title || !(cup.endDate === null || isValidDateKey(cup.endDate))) {
     return { status: 422, error: 'Turneringens anmälan kunde inte verifieras.' };
   }

@@ -63,9 +63,27 @@ test('a cup remains open through its final Stockholm day, then closes at midnigh
     status: 410,
     error: 'Anmälan till Solna Blixt Camp har stängt.',
   });
-  assert.deepEqual(cupRegistrationError({ ...expiredCupSubmission, cupSlug: '' }), {
+  assert.deepEqual(cupRegistrationError({
+    ...expiredCupSubmission,
+    cupSlug: '',
+    'Cup eller matchcamp': 'Unknown Cup',
+  }), {
     status: 422,
     error: 'Turneringens anmälan kunde inte verifieras.',
+  });
+});
+
+test('legacy cup-specific requests use the server registry when their slug is absent', () => {
+  assert.equal(cupRegistrationError({
+    'Typ av intresseanmälan': 'Specifik cup eller matchcamp',
+    'Cup eller matchcamp': 'Super Six',
+  }, new Date('2026-11-24T12:00:00Z')), null);
+  assert.deepEqual(cupRegistrationError({
+    'Typ av intresseanmälan': 'Specifik cup eller matchcamp',
+    'Cup eller matchcamp': 'Solna Blixt Camp',
+  }, new Date('2026-10-18T22:00:00Z')), {
+    status: 410,
+    error: 'Anmälan till Solna Blixt Camp har stängt.',
   });
 });
 
@@ -154,6 +172,26 @@ test('valid cup-specific registrations continue through Resend', async () => {
     }), { RESEND_API_KEY: 'test-key' });
     assert.equal(response.status, 200);
     assert.ok(resendPayload.to.length > 0);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
+});
+
+test('the current website form payload continues working without a cup slug', async () => {
+  const originalFetch = globalThis.fetch;
+  let resendCalls = 0;
+  globalThis.fetch = async () => {
+    resendCalls += 1;
+    return new Response('{}', { status: 200 });
+  };
+  try {
+    const response = await worker.fetch(makeRequest({
+      ...validFields,
+      'Typ av intresseanmälan': 'Specifik cup eller matchcamp',
+      'Cup eller matchcamp': 'Super Six',
+    }), { RESEND_API_KEY: 'test-key' });
+    assert.equal(response.status, 200);
+    assert.equal(resendCalls, 1);
   } finally {
     globalThis.fetch = originalFetch;
   }
