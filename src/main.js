@@ -8,6 +8,7 @@ const cupRegistrationsBySlug = new Map(cupRegistrations.map((cup) => [cup.slug, 
 const cups = [
   { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober 2026', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
   { slug: 'super-five', title: 'Super Five', place: 'Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby', date: '21 november 2026', ages: 'B2018 · B2019', format: '5v5', logo: '/logos/super-five.jpg' },
+  { slug: 'super-five-futsal', title: 'Super Five – Futsal Edition', place: 'Solnahallen, B-hallen', date: '28 december 2026', ages: 'U11', format: 'Futsal', logo: '/logos/supercuper-main.jpg', summary: 'Super Five – Futsal Edition spelas i Solnahallen, B-hallen, den 28 december 2026 för U11.' },
   { slug: 'super-six', title: 'Super Six', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'Åldersklass meddelas', format: '6v6', logo: '/logos/super-six.jpg', descriptionHtml: '<p class="generic-lead">Sex spelare. Mer involvering. Fler beslut.</p><p>Super Six är en intensiv matchcamp i spelformen <strong>6v6</strong>, skapad för att ge varje spelare en större roll i spelet.</p><p>Med färre spelare på planen uppstår fler situationer där spelarna behöver agera: utmana 1v1, kombinera med lagkamrater, hitta spelbara ytor, försvara, ställa om och fatta snabba beslut med och utan boll.</p><p>6v6 skapar en spännande balans mellan <strong>individuell skicklighet och lagspel</strong>. Spelarna får mycket kontakt med spelet, samtidigt som formatet ger utrymme för passningsspel, spelbredd, speldjup och kollektiva lösningar.</p><p class="generic-emphasis">Högt tempo. Många aktioner. Nya fotbollsproblem att lösa.</p><p>Super Six är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg', descriptionHtml: '<p class="generic-lead">Åtta spelare. Större ytor. Fler möjligheter.</p><p>Super Eight är en matchcamp i spelformen <strong>8v8</strong>, där spelarna får ta steget från smålagsspelets intensitet till ett mer utvecklat positions- och lagspel.</p><p>De större ytorna skapar nya fotbollsproblem att lösa. Spelarna behöver orientera sig över större avstånd, skapa och utnyttja spelbredd och speldjup, värdera när laget ska kombinera på små ytor och när spelet ska flyttas till en annan del av planen.</p><p>Formatet ställer större krav på <strong>scanning, positionering, passningsspel och rörelse utan boll</strong>, samtidigt som 1v1-dueller, omställningar och individuella initiativ fortfarande är en central del av spelet.</p><p class="generic-emphasis">Större ytor. Fler relationer. Nya beslut.</p><p>Super Eight är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg', descriptionHtml: '<p class="generic-lead">Nio spelare. Större plan. Ett större spel.</p><p>Super Nine är en matchcamp i spelformen <strong>9v9</strong>, där spelarna möter ett spel som börjar närma sig fotbollens fullskaliga struktur.</p><p>Med fler spelare och större ytor blir relationerna mellan lagdelarna tydligare. Spelarna utmanas i att läsa spelet över större avstånd, skapa balans mellan spelbredd och speldjup, flytta laget tillsammans och förstå hur den egna positionen påverkar helheten.</p><p>9v9 skapar förutsättningar för ett mer utvecklat <strong>uppbyggnadsspel, spelvändningar, djupledsspel, press och omställningar</strong>, samtidigt som varje spelare fortfarande behöver kunna lösa situationer individuellt.</p><p class="generic-emphasis">Större ytor. Fler lagdelar. Mer komplexa fotbollsproblem.</p><p>Super Nine är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
@@ -72,7 +73,7 @@ const faqQuestions = [
 ];
 const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
   <div class="faq-inner">
-    <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
+    <div class="faq-heading"><h2 id="faq-title">Information</h2></div>
     <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true">${footballIcon}</b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
 </section>`;
@@ -111,10 +112,6 @@ const renderCupRail = (visibleCups) => visibleCups.length
   ? renderCupCards(visibleCups)
   : '<p class="cups-empty">Fler cuper publiceras snart.</p>';
 const initialVisibleCups = currentCups(cups);
-const initialCupHeadingClasses = [
-  initialVisibleCups.length === 0 && 'is-empty',
-  initialVisibleCups.length <= 1 && 'has-no-scroll',
-].filter(Boolean).join(' ');
 const cupCards = renderCupRail(initialVisibleCups);
 
 const homeMarkup = `
@@ -144,11 +141,10 @@ const homeMarkup = `
       <a class="hero-scroll-cue" href="#arrangemang" aria-label="Scrolla ned till kommande cuper"><span>Scrolla ned</span><i></i></a>
     </section>
     <section id="arrangemang" class="cups-section">
-      <div class="cups-heading ${initialCupHeadingClasses}">
+      <div class="cups-heading">
         <div><p class="section-label">Kalender</p><h2>Kommande cuper<br /><span>&amp; matchcamper</span></h2></div>
-        <div class="cup-controls" aria-label="Bläddra bland cuper"><button type="button" data-direction="-1" aria-label="Föregående cuper">←</button><button type="button" data-direction="1" aria-label="Nästa cuper">→</button></div>
       </div>
-      <div class="cups-rail" tabindex="0" aria-label="Planerade cuper">${cupCards}</div>
+      <div class="cups-rail" aria-label="Planerade cuper">${cupCards}</div>
     </section>
     <section id="super-tv" class="tv-teaser"><div class="wrap"><p class="section-label light">Super-TV</p><h2>Matcherna.<br />Minnena. <em>Snart här.</em></h2><p>Livesändningar, repriser och höjdpunkter från våra cuper samlas på ett ställe.</p></div></section>
   </main>
@@ -345,6 +341,7 @@ const blixtPage = (cup) => `${detailHeader}
     <section class="cup-intro wrap">
       <div class="cup-intro-copy"><p class="section-label">Inbjudningsturnering · 5v5 · 7v7</p><h2>Välkomna till<br />Solna Blixt Camp.</h2><p class="lead">En inbjudningsturnering för två åldersklasser som vänder sig till lag på svår och extra svår nivå. Cupen spelas på anrika Råstasjöns IP i Solna.</p><p>Alla lag garanteras sex matcher om 1 × 20 minuter. Här utmanas ni i att hålla ett högt tempo redan från start och får möjlighet att träna på att spela en effektiv fotboll under totalt 120 intensiva fotbollsminuter.</p><p>Samtliga lag har tillgång till omklädningsrum. Kiosk och grill finns på plats. Alla lag tilldelas medaljer och matchens spelare utses efter varje match.</p></div>
       <aside class="cup-facts">
+        <h2>Information</h2>
         <div class="detail-logos"><img src="/logos/supercuper-main.jpg" alt="Super Cuper logotyp" /><i>×</i><img src="/logos/as-solna-ff.jpg" alt="AS Solna FF logotyp" /></div>
         <dl><div><dt>Var</dt><dd>Råstasjöns IP, Solna</dd></div><div><dt>När</dt><dd>18 oktober 2026</dd></div><div><dt>Åldrar</dt><dd>B2018 · B2015</dd></div><div><dt>Spelform</dt><dd>5v5 · 7v7</dd></div><div><dt>Nivå</dt><dd>Svår · extra svår</dd></div><div><dt>Medarrangör</dt><dd>AS Solna FF</dd></div></dl>
       </aside>
@@ -381,7 +378,7 @@ const blixtPage = (cup) => `${detailHeader}
 
 const superFivePage = (cup) => `${detailHeader}
   <main id="top" class="cup-page generic-cup super-five-page">
-    <section class="generic-hero super-five-hero">
+    <section class="generic-hero super-five-hero cup-photo-hero cup-photo-super-five" style="--cup-photo:url('/images/cups/super-five.webp')">
       <div><p>${cup.date} · ${cup.place}</p><h1>Super<br />Five</h1>${cupInterestMarkup(cup, 'Anmäl intresse')}</div>
       <img src="${cup.logo}" alt="Super Five logotyp" />
     </section>
@@ -406,6 +403,7 @@ const superFivePage = (cup) => `${detailHeader}
         <p>Alla deltagande spelare tilldelas medaljer, med maximalt 10 medaljer per lag.</p>
       </div>
       <aside class="cup-facts">
+        <h2>Information</h2>
         <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
         <dl>
           <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
@@ -420,7 +418,13 @@ const superFivePage = (cup) => `${detailHeader}
     </section>
   </main>${detailFooter}`;
 
-const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}"><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1>${cupInterestMarkup(cup, 'Anmäl intresse')}</div><img src="${cup.logo || cup.image}" alt="${cup.title} logotyp" fetchpriority="high" /></section>${cup.artwork ? `<div class="cup-interest-bar">${cupInterestMarkup(cup, 'Anmäl intresse')}</div>` : ''}<nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><div class="generic-copy-main"><p class="section-label">Planeras just nu</p><h2>Förhandsintresset<br />är öppet.</h2><div class="generic-description">${cup.descriptionHtml || `<p class="generic-lead">${cup.summary}</p>`}</div><p>Skicka en kostnadsfri intresseanmälan om ni vill få information när de återstående detaljerna är klara. En intresseanmälan är inte bindande och garanterar inte en plats.</p>${cupInterestMarkup(cup, 'Anmäl lagets intresse', 'primary')}</div><aside class="generic-facts"><p>Det här vet vi</p><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><small>Informationen uppdateras när planeringen är fastställd.</small></aside></section></main>${detailFooter}`;
+const cupHeroPhotos = {
+  'super-five-futsal': '/images/cups/super-five-futsal.webp',
+  'super-six': '/images/cups/super-six.webp',
+  'super-eight': '/images/cups/super-eight.webp',
+  'super-nine': '/images/cups/super-nine.webp',
+};
+const genericCupPage = (cup) => `${detailHeader}<main id="top" class="cup-page generic-cup"><section class="generic-hero${cup.artwork ? ' artwork-hero' : ''}${cupHeroPhotos[cup.slug] ? ` cup-photo-hero cup-photo-${cup.slug}` : ''}${cup.slug === 'super-five-futsal' ? ' futsal-hero' : ''}"${cupHeroPhotos[cup.slug] ? ` style="--cup-photo:url('${cupHeroPhotos[cup.slug]}')"` : ''}><div><p>${cup.date} · ${cup.place}</p><h1>${cup.title}</h1>${cupInterestMarkup(cup, 'Anmäl intresse')}</div>${cup.artwork ? '' : `<img src="${cup.logo || cup.image}" alt="${cup.title} logotyp" fetchpriority="high" />`}</section><nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>${cup.title}</strong></nav><section class="generic-copy wrap"><div class="generic-copy-main">${cup.slug === 'super-five-futsal' ? '<p class="section-label">Futsal · U11</p><h2>Super Five<br />Futsal Edition.</h2>' : '<p class="section-label">Planeras just nu</p><h2>Förhandsintresset<br />är öppet.</h2>'}<div class="generic-description">${cup.descriptionHtml || `<p class="generic-lead">${cup.summary}</p>`}</div>${cup.slug === 'super-five-futsal' ? '<p>En intresseanmälan är inte bindande och garanterar inte en plats.</p>' : '<p>Skicka en kostnadsfri intresseanmälan om ni vill få information när de återstående detaljerna är klara. En intresseanmälan är inte bindande och garanterar inte en plats.</p>'}${cupInterestMarkup(cup, 'Anmäl lagets intresse', 'primary')}</div><aside class="generic-facts"><h2>Information</h2><dl><div><dt>Var</dt><dd>${cup.place}</dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Åldrar</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>${cup.format}</dd></div></dl><small>Informationen uppdateras när planeringen är fastställd.</small></aside></section></main>${detailFooter}`;
 
 const slug = decodeURIComponent(window.location.pathname).match(/^\/cuper\/([^/]+)\/?$/)?.[1];
 const activeCup = cups.find((cup) => cup.slug === slug);
@@ -549,6 +553,7 @@ if (priorityForm) {
     const cupAgeOptions = {
       'solna-blixt-camp': ['B2018', 'B2015'],
       'super-five': ['B2018', 'B2019'],
+      'super-five-futsal': ['U11'],
       'super-eight': ['B2015'],
       'super-nine': ['B2015', 'B2014'],
       'solna-masterskapen': ['B2019', 'B2018', 'B2017', 'B2016', 'B2015', 'G2019', 'G2018', 'G2017', 'G2016', 'G2015'],
@@ -594,6 +599,11 @@ if (priorityForm) {
       return;
     }
     const status = priorityForm.querySelector('.priority-form-status');
+    if (import.meta.env.DEV) {
+      status.className = 'priority-form-status is-error';
+      status.textContent = 'Förhandsvisning: formuläret skickas inte.';
+      return;
+    }
     const submitButton = priorityForm.querySelector('button[type="submit"]');
     const originalButtonContent = submitButton.innerHTML;
     const payload = Object.fromEntries(new FormData(priorityForm).entries());
@@ -654,13 +664,8 @@ const refreshCupInterestControls = (now) => {
 const refreshCupAvailability = () => {
   const now = new Date();
   if (rail) {
-    const scrollPosition = rail.scrollLeft;
     const visibleCups = currentCups(cups, now);
     rail.innerHTML = renderCupRail(visibleCups);
-    rail.scrollLeft = scrollPosition;
-    const heading = document.querySelector('.cups-heading');
-    heading?.classList.toggle('is-empty', visibleCups.length === 0);
-    heading?.classList.toggle('has-no-scroll', visibleCups.length <= 1);
   }
   refreshCupInterestControls(now);
   if (requestedCup && priorityForm && !isCupRegistrationOpen(requestedCup, now)) closeCupRegistration(requestedCup);
@@ -668,9 +673,6 @@ const refreshCupAvailability = () => {
   window.setTimeout(refreshCupAvailability, Math.max(0, nextMidnight.getTime() - Date.now() + 50));
 };
 window.setTimeout(refreshCupAvailability, Math.max(0, nextStockholmMidnight().getTime() - Date.now() + 50));
-document.querySelectorAll('.cup-controls button').forEach((button) => button.addEventListener('click', () => {
-  rail?.scrollBy({ left: Number(button.dataset.direction) * Math.min(rail.clientWidth * .82, 940), behavior: 'smooth' });
-}));
 
 const rulesMedia = window.matchMedia('(max-width: 900px)');
 document.querySelectorAll('.rule-section').forEach((section, index) => {

@@ -289,10 +289,6 @@
   .swipe-hint{margin:12px 3px 4px}
 }
 
-/* Deliberate breathing room around the cup rail. */
-.cups-rail{--cup-rail-gutter:max(56px,calc((100vw - 1328px)/2));padding-left:var(--cup-rail-gutter);padding-right:var(--cup-rail-gutter);scroll-padding-inline:var(--cup-rail-gutter)}
-@media(max-width:900px){.cups-rail{--cup-rail-gutter:26px;padding-left:var(--cup-rail-gutter);padding-right:var(--cup-rail-gutter);scroll-padding-inline:var(--cup-rail-gutter)}}
-
 /* Frosted-glass milestones keep schedule pauses prominent and readable. */
 .schedule-section{background:radial-gradient(circle at 18% 28%,rgba(255,255,255,.9),transparent 31%),radial-gradient(circle at 85% 68%,rgba(181,205,229,.38),transparent 34%),#e9eef3}
 .schedule-break,.schedule-end{position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(255,255,255,.88);border-radius:16px;background:linear-gradient(120deg,rgba(255,255,255,.78),rgba(255,255,255,.42));box-shadow:0 12px 30px rgba(0,31,70,.09),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(18px) saturate(145%);-webkit-backdrop-filter:blur(18px) saturate(145%);color:var(--ink)}
@@ -334,11 +330,10 @@
 .cup-visual.cup-artwork{height:auto;aspect-ratio:1;padding:0;background:var(--forest-2)}
 .cup-visual.cup-artwork>img{width:100%;height:100%;object-fit:contain}
 .club-logo-card img{height:154px;filter:none}
-.generic-hero.artwork-hero{position:relative;height:100vw;min-height:0;padding:0;display:block;overflow:hidden}
-.generic-hero.artwork-hero>img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:contain;background:var(--forest-2);border-radius:0}
-.generic-hero.artwork-hero>div{position:absolute;z-index:1;left:max(40px,calc((100% - 1280px)/2));bottom:60px;padding:18px 22px;background:rgba(0,31,70,.72);backdrop-filter:blur(14px);border-radius:14px}
-.generic-hero.artwork-hero h1{font-size:clamp(42px,6vw,84px);margin-top:10px}
-.generic-hero.artwork-hero>div{display:none}
+.generic-hero.artwork-hero{position:relative;height:clamp(300px,27vw,380px);min-height:0;padding:0;display:block;overflow:hidden;background-color:var(--forest-2);background-image:linear-gradient(90deg,rgba(0,31,70,.82),rgba(0,31,70,.45) 55%,rgba(0,31,70,.32)),url('/images/cups/solna-masterskapen-hero.svg');background-position:60% center;background-repeat:no-repeat;background-size:cover}
+.generic-hero.artwork-hero>img{display:none}
+.generic-hero.artwork-hero>div{position:absolute;z-index:1;left:max(40px,calc((100% - 1280px)/2));right:max(40px,calc((100% - 1280px)/2));bottom:44px;padding:0;background:none}
+.generic-hero.artwork-hero h1{font-size:clamp(42px,6vw,84px);line-height:.95;margin-top:12px}
 .cup-interest{display:inline-flex;align-items:center;gap:28px;margin-top:30px;border-radius:999px;background:var(--orange);color:var(--forest-2);padding:15px 21px;font-size:12px;font-weight:800;letter-spacing:.02em;text-transform:none;transition:background .2s,transform .2s}
 .cup-interest:hover{background:#ff6414;transform:translateY(-2px)}
 .cup-interest svg{width:19px;fill:none;stroke:currentColor;stroke-width:1.8}
@@ -358,9 +353,11 @@
 @media(max-width:900px){.super-five-format{padding:76px 0 84px}.super-five-format .wrap>div{grid-template-columns:1fr}.super-five-format article{padding:28px 0}.super-five-format article+article{border-left:0;border-top:1px solid rgba(255,255,255,.22);padding-left:0}.single-detail-logo img{width:125px;height:125px}}
 @media(max-width:900px){
   .club-logo-card img{height:132px}
-  .generic-hero.artwork-hero{height:100vw;min-height:0}
-  .generic-hero.artwork-hero>div{left:18px;right:18px;bottom:24px}
-  .generic-hero.artwork-hero h1{font-size:40px}
+  .generic-hero.artwork-hero{height:clamp(285px,68vw,300px);min-height:0}
+  .generic-hero.artwork-hero>img{width:min(68vw,260px);height:min(68vw,260px)}
+  .generic-hero.artwork-hero{background-position:64% center}
+  .generic-hero.artwork-hero>div{left:22px;right:22px;bottom:24px}
+  .generic-hero.artwork-hero h1{font-size:clamp(40px,6vw,58px)}
 }
 
 /* Preserve every club crest's native proportions. */
@@ -609,7 +606,7 @@ body:has(.schedule-modal[open]){overflow:hidden}
 .generic-description .generic-signature{margin:30px 0 0;padding-top:22px;border-top:1px solid var(--line);color:var(--orange);font:800 18px/1.5 'Manrope',sans-serif}
 .generic-copy-main .primary{margin-top:18px;border-radius:999px}
 .generic-facts{padding:30px;background:white;border-top:4px solid var(--orange);box-shadow:0 20px 55px rgba(0,31,70,.07)}
-.generic-facts>p{margin:0 0 18px;color:var(--orange);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.cup-facts>h2,.generic-facts>h2{margin:0 0 20px;color:var(--ink);font:800 22px/1.1 'Manrope',sans-serif;letter-spacing:-.03em}
 .generic-facts dl{margin:0}
 .generic-facts small{display:block;margin-top:18px;color:#718398;line-height:1.55}
 .priority-consent a{text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:3px;font-weight:700}
@@ -627,22 +624,41 @@ body:has(.schedule-modal[open]){overflow:hidden}
 @media(prefers-reduced-motion:reduce){.cup-card{transition:none}.cup-card:hover{transform:none}.cup-more svg{transition:none}}
 
 /* Compact, optically aligned cup cards. Every title starts on the same line. */
-.cup-card{flex-basis:clamp(248px,19.5vw,292px);min-height:468px}
+.cups-rail{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;width:min(1328px,calc(100% - 112px));margin-inline:auto;padding:0;overflow:visible;scroll-snap-type:none}
+.cup-card{min-width:0;min-height:0}
 .cup-visual,.cup-visual.cup-artwork{height:178px;min-height:178px;aspect-ratio:auto}
 .cup-visual.cup-artwork{background:var(--forest-2)}
-.cup-visual.cup-artwork>img{object-fit:cover;object-position:center;width:100%;height:100%}
+.cup-visual.cup-artwork>img{object-fit:contain;object-position:center;width:100%;height:100%}
+.cup-visual.cup-logo{display:flex;align-items:center;justify-content:center}
+.cup-visual.cup-logo>img{width:auto;height:auto;max-width:100%;max-height:100%}
+/* These source JPEGs have stray pixels on their last row, below the complete logo. */
+.cup-visual img:is([src$="/supercuper-main.jpg"],[src$="/super-five.jpg"],[src$="/super-six.jpg"],[src$="/super-8.jpg"],[src$="/super-nine.jpg"]){clip-path:inset(0 0 .6% 0)}
 .cup-details{padding:19px 20px 21px}
 .cup-details h3{min-height:50px;margin-bottom:14px;font-size:21px}
+.cup-details dl{margin-bottom:12px}
 .cup-details dl div{grid-template-columns:82px 1fr;font-size:12px;margin-bottom:6px}
+@media(max-width:1199px){.cups-rail{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:900px){
-  .cup-card{flex-basis:min(78vw,292px);min-height:462px}
+  .cups-rail{width:calc(100% - 52px);grid-template-columns:repeat(2,minmax(0,1fr))}
   .cup-visual,.cup-visual.cup-artwork{height:174px;min-height:174px}
   .cup-details h3{font-size:20px}
 }
-.cups-heading.is-empty{justify-content:flex-start}
-.cups-heading.has-no-scroll .cup-controls{display:none}
-.cups-empty{width:100%;margin:0;padding:16px 0 32px;text-align:center;color:#718197;font-size:14px}
+@media(max-width:600px){.cups-rail{grid-template-columns:1fr;width:calc(100% - 38px)}}
+.cups-empty{grid-column:1/-1;width:100%;margin:0;padding:16px 0 32px;text-align:center;color:#718197;font-size:14px}
 .generic-copy-main,.generic-facts{min-width:0}
+.cup-photo-hero{position:relative;isolation:isolate;overflow:hidden;background-color:var(--forest-2);background-image:linear-gradient(90deg,rgba(0,31,70,.84),rgba(0,45,98,.6) 48%,rgba(0,31,70,.5)),var(--cup-photo);background-position:var(--photo-position,50% 50%);background-repeat:no-repeat;background-size:cover}
+.cup-photo-super-five{--photo-position:50% 28%;--photo-mobile-position:50% 54%}
+.cup-photo-super-six{--photo-position:50% 80%;--photo-mobile-position:50% 62%}
+.cup-photo-super-eight{--photo-position:50% 68%;--photo-mobile-position:50% 64%}
+.cup-photo-super-nine{--photo-position:50% 58%;--photo-mobile-position:50% 56%}
+.cup-photo-super-five-futsal{--photo-position:50% 82%;--photo-mobile-position:50% 62%}
+.cup-page-hero{background:var(--forest-2)}
+.cup-page-hero>img{width:100%;height:100%;object-fit:cover;object-position:50% 48%;filter:saturate(.82);mask-image:none;-webkit-mask-image:none}
+.futsal-hero h1{max-width:680px;font-size:clamp(48px,6vw,84px);line-height:.98;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .cup-photo-hero{background-position:var(--photo-mobile-position,var(--photo-position,50% 50%))}
+  .futsal-hero h1{font-size:clamp(42px,10vw,58px)}
+}
 @media(max-width:380px){
   .generic-copy-main h2{font-size:39px;overflow-wrap:anywhere}
   .generic-copy-main .primary{width:100%;justify-content:space-between}

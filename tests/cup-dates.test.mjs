@@ -8,6 +8,19 @@ import {
   nextStockholmMidnight,
   stockholmDateKey,
 } from '../src/cupDates.js';
+import { cupRegistrations } from '../src/cupRegistrations.js';
+
+test('Futsal Edition disappears and closes at Stockholm midnight after December 28', () => {
+  const cup = cupRegistrations.find(({ slug }) => slug === 'super-five-futsal');
+  assert.ok(cup);
+  const before = new Date('2026-12-28T22:59:59Z');
+  const after = new Date('2026-12-28T23:00:00Z');
+  assert.equal(nextStockholmMidnight(before).toISOString(), after.toISOString());
+  assert.deepEqual(currentCups([cup], before), [cup]);
+  assert.equal(isCupRegistrationOpen(cup, before), true);
+  assert.deepEqual(currentCups([cup], after), []);
+  assert.equal(isCupRegistrationOpen(cup, after), false);
+});
 
 test('only an explicit valid endDate controls date filtering', () => {
   assert.equal(cupLastDate({ date: '18 oktober 2026' }), null);

@@ -9,10 +9,12 @@ npm install
 npm run dev
 ```
 
+I utvecklingsläget skickas inga formulär till Workern; sidan visar i stället att det är en förhandsvisning.
+
 ## Innehåll före publicering
 
 - Ersätt demonstrationsarrangemang med riktiga datum, platser, klasser och villkor.
-- Koppla intresseformuläret till vald e-post-/CRM-tjänst. Det visar nu endast en lokal bekräftelse.
+- Kontrollera formulärens Worker-konfiguration inför publicering.
 - Bekräfta kontaktadress och juridiska sidor.
 - Ersätt demonstrationsbilder eller behåll dem med korrekt licenshantering. Bildreferenserna kommer från Pexels-sidorna för foto 28260833, 28652713, 33613894, 38040080 och 28582037.
 
@@ -32,3 +34,5 @@ Huvudmärket är `public/logos/supercuper-main.jpg` och används diskret i sidhu
 ## Cupsidor
 
 Varje cupkort öppnar en egen adress under `/cuper/`. Solna Blixt Camp har en komplett första cupsida med arrangörsinformation, grupper och spelschema. Bilden från Råstasjöns IP används som en tillfällig platsbild och kommer från Sports Labs artikel om TestbedNordic.
+
+Fotografiernas oförändrade original sparas lokalt i `assets/images/originals/`, som är undantagen från Git och produktionsbygget. Webbversionerna ligger i `public/images/cups/`; blåtoning och beskärning görs i CSS. Originalmappen blockeras även av Vites utvecklingsserver.
