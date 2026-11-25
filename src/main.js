@@ -26,8 +26,7 @@ const cupInterestMarkup = (cup, label, className = 'cup-interest') => isCupRegis
   ? `<a class="${className}" href="/fortur?cup=${cup.slug}" data-cup-interest="${cup.slug}">${label} ${arrow}</a>`
   : `<span class="${className}" aria-disabled="true" data-cup-interest="${cup.slug}">Anmälan stängd</span>`;
 const downArrow = '<svg class="down-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M6.5 13.5 12 19l5.5-5.5"/></svg>';
-const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5h14a2 2 0 0 1 2 2v13H3v-13a2 2 0 0 1 2-2Z"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>';
-const interestIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-4.5 7-11a4 4 0 0 0-7-2.7A4 4 0 0 0 5 10c0 6.5 7 11 7 11Z"/></svg>';
+const calendarIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.75" y="5.5" width="16.5" height="15" rx="2.25"/><path d="M8 3.5v4M16 3.5v4M4 10h16"/></svg>';
 const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1"/></svg>';
 // Font Awesome Free "futbol" icon, CC BY 4.0: https://fontawesome.com/license/free
 const footballIcon = '<svg class="faq-ball" viewBox="0 0 512 512" aria-hidden="true"><path d="M417.3 360.1l-71.6-4.8c-5.2-.3-10.3 1.1-14.5 4.2s-7.2 7.4-8.4 12.5l-17.6 69.6C289.5 445.8 273 448 256 448s-33.5-2.2-49.2-6.4L189.2 372c-1.3-5-4.3-9.4-8.4-12.5s-9.3-4.5-14.5-4.2l-71.6 4.8c-17.6-27.2-28.5-59.2-30.4-93.6L125 228.3c4.4-2.8 7.6-7 9.2-11.9s1.4-10.2-.5-15l-26.7-66.6C128 109.2 155.3 89 186.7 76.9l55.2 46c4 3.3 9 5.1 14.1 5.1s10.2-1.8 14.1-5.1l55.2-46c31.3 12.1 58.7 32.3 79.6 57.9l-26.7 66.6c-1.9 4.8-2.1 10.1-.5 15s4.9 9.1 9.2 11.9l60.7 38.2c-1.9 34.4-12.8 66.4-30.4 93.6zM256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zm14.1-325.7c-8.4-6.1-19.8-6.1-28.2 0L194 221c-8.4 6.1-11.9 16.9-8.7 26.8l18.3 56.3c3.2 9.9 12.4 16.6 22.8 16.6h59.2c10.4 0 19.6-6.7 22.8-16.6l18.3-56.3c3.2-9.9-.3-20.7-8.7-26.8l-47.9-34.8z"/></svg>';
@@ -120,13 +119,14 @@ const homeMarkup = `
   <header class="header">
     <div class="mobile-tools mobile-tools-left">
       <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
-      <a href="#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a>
     </div>
     <a class="brand" href="#top" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny">
-      <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}
-    </nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${interestIcon}</a></div>
+    <div id="menu" class="mobile-menu" aria-label="Huvudmeny">
+      <nav class="nav" aria-label="Huvudmeny">
+        <a href="#top">Hem</a><a href="#super-tv">Super-TV</a><a href="#arrangemang">Cuper</a><a class="mobile-interest-link" href="/fortur">Intresseanmälan</a>${informationNavigation}${aboutNavigation}
+      </nav>
+    </div>
+    <div class="mobile-tools mobile-tools-right"><a class="calendar-link" href="#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a></div>
   </header>
   <main id="top">
     <section class="hero">
@@ -209,11 +209,12 @@ const detailHeader = `
   <header class="header detail-nav">
     <div class="mobile-tools mobile-tools-left">
       <button class="menu-button" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span><b class="sr-only">Öppna meny</b></button>
-      <a href="/#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a>
     </div>
     <a class="brand" href="/" aria-label="Supercuper startsida"><img src="/logos/supercuper-main.jpg" alt="Super Cuper – Fotboll tillsammans" /></a>
-    <nav id="menu" class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a>${informationNavigation}${aboutNavigation}</nav>
-    <div class="mobile-tools mobile-tools-right"><a href="/fortur" aria-label="Anmäl lagets intresse">${interestIcon}</a></div>
+    <div id="menu" class="mobile-menu" aria-label="Huvudmeny">
+      <nav class="nav" aria-label="Huvudmeny"><a href="/">Hem</a><a href="/#super-tv">Super-TV</a><a href="/#arrangemang">Cuper</a><a class="mobile-interest-link" href="/fortur">Intresseanmälan</a>${informationNavigation}${aboutNavigation}</nav>
+    </div>
+    <div class="mobile-tools mobile-tools-right"><a class="calendar-link" href="/#arrangemang" aria-label="Se kommande cuper">${calendarIcon}</a></div>
   </header>`;
 
 const detailFooter = `${faqMarkup}${priorityMarkup()}${footerMarkup('/')}`;
@@ -465,21 +466,129 @@ if (isPrivacyPage) document.title = 'Integritet — Super Cuper';
 if (isTermsPage) document.title = 'Villkor — Super Cuper';
 
 const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('.nav');
+const mobileMenu = document.querySelector('.mobile-menu');
+const nav = mobileMenu?.querySelector('.nav');
+const mobileMenuMedia = window.matchMedia('(max-width: 900px)');
+let savedPageStyles;
+
+const menuFocusableElements = () => [...(mobileMenu?.querySelectorAll('a[href], button:not([disabled]), select:not([disabled])') ?? [])]
+  .filter((element) => element.getClientRects().length > 0 && getComputedStyle(element).visibility !== 'hidden');
+const menuBackgroundElements = () => {
+  const header = mobileMenu?.closest('.header');
+  const app = header?.closest('#app');
+  return [...new Set([
+    ...[...(app?.children ?? [])].filter((element) => element !== header),
+    header?.querySelector('.brand-language'),
+    header?.querySelector('.mobile-tools-left a'),
+    header?.querySelector('.mobile-tools-right'),
+  ].filter(Boolean))];
+};
+const resetNavigationSubmenus = () => document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+  dropdown.classList.remove('is-open');
+  dropdown.querySelector(':scope > .nav-trigger')?.setAttribute('aria-expanded', 'false');
+});
+const setMenuOpen = (open, { restoreFocus = true } = {}) => {
+  if (!menuButton || !mobileMenu || !nav || (open && !mobileMenuMedia.matches)) return;
+  const wasOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  if (wasOpen === open) return;
+
+  if (open) {
+    savedPageStyles = {
+      documentOverflow: document.documentElement.style.overflow,
+      bodyOverflow: document.body.style.overflow,
+      bodyTouchAction: document.body.style.touchAction,
+      bodyOverscrollBehavior: document.body.style.overscrollBehavior,
+      backgroundInert: menuBackgroundElements().map((element) => [element, element.inert]),
+    };
+    savedPageStyles.backgroundInert.forEach(([element]) => { element.inert = true; });
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.body.style.touchAction = 'none';
+    document.body.style.overscrollBehavior = 'none';
+    mobileMenu.inert = false;
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    mobileMenu.setAttribute('role', 'dialog');
+    mobileMenu.setAttribute('aria-modal', 'true');
+    mobileMenu.classList.add('open');
+    menuButton.setAttribute('aria-expanded', 'true');
+    requestAnimationFrame(() => {
+      if (menuButton.getAttribute('aria-expanded') === 'true') menuFocusableElements()[0]?.focus({ preventScroll: true });
+    });
+    return;
+  }
+
+  mobileMenu.classList.remove('open');
+  mobileMenu.inert = true;
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  mobileMenu.removeAttribute('role');
+  mobileMenu.removeAttribute('aria-modal');
+  menuButton.setAttribute('aria-expanded', 'false');
+  resetNavigationSubmenus();
+
+  if (savedPageStyles) {
+    document.documentElement.style.overflow = savedPageStyles.documentOverflow;
+    document.body.style.overflow = savedPageStyles.bodyOverflow;
+    document.body.style.touchAction = savedPageStyles.bodyTouchAction;
+    document.body.style.overscrollBehavior = savedPageStyles.bodyOverscrollBehavior;
+    savedPageStyles.backgroundInert.forEach(([element, inert]) => { element.inert = inert; });
+    savedPageStyles = undefined;
+  }
+  if (restoreFocus) menuButton.focus({ preventScroll: true });
+};
+
+const syncMenuViewport = () => {
+  if (mobileMenuMedia.matches) {
+    if (menuButton?.getAttribute('aria-expanded') !== 'true') {
+      mobileMenu?.classList.remove('open');
+      mobileMenu?.setAttribute('aria-hidden', 'true');
+      if (mobileMenu) mobileMenu.inert = true;
+    }
+    return;
+  }
+  if (menuButton?.getAttribute('aria-expanded') === 'true') setMenuOpen(false, { restoreFocus: false });
+  mobileMenu?.classList.remove('open');
+  mobileMenu?.removeAttribute('aria-hidden');
+  mobileMenu?.removeAttribute('role');
+  mobileMenu?.removeAttribute('aria-modal');
+  if (mobileMenu) mobileMenu.inert = false;
+  menuButton?.setAttribute('aria-expanded', 'false');
+};
+
+syncMenuViewport();
+mobileMenuMedia.addEventListener('change', syncMenuViewport);
 menuButton?.addEventListener('click', () => {
-  const open = menuButton.getAttribute('aria-expanded') === 'true';
-  menuButton.setAttribute('aria-expanded', String(!open));
-  nav.classList.toggle('open', !open);
-  if (open) document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
-    dropdown.classList.remove('is-open');
-    dropdown.querySelector(':scope > .nav-trigger')?.setAttribute('aria-expanded', 'false');
-  });
+  setMenuOpen(menuButton.getAttribute('aria-expanded') !== 'true');
+});
+mobileMenu?.addEventListener('click', (event) => {
+  if (event.target === mobileMenu) setMenuOpen(false);
+});
+document.addEventListener('keydown', (event) => {
+  if (!mobileMenuMedia.matches || menuButton?.getAttribute('aria-expanded') !== 'true') return;
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    setMenuOpen(false);
+    return;
+  }
+  if (event.key !== 'Tab') return;
+
+  const focusable = menuFocusableElements();
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (!first || !last) {
+    event.preventDefault();
+    menuButton?.focus({ preventScroll: true });
+  } else if (event.shiftKey && (!mobileMenu.contains(document.activeElement) || document.activeElement === first)) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && (!mobileMenu.contains(document.activeElement) || document.activeElement === last)) {
+    event.preventDefault();
+    first.focus();
+  }
 });
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
-  if (link.matches('.nav-dropdown > .nav-trigger') && (link.hasAttribute('data-menu-only') || window.matchMedia('(max-width: 900px)').matches)) return;
-  nav.classList.remove('open');
-  menuButton.setAttribute('aria-expanded', 'false');
-  link.blur();
+  if (!mobileMenuMedia.matches) return;
+  if (link.matches('.nav-dropdown > .nav-trigger')) return;
+  setMenuOpen(false);
 }));
 document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
   const trigger = dropdown.querySelector(':scope > .nav-trigger');

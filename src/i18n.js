@@ -107,8 +107,12 @@ export function initializeLanguage() {
     group.append(brand);
     const control = document.createElement('div');
     control.className = 'language-switch';
-    control.innerHTML = `<select aria-label="${language === 'en' ? 'Choose language' : 'Välj språk'}"><option value="sv" lang="sv">Svenska</option><option value="en" lang="en-US">English</option></select>`;
-    group.append(control);
+    control.innerHTML = `<span class="language-select-control"><select aria-label="${language === 'en' ? 'Choose language' : 'Välj språk'}"><option value="sv" lang="sv">Svenska</option><option value="en" lang="en-US">English</option></select><svg class="language-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>`;
+    const mobileMenu = brand.closest('.header')?.querySelector('.mobile-menu');
+    const mobileMenuMedia = window.matchMedia('(max-width: 900px)');
+    const placeLanguageControl = () => (mobileMenuMedia.matches && mobileMenu ? mobileMenu : group).append(control);
+    placeLanguageControl();
+    mobileMenuMedia.addEventListener('change', placeLanguageControl);
     const select = control.querySelector('select');
     select.value = language;
     select.addEventListener('change', () => {
