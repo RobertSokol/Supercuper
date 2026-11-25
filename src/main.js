@@ -138,7 +138,6 @@ const homeMarkup = `
         <p class="hero-lead">Välorganiserade cuper och matchcamper med jämna matcher, tydlig information och en upplevelse spelarna minns.</p>
         <a class="primary" href="#arrangemang">Se kommande cuper ${downArrow}</a>
       </div>
-      <a class="hero-scroll-cue" href="#arrangemang" aria-label="Scrolla ned till kommande cuper"><span>Scrolla ned</span><i></i></a>
     </section>
     <section id="arrangemang" class="cups-section">
       <div class="cups-heading">
