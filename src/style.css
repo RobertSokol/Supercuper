@@ -212,7 +212,7 @@
   .faq-answer{padding:0 28px 24px 2px}
   .faq-answer p{font-size:15px;line-height:1.75}
   .priority-invite{padding:70px 22px 74px}
-  .priority-invite::before{background-size:auto 80%}
+  .priority-invite::before{background-image:url('/images/supercuper-logo-watermark-complete.png');background-size:auto min(calc(100vw - 48px),calc(100% - 48px));background-position:center}
   .priority-invite h2{font-size:39px}
   .priority-invite h2+p{font-size:15px;line-height:1.6;margin:21px auto 27px}
   .priority-invite a{gap:22px;padding:14px 18px;font-size:12px}
