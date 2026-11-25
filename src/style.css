@@ -170,8 +170,9 @@
 .faq-answer strong{color:var(--color-deep-navy);font-weight:800}
 .faq-item summary:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.faq-toggle::after{transition:none}}
-.priority-invite{background:var(--color-deep-navy);color:white;padding:94px 24px 98px;text-align:center}
-.priority-inner{width:min(720px,100%);margin-inline:auto;display:flex;flex-direction:column;align-items:center}
+.priority-invite{position:relative;isolation:isolate;overflow:hidden;background:var(--color-deep-navy);color:white;padding:94px 24px 98px;text-align:center}
+.priority-invite::before{content:'';position:absolute;z-index:0;inset:0;background:url('/images/supercuper-logo-watermark.png') right center/auto 100% no-repeat;opacity:.2;pointer-events:none}
+.priority-inner{position:relative;z-index:1;width:min(720px,100%);margin-inline:auto;display:flex;flex-direction:column;align-items:center}
 .priority-label{margin:0 0 18px;color:#ffb08f;font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
 .priority-invite h2{margin:0;font:800 clamp(38px,4.5vw,64px)/.98 'Manrope',sans-serif;letter-spacing:-.055em;word-spacing:.14em;text-transform:uppercase}
 .priority-invite h2+p{max-width:610px;margin:24px auto 30px;color:rgba(255,255,255,.82);font-size:17px;line-height:1.65}
@@ -211,6 +212,7 @@
   .faq-answer{padding:0 28px 24px 2px}
   .faq-answer p{font-size:15px;line-height:1.75}
   .priority-invite{padding:70px 22px 74px}
+  .priority-invite::before{background-size:auto 80%}
   .priority-invite h2{font-size:39px}
   .priority-invite h2+p{font-size:15px;line-height:1.6;margin:21px auto 27px}
   .priority-invite a{gap:22px;padding:14px 18px;font-size:12px}
