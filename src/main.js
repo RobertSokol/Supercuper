@@ -72,8 +72,8 @@ const faqQuestions = [
 ];
 const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
   <div class="faq-inner">
-    <div class="faq-heading"><h2 id="faq-title">Information</h2></div>
-    <div class="faq-list">${faqQuestions.map(({ question, answer }, index) => `<details class="faq-item"><summary><span><i>${String(index + 1).padStart(2, '0')}</i>${question}</span><b aria-hidden="true">${footballIcon}</b></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
+    <div class="faq-heading"><h2 id="faq-title">Bra att veta</h2></div>
+    <div class="faq-list">${faqQuestions.map(({ question, answer }) => `<details class="faq-item"><summary><span class="faq-question">${question}</span><span class="faq-toggle" aria-hidden="true"></span></summary><div class="faq-answer">${answer}</div></details>`).join('')}</div>
   </div>
 </section>`;
 const reviewsMarkup = `<section class="reviews-section" aria-label="Recensioner">
