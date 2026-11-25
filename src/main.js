@@ -78,9 +78,16 @@ const faqMarkup = `<section class="faq-section" aria-labelledby="faq-title">
 </section>`;
 const reviewsMarkup = `<section class="reviews-section" aria-label="Recensioner">
   <div class="reviews-inner">
-    <figure class="review"><blockquote><p>”Tack för en rolig dag med fina matcher och härlig stämning.”</p></blockquote><figcaption><strong>Rojvan, Tränare IFK Haninge P15A</strong></figcaption></figure>
-    <figure class="review"><blockquote><p>”Rolig och välorganiserad cup! Bra jobbat!”</p></blockquote><figcaption><strong>Carl, Tränare IFK Stocksund P18</strong></figcaption></figure>
-    <figure class="review"><blockquote><p>”Stort tack för en riktigt bra och välarrangerad cup! Bra matcher, härlig stämning och framförallt en rolig dag för grabbarna! Tack för ett grymt arrangemang!”</p></blockquote><figcaption><strong>Manni, Tränare Södertälje FF</strong></figcaption></figure>
+    <div class="review-stage" id="reviews-stage">
+      <figure class="review"><blockquote><p>”Tack för en rolig dag med fina matcher och härlig stämning.”</p></blockquote><figcaption><strong>Rojvan, Tränare IFK Haninge P15A</strong></figcaption></figure>
+      <figure class="review" hidden><blockquote><p>”Rolig och välorganiserad cup! Bra jobbat!”</p></blockquote><figcaption><strong>Carl, Tränare IFK Stocksund P18</strong></figcaption></figure>
+      <figure class="review" hidden><blockquote><p>”Stort tack för en riktigt bra och välarrangerad cup! Bra matcher, härlig stämning och framförallt en rolig dag för grabbarna! Tack för ett grymt arrangemang!”</p></blockquote><figcaption><strong>Manni, Tränare Södertälje FF</strong></figcaption></figure>
+    </div>
+    <div class="review-controls">
+      <button class="review-control" type="button" data-review-previous aria-label="Föregående recension" aria-controls="reviews-stage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg></button>
+      <span class="review-count" aria-live="polite" aria-atomic="true"><span class="review-current">1</span><span aria-hidden="true"> / </span><span class="review-total">3</span></span>
+      <button class="review-control" type="button" data-review-next aria-label="Nästa recension" aria-controls="reviews-stage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg></button>
+    </div>
   </div>
 </section>`;
 const blixtClubs = [
@@ -925,6 +932,40 @@ if (clubMarquee) {
     clubMarquee.scrollLeft = position;
     lastFrame = now;
     requestAnimationFrame(animate);
+  });
+}
+
+const reviewSection = document.querySelector('.reviews-section');
+if (reviewSection) {
+  const slides = [...reviewSection.querySelectorAll('.review')];
+  const currentNumber = reviewSection.querySelector('.review-current');
+  const totalNumber = reviewSection.querySelector('.review-total');
+  const previousButton = reviewSection.querySelector('[data-review-previous]');
+  const nextButton = reviewSection.querySelector('[data-review-next]');
+  const controls = reviewSection.querySelector('.review-controls');
+
+  if (!slides.length || !currentNumber || !totalNumber || !previousButton || !nextButton || !controls) {
+    throw new Error('Review carousel markup is incomplete.');
+  }
+
+  let currentIndex = 0;
+  const showReview = (index) => {
+    currentIndex = (index + slides.length) % slides.length;
+    slides.forEach((slide, slideIndex) => { slide.hidden = slideIndex !== currentIndex; });
+    currentNumber.textContent = String(currentIndex + 1);
+  };
+
+  totalNumber.textContent = String(slides.length);
+  previousButton.addEventListener('click', () => showReview(currentIndex - 1));
+  nextButton.addEventListener('click', () => showReview(currentIndex + 1));
+  controls.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      showReview(currentIndex - 1);
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      showReview(currentIndex + 1);
+    }
   });
 }
 
