@@ -1,29 +1,29 @@
 # Cup page content model
 
-This document describes the current server-rendered cup-page structure in `src/main.js` and the configuration boundary intended for future Super Cup Manager (SCM) administration. No SCM or Supabase integration is implemented.
+All seven `/cuper/:slug` routes use the same `cupPageTemplate(cup)` renderer in `src/main.js`. Cup-specific content is configuration; it does not select a separate page design. The configuration is the intended boundary for future Super Cup Manager (SCM) administration. No SCM, Supabase, Worker, or Resend integration is implemented.
 
 ## Current ownership
 
 | Content | Current source | Rendering |
 | --- | --- | --- |
-| Cup identity, date, place, age groups, format, logo | `cups` array in `src/main.js` | Passed to `superFivePage(cup)` or `genericCupPage(cup)` by the route slug |
-| Cup-card date/place overrides | `cupCardMetadataOverrides` in `src/main.js` | Applied to the cup record before both the home rail and detail route render; Super Six uses `April 2027` and `Järvastadens IP` |
-| Cup-specific intro heading, description additions, fact rows, and note visibility | `cupPageContentBySlug[slug]` in `src/main.js` | Applied after the existing generic page template is rendered and before language initialization; existing layout, CTA, and shell remain shared |
-| Registration status and link | `src/cupRegistrations.js`, `src/cupDates.js`, `cupInterestMarkup()` | Existing CTA markup; closed cups render a disabled label |
-| Super Five introduction and facts | `superFivePage(cup)` template | Existing `.cup-intro`, `.cup-facts`, and `.super-five-hero` sections |
-| Tournament format and match guarantee | `superFivePage(cup)` template | `.cup-intro-details` and `.super-five-format-guarantee` |
-| Tournament phases | `superFivePage(cup)` template | `.super-five-phases` cards |
-| Lodging options | `cupSupplementContent[slug].lodging` | `lodgingSectionMarkup()`; renders only when `enabled` is true and at least one item is `published` |
-| Photo collage | `superFivePage(cup)` template | `.cup-intro-photo-grid`; the three images are selected for the Super Five introduction |
-| Full-width photo gallery | `cupSupplementContent[slug].gallery` | `gallerySectionMarkup()`; renders only when enabled and at least one valid image exists |
-| FAQ, closing CTA, footer | `faqQuestions`, `priorityMarkup()`, and `footerMarkup()` in `src/main.js` | Shared `detailFooter`, appended after cup-page main content |
-| English strings | `src/en-US.json` and `src/i18n.js` | Selected through `?lang=en` or the language control; Swedish remains the default. Added labels, fact values, headings, copy, and image alt text must have exact dictionary entries |
+| Cup identity, date, place, age groups, format, card art | `cups` array in `src/main.js` | Shared home cards and all seven detail routes |
+| Cup-specific hero, intro, fact rows, tournament copy, guarantee, phases, awards, rules, FAQ, CTA label, and optional Blixt schedule | `cupPageContentOverrides[slug]` | Merged into `cupPageContentBySlug`; rendered by `cupPageTemplate(cup)` |
+| Registration status and CTA destination | `src/cupRegistrations.js`, `src/cupDates.js`, `cupInterestMarkup()` | Shared hero CTA; closed cups render a disabled label and open cups link to `/fortur?cup=<slug>` |
+| Shared hero, intro, fact panel, collage area, guarantee/fase styling | `cupPageTemplate(cup)` and `src/style.css` | Same structure and visual system across all seven cups; optional content is omitted when absent |
+| Blixt schedule, expandable schedule, and club rail | `blixtExtraSections()` | Optional Blixt-specific content within the shared cup-page shell; existing interactions remain enabled |
+| Lodging options | `cupSupplementContent[slug].lodging` | `lodgingSectionMarkup()`; disabled by default and omitted when disabled or without published items |
+| Intro collage | `cupPageContentOverrides[slug].introPhotos` | `.cup-intro-photo-grid`; configured only for Super Five |
+| Full-width photo gallery | `sharedCupGalleryImages` plus `cupSupplementContent[slug].gallery` | `gallerySectionMarkup()`; all seven cups share the approved Super Five four-image gallery by default and can override or disable it individually |
+| FAQ, closing CTA, footer | `faq` in `cupPageContentBySlug`, `priorityMarkup()`, and `footerMarkup()` | FAQ defaults to shared questions but can be overridden per cup |
+| English strings | `src/en-US.json` and `src/i18n.js` | Selected through `?lang=en` or the language control. Dynamic copy and labels need exact dictionary entries; Swedish is the default |
 
 ## Supplement configuration
 
 `cupSupplementContent` is keyed by cup slug. Every registered cup receives disabled lodging and gallery defaults. Super Five explicitly enables its four-image gallery; lodging remains disabled and has no public items. Renderers return an empty string when a section is disabled or has no published lodging items / valid gallery images, so no empty DOM space is left behind.
 
 The fictional hotel examples are stored separately in `fixtures/lodging-preview.json`. They are not imported by `src/main.js`, are not copied from `public/`, and do not appear in the production bundle or on a cup page.
+
+The four-photo gallery directly above FAQ uses the approved Super Five image set as its shared default for all seven cups. Future SCM configuration can replace `cupSupplementContent[slug].gallery.images` or set `enabled: false` per cup without changing the shared gallery layout.
 
 A future SCM response can map to the existing renderer without changing its visual components:
 
@@ -54,8 +54,10 @@ SCM should own per-cup enablement and published records. The page renderer remai
 
 ## Cup-specific detail examples
 
-- Super Five – Futsal Edition: title/intro and the Round Robin, five-game guarantee, awards, and futsal rules are in `cupPageContentBySlug['super-five-futsal']`; its common cup metadata supplies Solnahallen, December 28, 2026, U11, and Futsal.
-- Super Six: `cupCardMetadataOverrides['super-six']` supplies April 2027 and Järvastadens IP to both the cup card and detail page. `cupPageContentBySlug['super-six']` supplies 16 teams, 42 × 30 metre pitch dimensions, 7-a-side goals, and the matching description addition. April is stored as month/year text, not a fabricated day.
-- Super Eight and Super Nine: their existing descriptions are preserved; their slug entries add only 16 teams and seven teams respectively.
-- The general cup-information rows are rendered from `cups` plus optional `infoRows`. Extra rows and descriptive copy are data, not separate visual components, so SCM can later provide those fields without a design change.
-- FAQ content is currently shared in `faqQuestions`; the rendered cup-page footer sequence remains FAQ, closing CTA, then footer.
+- Solna Blixt Camp keeps its confirmed date, venue, age groups, formats, six-game guarantee, awards, existing schedule, and participating-club rail.
+- Super Five keeps the approved design, six games of 1 × 20 minutes, two-stage group format, medal information, and its own three-photo collage and four-photo gallery.
+- Super Five – Futsal Edition has six invited U11 teams, a single Round Robin, five games per team / 15 total, awards, SvFF futsal rules, and no retreat line. Its format does not reuse Super Five's group-stage copy.
+- Super Six uses `April 2027` and `Järvastadens IP` consistently on card and detail page, with 16 teams, 42 × 30 metre pitches, and 7-a-side goals. No calendar day is fabricated.
+- Super Eight and Super Nine show 16 and seven teams respectively.
+- Solna Mästerskapen retains only the existing confirmed age range and the note that venue, playing formats, and dates will be announced when finalized.
+- Each cup inherits shared FAQ content unless its configuration supplies its own questions. Optional content such as phases, collage, lodging, and gallery is omitted without leaving an empty section.
