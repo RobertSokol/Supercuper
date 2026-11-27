@@ -1,0 +1,62 @@
+{
+  "notice": "Preview-only sample data. These properties, prices, and distances are fictional and are not official partners or offers.",
+  "cups": {
+    "super-five": {
+      "lodging": {
+        "enabled": false,
+        "title": "BOENDEALTERNATIV",
+        "description": "Exempel på boenden för tillresande lag. Exemplen är inte officiella samarbeten eller erbjudanden.",
+        "items": [
+          {
+            "id": "example-1",
+            "name": "Exempelhotell 01",
+            "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80",
+            "description": "Exempel på boende för tillresande lag.",
+            "distance": "Exempel: 2 km till spelplatsen",
+            "priceFrom": "Exempel: från 1 200 kr",
+            "bookingUrl": "",
+            "bookingCode": "",
+            "published": true,
+            "sortOrder": 1
+          },
+          {
+            "id": "example-2",
+            "name": "Exempelhotell 02",
+            "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&q=80",
+            "description": "Exempel på boende för spelare och ledare.",
+            "distance": "Exempel: 4 km till spelplatsen",
+            "priceFrom": "",
+            "bookingUrl": "",
+            "bookingCode": "",
+            "published": true,
+            "sortOrder": 2
+          },
+          {
+            "id": "example-3",
+            "name": "Exempelhotell 03",
+            "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80",
+            "description": "Exempel på boende för hela laget.",
+            "distance": "Exempel: 6 km till spelplatsen",
+            "priceFrom": "",
+            "bookingUrl": "",
+            "bookingCode": "",
+            "published": true,
+            "sortOrder": 3
+          },
+          {
+            "id": "example-4",
+            "name": "Exempelhotell 04",
+            "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&q=80",
+            "description": "Exempel på boende för medföljande familjer.",
+            "distance": "Exempel: 8 km till spelplatsen",
+            "priceFrom": "",
+            "bookingUrl": "",
+            "bookingCode": "",
+            "published": true,
+            "sortOrder": 4
+          }
+        ]
+      }
+    }
+  }
+}

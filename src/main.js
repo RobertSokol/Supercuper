@@ -9,7 +9,7 @@ const cups = [
   { slug: 'solna-blixt-camp', title: 'Solna Blixt Camp', place: 'Råstasjöns IP, Solna', date: '18 oktober 2026', ages: 'B2018 · B2015', format: '5v5 · 7v7', cohost: 'AS Solna FF', logos: ['/logos/supercuper-main.jpg', '/logos/as-solna-ff.jpg'] },
   { slug: 'super-five', title: 'Super Five', place: 'Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby', date: '21 november 2026', ages: 'B2018 · B2019', format: '5v5', logo: '/logos/super-five.jpg' },
   { slug: 'super-five-futsal', title: 'Super Five – Futsal Edition', place: 'Solnahallen, B-hallen', date: '28 december 2026', ages: 'U11', format: 'Futsal', logo: '/logos/supercuper-main.jpg', summary: 'Super Five – Futsal Edition spelas i Solnahallen, B-hallen, den 28 december 2026 för U11.' },
-  { slug: 'super-six', title: 'Super Six', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'Åldersklass meddelas', format: '6v6', logo: '/logos/super-six.jpg', descriptionHtml: '<p class="generic-lead">Sex spelare. Mer involvering. Fler beslut.</p><p>Super Six är en intensiv matchcamp i spelformen <strong>6v6</strong>, skapad för att ge varje spelare en större roll i spelet.</p><p>Med färre spelare på planen uppstår fler situationer där spelarna behöver agera: utmana 1v1, kombinera med lagkamrater, hitta spelbara ytor, försvara, ställa om och fatta snabba beslut med och utan boll.</p><p>6v6 skapar en spännande balans mellan <strong>individuell skicklighet och lagspel</strong>. Spelarna får mycket kontakt med spelet, samtidigt som formatet ger utrymme för passningsspel, spelbredd, speldjup och kollektiva lösningar.</p><p class="generic-emphasis">Högt tempo. Många aktioner. Nya fotbollsproblem att lösa.</p><p>Super Six är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
+  { slug: 'super-six', title: 'Super Six', place: 'Järvastadens IP', date: 'April 2027', ages: 'Åldersklass meddelas', format: '6v6', logo: '/logos/super-six.jpg', descriptionHtml: '<p class="generic-lead">Sex spelare. Mer involvering. Fler beslut.</p><p>Super Six är en intensiv matchcamp i spelformen <strong>6v6</strong>, skapad för att ge varje spelare en större roll i spelet.</p><p>Med färre spelare på planen uppstår fler situationer där spelarna behöver agera: utmana 1v1, kombinera med lagkamrater, hitta spelbara ytor, försvara, ställa om och fatta snabba beslut med och utan boll.</p><p>6v6 skapar en spännande balans mellan <strong>individuell skicklighet och lagspel</strong>. Spelarna får mycket kontakt med spelet, samtidigt som formatet ger utrymme för passningsspel, spelbredd, speldjup och kollektiva lösningar.</p><p class="generic-emphasis">Högt tempo. Många aktioner. Nya fotbollsproblem att lösa.</p><p>Super Six är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-eight', title: 'Super Eight', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015', format: '8v8', logo: '/logos/super-8.jpg', descriptionHtml: '<p class="generic-lead">Åtta spelare. Större ytor. Fler möjligheter.</p><p>Super Eight är en matchcamp i spelformen <strong>8v8</strong>, där spelarna får ta steget från smålagsspelets intensitet till ett mer utvecklat positions- och lagspel.</p><p>De större ytorna skapar nya fotbollsproblem att lösa. Spelarna behöver orientera sig över större avstånd, skapa och utnyttja spelbredd och speldjup, värdera när laget ska kombinera på små ytor och när spelet ska flyttas till en annan del av planen.</p><p>Formatet ställer större krav på <strong>scanning, positionering, passningsspel och rörelse utan boll</strong>, samtidigt som 1v1-dueller, omställningar och individuella initiativ fortfarande är en central del av spelet.</p><p class="generic-emphasis">Större ytor. Fler relationer. Nya beslut.</p><p>Super Eight är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'super-nine', title: 'Super Nine', place: 'Plats meddelas', date: 'Datum meddelas', ages: 'B2015 & B2014', format: '9v9', logo: '/logos/super-nine.jpg', descriptionHtml: '<p class="generic-lead">Nio spelare. Större plan. Ett större spel.</p><p>Super Nine är en matchcamp i spelformen <strong>9v9</strong>, där spelarna möter ett spel som börjar närma sig fotbollens fullskaliga struktur.</p><p>Med fler spelare och större ytor blir relationerna mellan lagdelarna tydligare. Spelarna utmanas i att läsa spelet över större avstånd, skapa balans mellan spelbredd och speldjup, flytta laget tillsammans och förstå hur den egna positionen påverkar helheten.</p><p>9v9 skapar förutsättningar för ett mer utvecklat <strong>uppbyggnadsspel, spelvändningar, djupledsspel, press och omställningar</strong>, samtidigt som varje spelare fortfarande behöver kunna lösa situationer individuellt.</p><p class="generic-emphasis">Större ytor. Fler lagdelar. Mer komplexa fotbollsproblem.</p><p>Super Nine är en del av Super Cupers idé om att låta barn möta olika spelformer, utmaningar och sätt att spela fotboll.</p><p class="generic-signature">Olika spelformer. Olika utmaningar. Nya erfarenheter.</p>' },
   { slug: 'solna-masterskapen', title: 'Solna Mästerskapen', place: 'Solna · arena meddelas', date: '2027', ages: 'B2019–B2015 · G2019–G2015', format: 'Spelformer meddelas', logo: '/logos/solna-masterskapen-2027.webp', cardLogo: '/logos/solna-masterskapen-2027-card-wide.webp', artwork: true, summary: 'Solna Mästerskapen samlar pojk- och flicklag födda 2019–2015. Arena, spelformer och datum publiceras när respektive klass är fastställd.' },
@@ -20,6 +20,11 @@ const cups = [
   }
   return { ...cup, endDate: registration.endDate };
 });
+
+const cupCardMetadataOverrides = {
+  'super-six': { date: 'April 2027', place: 'Järvastadens IP' },
+};
+cups.forEach((cup) => Object.assign(cup, cupCardMetadataOverrides[cup.slug] || {}));
 
 const arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg>';
 const cupInterestMarkup = (cup, label, className = 'cup-interest') => isCupRegistrationOpen(cup)
@@ -383,19 +388,147 @@ const blixtPage = (cup) => `${detailHeader}
     </section>
   </main>${detailFooter}`;
 
+const emptyCupSupplement = () => ({
+  lodging: { enabled: false, title: '', description: '', items: [] },
+  gallery: { enabled: false, images: [] },
+});
+
+const cupSupplementContent = Object.fromEntries(cups.map((cup) => [cup.slug, emptyCupSupplement()]));
+cupSupplementContent['super-five'].gallery = {
+  enabled: true,
+  images: [
+    { src: '/images/cups/super-five.webp', alt: 'Ungdomslag samlade på fotbollsplanen', position: 'center 48%', mobilePosition: 'center 42%', sortOrder: 1 },
+    { src: '/images/cups/super-six.webp', alt: 'Ett ungdomslag samlas före spel', position: 'center 85%', mobilePosition: 'center 78%', sortOrder: 2 },
+    { src: '/images/cups/super-eight.webp', alt: 'Ungdomsspelare i match om bollen inomhus', position: 'center 80%', mobilePosition: 'center 80%', sortOrder: 3 },
+    { src: '/images/cups/super-nine.webp', alt: 'Ungdomsspelare under en fotbollsmatch utomhus', position: 'center 78%', mobilePosition: 'center 70%', sortOrder: 4 },
+  ],
+};
+
+const cupPageContentBySlug = {
+  'super-five-futsal': {
+    headingHtml: '<p class="section-label">Inbjudningsturnering · U11 · Futsal</p><h2>Välkomna till<br />Super Five – Futsal Edition</h2>',
+    descriptionHtml: `<p class="generic-lead">Super Five – Futsal Edition är en exklusiv inbjudningsturnering för U11, där sex särskilt inbjudna lag samlas för en intensiv och utvecklande futsalturnering.</p>
+      <p>Turneringen erbjuder en konkurrenskraftig matchmiljö med fokus på högt tempo, teknisk skicklighet, individuell utveckling och spelintelligens.</p>
+      <h3>TURNERINGSFORMAT</h3>
+      <p>Turneringen spelas enligt Round Robin-format, där samtliga sex lag möter varandra en gång i en rak serie.</p>
+      <p>Varje lag spelar fem matcher och turneringen omfattar totalt 15 matcher. Samtliga resultat räknas in i en gemensam tabell, där slutplaceringarna avgörs efter avslutat seriespel.</p>
+      <p>Formatet säkerställer att samtliga lag möter samma motståndare och ges likvärdiga tävlingsförutsättningar.</p>
+      <h3>MATCHGARANTI &amp; SPELTID</h3>
+      <p>Samtliga deltagande lag garanteras fem matcher. Turneringen spelas utan utslagsmatcher, vilket innebär att alla lag får lika många matcher oavsett resultat och slutplacering.</p>
+      <h3>PRISER &amp; UTMÄRKELSER</h3>
+      <ul><li><strong>Första plats:</strong> Vinnarpokal och guldmedaljer.</li><li><strong>Andra plats:</strong> Silvermedaljer.</li><li><strong>Tredje plats:</strong> Bronsmedaljer.</li></ul>
+      <p>Utöver lagens prestationer uppmärksammas individuella prestationer genom två särskilda utmärkelser:</p>
+      <ul><li>Turneringens spelare</li><li>Turneringens målvakt</li></ul>
+      <h3>TÄVLINGSBESTÄMMELSER</h3>
+      <p>Turneringen spelas enligt Svenska Fotbollförbundets futsalregler. Ingen retreatlinje tillämpas.</p>`,
+    registrationNote: 'En intresseanmälan är inte bindande och garanterar inte en plats.',
+    infoNote: '',
+    infoRows: [
+      { label: 'Nivå', value: 'Svår' },
+      { label: 'Antal lag', value: '6' },
+      { label: 'Tävlingsformat', value: 'Round Robin – enkelserie' },
+      { label: 'Matchgaranti', value: '5 matcher per lag' },
+      { label: 'Deltagande', value: 'Endast inbjudna' },
+    ],
+  },
+  'super-six': {
+    place: 'Järvastadens IP',
+    descriptionAppendixHtml: '<p>Super Six samlar 16 lag och spelas i spelformen 6v6 på planer som mäter 42 × 30 meter, med 7-mannamål.</p>',
+    infoRows: [
+      { label: 'Antal lag', value: '16' },
+      { label: 'Planmått', value: '42 × 30 meter' },
+      { label: 'Målstorlek', value: '7-mannamål' },
+    ],
+  },
+  'super-eight': {
+    descriptionAppendixHtml: '<p>Turneringen omfattar 16 lag.</p>',
+    infoRows: [{ label: 'Antal lag', value: '16' }],
+  },
+  'super-nine': {
+    descriptionAppendixHtml: '<p>Super Nine omfattar sju lag.</p>',
+    infoRows: [{ label: 'Antal lag', value: '7' }],
+  },
+};
+
+const escapeCupContent = (value = '') => String(value).replace(/[&<>"']/g, (character) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+}[character]));
+
+const safeCupUrl = (value) => {
+  try {
+    const url = new URL(value, window.location.origin);
+    return ['http:', 'https:'].includes(url.protocol) ? url.href : '';
+  } catch {
+    return '';
+  }
+};
+
+const lodgingSectionMarkup = (config) => {
+  const items = (config?.items || []).filter((item) => item.published).sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  if (!config?.enabled || !items.length) return '';
+  return `<section class="super-five-lodging" aria-labelledby="super-five-lodging-title">
+    <div class="super-five-lodging-inner">
+      <header class="super-five-lodging-heading"><div><p class="section-label">Super Five · Upplands Väsby</p><h2 id="super-five-lodging-title">${escapeCupContent(config.title)}</h2></div><p>${escapeCupContent(config.description)}</p></header>
+      <div class="super-five-lodging-grid">${items.map((item) => {
+        const imageUrl = safeCupUrl(item.image);
+        const bookingUrl = safeCupUrl(item.bookingUrl);
+        return `<article class="super-five-lodging-card">
+          ${imageUrl ? `<img class="super-five-lodging-image" src="${escapeCupContent(imageUrl)}" alt="Illustrationsbild för ${escapeCupContent(item.name)}" loading="lazy" />` : ''}
+          <div class="super-five-lodging-details"><h3>${escapeCupContent(item.name)}</h3>${item.description ? `<p>${escapeCupContent(item.description)}</p>` : ''}${item.distance ? `<p class="super-five-lodging-meta">${escapeCupContent(item.distance)}</p>` : ''}${item.priceFrom ? `<p class="super-five-lodging-meta">${escapeCupContent(item.priceFrom)}</p>` : ''}${item.bookingCode ? `<p>Bokningskod: ${escapeCupContent(item.bookingCode)}</p>` : ''}${bookingUrl ? `<a class="super-five-lodging-link" href="${escapeCupContent(bookingUrl)}" target="_blank" rel="noopener noreferrer">Boka boende</a>` : '<button class="super-five-lodging-link" type="button" disabled>Bokningsalternativ kommer</button>'}</div>
+        </article>`;
+      }).join('')}</div>
+    </div>
+  </section>`;
+};
+
+const gallerySectionMarkup = (config) => {
+  const images = (config?.images || []).filter((image) => image.src).sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  if (!config?.enabled || !images.length) return '';
+  return `<section class="super-five-gallery" aria-label="Bilder från Super Cuper">${images.map((image) => {
+    const src = safeCupUrl(image.src);
+    if (!src) return '';
+    const imageStyles = [
+      image.position ? `--gallery-position:${escapeCupContent(image.position)}` : '',
+      image.mobilePosition ? `--gallery-position-mobile:${escapeCupContent(image.mobilePosition)}` : '',
+    ].filter(Boolean).join(';');
+    return `<img src="${escapeCupContent(src)}" alt="${escapeCupContent(image.alt || '')}"${imageStyles ? ` style="${imageStyles}"` : ''} loading="lazy" />`;
+  }).join('')}</section>`;
+};
+
+const cupSupplementMarkup = (cup) => {
+  const config = cupSupplementContent[cup.slug];
+  if (!config) return '';
+  return `${lodgingSectionMarkup(config.lodging)}${gallerySectionMarkup(config.gallery)}`;
+};
+
 const superFivePage = (cup) => `${detailHeader}
   <main id="top" class="cup-page generic-cup super-five-page">
     <section class="generic-hero super-five-hero cup-photo-hero cup-photo-super-five" style="--cup-photo:url('/images/cups/super-five.webp')">
       <div><p>${cup.date} · ${cup.place}</p><h1>Super<br />Five</h1>${cupInterestMarkup(cup, 'Anmäl intresse')}</div>
-      <img src="${cup.logo}" alt="Super Five logotyp" />
     </section>
-    <nav class="breadcrumbs wrap" aria-label="Brödsmulor"><a href="/">Hem</a><span>/</span><a href="/#arrangemang">Cuper</a><span>/</span><strong>Super Five</strong></nav>
     <section class="cup-intro wrap super-five-intro">
       <div class="cup-intro-copy">
         <p class="section-label">Inbjudningsturnering · B2018 · B2019 · 5v5</p>
         <h2>Välkomna till<br />Super Five</h2>
         <p class="lead">Super Five är en exklusiv inbjudningsturnering för pojkar födda <strong>2018 och 2019</strong>, riktad till lag på svår nivå. Turneringen samlar 16 särskilt inbjudna lag och erbjuder ett genomtänkt tävlingsformat med fokus på jämna, intensiva och utvecklande matcher.</p>
-        <h3>TURNERINGSFORMAT</h3>
+      </div>
+      <aside class="cup-facts">
+        <h2>Information</h2>
+        <dl>
+          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
+        </dl>
+      </aside>
+      <section class="cup-intro-details" aria-label="Turneringsformat och matchgaranti">
+        <div class="cup-intro-details-grid">
+          <div class="cup-intro-visual-column">
+            <div class="cup-intro-photo-grid" role="group" aria-label="Bilder från Super Five">
+              <figure class="cup-intro-photo cup-intro-photo-main"><img src="/images/cups/DSC07815.JPG" alt="Ungdomslag firar turneringsseger inomhus" loading="lazy" /></figure>
+              <figure class="cup-intro-photo"><img src="/images/cups/IMG_9937.jpeg" alt="Ungdomsspelare driver bollen på fotbollsplanen" loading="lazy" /></figure>
+              <figure class="cup-intro-photo"><img src="/images/cups/DSC07822.JPG" alt="Ungdomslag poserar tillsammans efter matchen" loading="lazy" /></figure>
+            </div>
+          </div>
+          <div class="cup-intro-tournament">
+        <p class="section-label light">Turneringsformat</p>
         <p>Turneringen spelas i två faser och inleds med fyra grupper om fyra lag, där samtliga lag möter varandra en gång. Efter tre spelade matcher sker en omgruppering utifrån lagens placeringar i det inledande gruppspelet.</p>
         <p>I den andra fasen bildas fyra nya, nivåindelade grupper:</p>
         <ul>
@@ -405,24 +538,17 @@ const superFivePage = (cup) => `${detailHeader}
           <li><strong>Safirgruppen:</strong> Gruppfyrorna från respektive grundgrupp.</li>
         </ul>
         <p>I de nya grupperna möter lagen varandra i ytterligare tre matcher. Det nivåindelade upplägget skapar förutsättningar för jämna och konkurrenskraftiga möten, där varje lag får mäta sig med motståndare som placerat sig på motsvarande nivå i den första fasen.</p>
-        <h3>MATCHGARANTI &amp; SPELTID</h3>
-        <p>Samtliga lag garanteras <strong>sex matcher à 1 × 20 minuter</strong>, vilket innebär totalt <strong>120 matchminuter per lag</strong> under turneringen.</p>
-        <p>Alla deltagande spelare tilldelas medaljer, med maximalt 10 medaljer per lag.</p>
-      </div>
-      <aside class="cup-facts">
-        <h2>Information</h2>
-        <div class="single-detail-logo"><img src="${cup.logo}" alt="Super Five logotyp" /></div>
-        <dl>
-          <div><dt>Var</dt><dd><a href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x465f99055bd95a61:0xa6ec426c354c935">Ultimate Football, Johanneslundsvägen 7, 194 61 Upplands Väsby</a></dd></div><div><dt>När</dt><dd>${cup.date}</dd></div><div><dt>Ålder</dt><dd>${cup.ages}</dd></div><div><dt>Spelform</dt><dd>5v5</dd></div><div><dt>Nivå</dt><dd>Svår</dd></div><div><dt>Matcher</dt><dd>6 matcher · 1 × 20 min</dd></div>
-        </dl>
-      </aside>
+          </div>
+        </div>
+      </section>
     </section>
     <section class="super-five-format">
       <div class="wrap">
-        <p class="section-label light">Turneringsformat</p><h2>Två gruppspel.<br />Sex matcher.</h2>
-        <div><article><span>Fas 01</span><h3>Första gruppspelet</h3><p>Fyra grupper med fyra lag i varje. Alla möter alla i tre matcher.</p></article><article><span>Fas 02</span><h3>Andra gruppspelet</h3><p>Guld-, silver-, brons- och safirgruppen ger tre nya matcher mot lag med motsvarande placering.</p></article></div>
+        <section class="super-five-format-guarantee" aria-labelledby="super-five-guarantee-title"><h2 id="super-five-guarantee-title">Matchgaranti &amp; speltid</h2><p>Samtliga lag garanteras <strong>sex matcher à 1 × 20 minuter</strong>, vilket innebär totalt <strong>120 matchminuter per lag</strong> under turneringen.</p><p>Alla deltagande spelare tilldelas medaljer, med maximalt 10 medaljer per lag.</p></section>
+        <div class="super-five-phases"><article><span>Fas 01</span><h3>Första gruppspelet</h3><p>Fyra grupper med fyra lag i varje. Alla möter alla i tre matcher.</p></article><article><span>Fas 02</span><h3>Andra gruppspelet</h3><p>Guld-, silver-, brons- och safirgruppen ger tre nya matcher mot lag med motsvarande placering.</p></article></div>
       </div>
     </section>
+    ${cupSupplementMarkup(cup)}
   </main>${detailFooter}`;
 
 const cupHeroPhotos = {
@@ -445,6 +571,43 @@ const isPrivacyPage = /^\/integritet\/?$/.test(window.location.pathname);
 const isTermsPage = /^\/villkor\/?$/.test(window.location.pathname);
 if (isInformationPage) window.location.replace('/');
 document.querySelector('#app').innerHTML = isPriorityPage ? priorityPage : isInformationPage ? informationPage : isAboutPage ? aboutPage : isValuesPage ? valuePage : isCompetitionRulesPage ? competitionRulesPage : isPrivacyPage ? privacyPage : isTermsPage ? termsPage : activeCup ? (activeCup.slug === 'solna-blixt-camp' ? blixtPage(activeCup) : activeCup.slug === 'super-five' ? superFivePage(activeCup) : genericCupPage(activeCup)) : homeMarkup;
+const activeCupPageContent = activeCup && cupPageContentBySlug[activeCup.slug];
+if (activeCupPageContent) {
+  const copy = document.querySelector('.generic-copy-main');
+  const introLabel = copy?.querySelector('.section-label');
+  const introHeading = copy?.querySelector('h2');
+  if (activeCupPageContent.headingHtml && introLabel && introHeading) {
+    const headingFragment = document.createRange().createContextualFragment(activeCupPageContent.headingHtml);
+    const headingElements = [...headingFragment.children];
+    if (headingElements.length === 2) {
+      introLabel.replaceWith(headingElements[0]);
+      introHeading.replaceWith(headingElements[1]);
+    }
+  }
+  const description = copy?.querySelector('.generic-description');
+  if (description && activeCupPageContent.descriptionHtml) description.innerHTML = activeCupPageContent.descriptionHtml;
+  if (description && activeCupPageContent.descriptionAppendixHtml) description.insertAdjacentHTML('beforeend', activeCupPageContent.descriptionAppendixHtml);
+  if (description && activeCupPageContent.registrationNote !== undefined && description.nextElementSibling?.tagName === 'P') {
+    description.nextElementSibling.textContent = activeCupPageContent.registrationNote;
+  }
+  const factList = document.querySelector('.generic-facts dl');
+  for (const row of activeCupPageContent.infoRows || []) {
+    const fact = document.createElement('div');
+    const label = document.createElement('dt');
+    const value = document.createElement('dd');
+    label.textContent = row.label;
+    value.textContent = row.value;
+    fact.append(label, value);
+    factList?.append(fact);
+  }
+  if (activeCupPageContent.infoNote === '') document.querySelector('.generic-facts small')?.remove();
+  else if (activeCupPageContent.infoNote) document.querySelector('.generic-facts small')?.replaceChildren(activeCupPageContent.infoNote);
+}
+if (activeCup && !['solna-blixt-camp', 'super-five'].includes(activeCup.slug)) {
+  const genericMain = document.querySelector('#app > main.generic-cup');
+  const supplements = cupSupplementMarkup(activeCup);
+  if (genericMain && supplements) genericMain.insertAdjacentHTML('beforeend', supplements);
+}
 if (activeCup) {
   document.title = `${activeCup.title} — Super Cuper`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', `${activeCup.title}: ${activeCup.date}, ${activeCup.place}. Åldrar ${activeCup.ages}, spelform ${activeCup.format}.`);
